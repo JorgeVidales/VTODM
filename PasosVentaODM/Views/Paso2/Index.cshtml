@@ -431,7 +431,24 @@
 
                 console.log(tpBole[1]);
                 let costoBol = item.Costo;
+                console.log(costoBol);
                 let ahorro = item.CostoOri;
+
+                ////
+                if (tpBole[1] == 'Adultos') {
+                    costAdulto = item.Costo;
+                    contador = tpBole[0];
+                    ahorroAdulto = 0;
+                    let totPreAdulto = formatter.format(contador * costAdulto);
+                    A = 'ADULO';
+                    
+
+                    
+                    //ahorroAdulto = item.CostoOri;
+
+                    //console.log(costAdulto);
+                    //contador++
+                }
                 ////
                 if (tpBole[1] == 'Promocion') {
 
@@ -439,6 +456,7 @@
                     costAdulto = item.Costo;
                     ahorroAdulto = item.CostoOri;
 
+                    console.log(costAdulto);
                     contador++
                 }
                 /////

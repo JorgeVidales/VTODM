@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ProgramadorWeb/Desktop/PasosVentaODM/PasosVentaODM/PasosVentaODM.csproj": {}
+    "/Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/PasosVentaODM.csproj": {}
   },
   "projects": {
-    "/Users/ProgramadorWeb/Desktop/PasosVentaODM/PasosVentaODM/PasosVentaODM.csproj": {
+    "/Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/PasosVentaODM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ProgramadorWeb/Desktop/PasosVentaODM/PasosVentaODM/PasosVentaODM.csproj",
+        "projectUniqueName": "/Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/PasosVentaODM.csproj",
         "projectName": "PasosVentaODM",
-        "projectPath": "/Users/ProgramadorWeb/Desktop/PasosVentaODM/PasosVentaODM/PasosVentaODM.csproj",
+        "projectPath": "/Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/PasosVentaODM.csproj",
         "packagesPath": "/Users/ProgramadorWeb/.nuget/packages/",
-        "outputPath": "/Users/ProgramadorWeb/Desktop/PasosVentaODM/PasosVentaODM/obj/",
+        "outputPath": "/Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/ProgramadorWeb/.config/NuGet/NuGet.Config"
+          "/Users/ProgramadorWeb/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
