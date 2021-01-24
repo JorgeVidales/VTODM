@@ -1,0 +1,1146 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Paso2";
+}
+
+<div class="row paso2">
+    <div class="pasos">
+        <div class="bus"><i class="fas fa-bus-alt"></i></div>
+        <div class="pas1"></div>
+        <div class="linea"></div>
+        <div class="pas2">2</div>
+        <div class="linea"></div>
+        <div class="pas3"></div>
+        <div class="linea"></div>
+        <div class="pas4"></div>
+    </div>
+</div>
+
+<div style="display: none;">
+    @* Actualizacion de Pasajeros No. *@
+    <p id="adultoPas1">@ViewData["adulto"]</p>
+    <p id="menoresPas1">@ViewData["menores"]</p>
+    <p id="senectudPas1">@ViewData["senectud"]</p>
+    <p id="estudiantesPas1">@ViewData["estudiantes"]</p>
+    <p id="profesoresPas1">@ViewData["profesores"]</p>
+
+    <p id="origencode2">@ViewData["OrigenIATA"]</p>
+    <p id="OrigenCom">@ViewData["OrigenCom"]</p>
+
+    <p id="destinocode2">@ViewData["DestinoIATA"]</p>
+    <p id="DestinoCom">@ViewData["DestinoCom"]</p>
+
+    <p id="fechasalida2">@ViewData["fechasalida"]</p>
+    <p id="fecharegreso2">@ViewData["fecharegreso"]</p>
+
+    @*PersonalizaAsientos*@
+    <p id="pE_nClaveCorrida2">@ViewData["dato1"]</p>
+    <p id="pE_aFechaSalidaInicioCorrida2">@ViewData["dato2"]</p>
+    <p id="pE_aFechaBoleto2">@ViewData["dato3"]</p>
+    <p id="pE_hHoraSalidaBoleto2">@ViewData["dato4"]</p>
+
+    <p id="pE_nClaveCorridaRegreso2">@ViewData["dato5"]</p>
+    <p id="pE_aFechaSalidaInicioCorridaRegr2">@ViewData["dato6"]</p>
+    <p id="pE_aFechaBoletoRegreso2">@ViewData["dato7"]</p>
+    <p id="pE_hHoraSalidaBoletoRegreso2">@ViewData["dato8"]</p>
+
+    <p id="pE_nCorridaEmpresa2">@ViewData["dato9"]</p>
+    <p id="pE_nCorridaEmpresaRegreso2">@ViewData["dato10"]</p>
+
+    <p id="pE_nConsecutivo2">@ViewData["dato11"]</p>
+    <p id="ConsPas2">@ViewData["ConsPas2"]</p>
+    <p id="pE_nControlCache2">@ViewData["dato12"]</p>
+
+    <p id="FechaLlegada">@ViewData["dato13"]</p>
+    <p id="HoraLlegada">@ViewData["dato14"]</p>
+    @*//////////////////////*@
+
+</div>
+
+<div style="display: none;">
+    <form name="paso1" method="POST" action="Paso1">
+
+        <input id="adultos" name="adultos" type="hidden" value="@ViewData["adulto"]">
+        <input id="menores" name="menores" type="hidden" value="@ViewData["menores"]">
+        <input id="senectud" name="senectud" type="hidden" value="@ViewData["senectud"]">
+        <input id="estudiantes" name="estudiantes" type="hidden" value="@ViewData["estudiantes"]">
+        <input id="profesores" name="profesores" type="hidden" value="@ViewData["profesores"]">
+
+        <input id="origencode" name="origencode" type="hidden" value="@ViewData["OrigenIATA"]">
+        <input id="destinocode" name="destinocode" type="hidden" value="@ViewData["DestinoIATA"]">
+        <input id="fechasalida" name="fechasalida" type="hidden" value="@ViewData["FechaSalida"]">
+        <input id="fecharegreso" name="fecharegreso" type="hidden" value="@ViewData["FechaRegreso"]">
+
+        <input id="pE_nClaveCorrida" name="pE_nClaveCorrida" type="hidden" value="">
+        <input id="pE_aFechaSalidaInicioCorrida" name="pE_aFechaSalidaInicioCorrida" type="hidden" value="">
+        <input id="pE_aFechaBoleto" name="pE_aFechaBoleto" type="hidden" value="">
+        <input id="pE_hHoraSalidaBoleto" name="pE_hHoraSalidaBoleto" type="hidden" value="">
+
+        <input id="pE_nClaveCorridaRegreso" name="pE_nClaveCorridaRegreso" type="hidden" value="">
+        <input id="pE_aFechaSalidaInicioCorridaRegr" name="pE_aFechaSalidaInicioCorridaRegr" type="hidden" value="">
+        <input id="pE_aFechaBoletoRegreso" name="pE_aFechaBoletoRegreso" type="hidden" value="">
+        <input id="pE_hHoraSalidaBoletoRegreso" name="pE_hHoraSalidaBoletoRegreso" type="hidden" value="">
+
+        <input id="pE_CorridaEmpresa" name="pE_CorridaEmpresa" type="hidden" value="">
+        <input id="pE_CorridaEmpresaRegreso" name="pE_CorridaEmpresaRegreso" type="hidden" value="">
+
+        <input id="consecutivo" name="consecutivo" type="hidden" value="@ViewData["dato11"]">
+        <input id="consPas_2" name="consPas2" type="hidden" value="@ViewData["ConsPas2"]">
+        <input id="pE_nControlCache" name="pE_nControlCache" type="hidden" value="1">
+
+        <button type="submit">Envíe su mensaje</button>
+    </form>
+</div>
+<div id="cronos" class="container">
+    <div class="row">
+        <div class="col align-self-center">
+            <p><span id="minute">05</span>:<span id="second">00</span></p>
+        </div>
+    </div>
+</div>
+
+<div class="container contpaso2">
+
+    <div class="row">
+        @*/////////////////////*@
+        <div class="col-lg-8 mr-lg-3 mapa">
+            @* ///// VIAJE SALIDA /////////*@
+            <div class="ViajeSalida">
+                <div class="col-lg-12">Imagen</div>
+                <div class="row mt-3">
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">ORIGEN</p>
+                        <p class="text-uppercase">@ViewData["OrigenCom"]</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">DESTINO</p>
+                        <p class="text-uppercase">@ViewData["DestinoCom"]</p>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">SALIDA</p>
+                        <p style="margin: 0px;">@ViewData["dato4"] HRS</p>
+                        <p>@ViewData["dato2"]</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">LLEGADA</p>
+                        <p style="margin: 0px;">@ViewData["dato14"]</p>
+                        <p>@ViewData["dato13"]</p>
+                    </div>
+                </div>
+            </div>
+            @* ///// VIAJE REGRESO /////////*@
+            <div style="display: none;" class="ViajeSalida">
+                <div class="col-lg-12">Imagen</div>
+                <div class="row mt-3">
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">ORIGEN</p>
+                        <p class="text-uppercase">@ViewData["OrigenCom"]</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">DESTINO</p>
+                        <p class="text-uppercase">@ViewData["DestinoCom"]</p>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">SALIDA</p>
+                        <p style="margin: 0px;">@ViewData["dato4"] HRS</p>
+                        <p>@ViewData["dato2"]</p>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <p style="margin: 0px; font-weight: 700;">LLEGADA</p>
+                        <p style="margin: 0px;">@ViewData["dato14"]</p>
+                        <p>@ViewData["dato13"]</p>
+                    </div>
+                </div>
+            </div>
+            @*/////////////////////////*@
+            <div id="cmap" class="col cuadroMapa centerTable">
+                <table id="MapaOcupacion" class="tablaclick">
+                    <tr id="fila5">
+                    </tr>
+                    <tr id="fila4">
+                    </tr>
+                    <tr id="fila3" style="height:15px; width:15px;">
+                    </tr>
+                    <tr id="fila2">
+                    </tr>
+                    <tr id="fila1">
+                    </tr>
+                </table>
+            </div>
+            @*/////////////////////////*@
+            <div class="row mt-3 align-self-end">
+                <div class="col-lg-5">Servicios</div>
+                <div class="col-lg-7">
+                    <div style="text-align:center;" class="row ocupacion">
+                        <div class="col-lg-4">
+                            <img src="img/AsientoBco.png" />
+                            <span>DISPONIBLE</span>
+                        </div>
+                        <div class="col-lg-4">
+                            <img src="img/AsientoRojo.png" />
+                            <span>OCUPADO</span>
+                        </div>
+                        <div class="col-lg-4">
+                            <img src="img/AsientoVerde.png" />
+                            <span>SELECCIONADO</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        @*/////////////////////*@
+
+        <div class="col-lg-3 mt-3 align-self-end venta">
+            <div class="row">
+                <div class="mt-4 mb-4 boletos">
+                    <div id="contBoletos" style="margin: 0px 38px;" class="row ">
+                        @*<div class="mr-2 A">A</div>*@
+
+                    </div>
+
+                    @*<span class="A">A</span>
+                    <span class="N">N</span>
+                    <span class="I">I</span>
+                    <span class="E">E</span>
+                    <span class="M">M</span>*@
+
+
+                </div>
+                @*//////////////*@
+                <div id="descripcion" class="col-lg-12">
+                    @*<div id="datosPasajero">
+                <p class="asiento">ASIENTO SELECCIONADO</p>
+                <h5 style="color: #033765;">NOMBRE DEL PASAJERO</h5>
+                <input class="nomPasajero" type="text" value="FERNANDO MACIEL" />
+            </div>*@
+                </div>
+                @*//////////////*@
+                <div class="col-lg-12 mt-4 mb-1">
+                    <div class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas">+</div><span class="masTexto">AGREGAR PASAJERO</span></div>
+                    <div style="display: none;" class="contenMenos"><div class="menos">-</div><span class="menosTexto">EDITAR PASAJERO</span></div>
+
+                </div>
+                @*//////////////*@
+
+                @*//////////////*@
+                <div class="col-lg-12 mb-3 costoTpB">
+
+                    <div class="AdultoTot">
+                        <span class="text-uppercase numAdultos"></span>
+                        <span style="position: absolute; right: 40px;" class="totalAdulto"></span>
+                    </div>
+
+                    <div class="InapamTot">
+                        <span class="text-uppercase numInapam"></span>
+                        <span style="position: absolute; right: 40px;" class="total totalInapam"></span>
+                    </div>
+
+                    <div class="MenorTot">
+                        <span class="text-uppercase numMenores"></span>
+                        <span style="position: absolute; right: 40px;" class="total totalMenores"></span>
+                    </div>
+
+                    <div class="EstudianteTot">
+                        <span class="text-uppercase numEstudiantes"></span>
+                        <span style="position: absolute; right: 40px;" class="total totalEstudiantes"></span>
+                    </div>
+
+                    <div class="ProfesorTot">
+                        <span class="text-uppercase numProfesores"></span>
+                        <span style="position: absolute; right: 40px;" class="total totalProfesores"></span>
+                    </div>
+
+                </div>
+                @*//////////////*@
+                <div class="col-lg-12">
+
+                    <div style=" background: #043162;  color: white; border-radius: 0px 50px;" class="text-uppercase mb-1">
+                        <span style=" margin-left: 18px;">TOTAL</span>
+                        <span style="position: absolute; right: 70px;" class="totalAcumulado"></span>
+                    </div>
+                    <div style=" background: white; color: #043162; border-radius: 50px 0px;" class="text-uppercase mb-3">
+                        <span style=" margin-left: 18px;">AHORRO</span>
+                        <span style="position: absolute; right: 70px;" class="ahorro"></span>
+                    </div>
+
+                    <div style="" class="text-uppercase mb-3 enviaPas2">CONTINUAR</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@* ///// VENTANA MODAL AGREGAR PASAJEROS ////*@
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div style="border-radius: 0px 50px;" class="modal-content">
+            <div class="modal-header" style="background: #043162; border-radius: 0px 50px 0px 0px;">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button style=" outline: none !important; outline-width: 0 !important; box-shadow: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; border-radius: 0px !important;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span style="color: white;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="miForm">
+                    <div class="form-group">
+                        <label for="nombres" class="col-form-label">NOMBRE*</label>
+                        <input type="text" class="form-control text-uppercase cajasModal" value="" id="descNombre">
+
+                        <label for="apellidoPaterno" class="col-form-label">APELLIDO PATERNO *</label>
+                        <input type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoPaterno">
+
+                        <label for="apellidoMaterno" class="col-form-label">APELLIDO MATERNO</label>
+                        <input type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoMaterno">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="tpasajero" class="col-form-label">T PASAJERO:</label>
+                        <select class="form-control cajasModal" id="tpasajero" name="tpasajero">
+                            <option value="A">ADULTO</option>
+                            <option value="M">MENOR</option>
+                            <option value="I">INAPAM</option>
+                            <option value="E">ESTUDIANTE</option>
+                            <option value="P">PROFESIOR</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarBoleto();">AGREGAR PASAJERO</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* ///// FIN VENTANA MODAL AGREGAR PASAJEROS ////*@
+
+@* WS PARA PersonalizaAsientos *@
+<script>
+    window.onload = function () {
+
+
+        //// VIAJE SENCILLO
+        regreso = document.getElementById('fecharegreso2').innerHTML;
+        pE_nClaveCorrida = document.getElementById('pE_nClaveCorrida2').innerHTML;
+        pE_aFechaSalidaInicioCorrida = document.getElementById('pE_aFechaSalidaInicioCorrida2').innerHTML;
+        pE_aFechaBoleto = document.getElementById('pE_aFechaBoleto2').innerHTML;
+        pE_hHoraSalidaBoleto = document.getElementById('pE_hHoraSalidaBoleto2').innerHTML;
+
+        pE_nCorridaEmpresa = document.getElementById('pE_nCorridaEmpresa2').innerHTML;
+        pE_nCorridaEmpresa = parseInt(pE_nCorridaEmpresa, 10);
+
+        pE_nConsecutivo = document.getElementById('ConsPas2').innerHTML;
+
+        @*
+
+
+
+
+     *@
+        //console.log('Viaje sencillo: ' + regreso);
+        (async () => {
+
+            /*
+
+
+            */
+            console.log('Clave pE_nConsecutivo: ' + pE_nConsecutivo);
+            console.log('Clave pE_nCorridaEmpresa: ' + pE_nCorridaEmpresa);
+            console.log('Clave pE_hHoraSalidaBoleto: ' + pE_hHoraSalidaBoleto);
+            console.log('Clave pE_aFechaBoleto: ' + pE_aFechaBoleto);
+            console.log('Clave pE_aFechaSalidaInicioCorrida: ' + pE_aFechaSalidaInicioCorrida);
+            console.log('Clave pE_nClaveCorrida: ' + pE_nClaveCorrida);
+
+            console.log('Viaje sencillo: ' + regreso);
+            /// PARAMETROS VIAJE SENCILLO
+
+            if (regreso == '_') {
+                var data = JSON.parse(`{    "pE_nClaveCorrida": ${pE_nClaveCorrida},
+                                        "pE_aFechaSalidaInicioCorrida": "${pE_aFechaSalidaInicioCorrida}",
+                                        "pE_aFechaBoleto": "${pE_aFechaBoleto}",
+                                        "pE_hHoraSalidaBoleto": "${pE_hHoraSalidaBoleto}",
+                                        "pE_nCorridaEmpresa": ${pE_nCorridaEmpresa},
+                                        "pE_nConsecutivo":${pE_nConsecutivo},
+                                        "pE_nControlCache":1
+                                }`);
+            } else {
+                /// PARAMETROS VIAJE REDONDO
+
+                var data = JSON.parse(`{    "pE_nClaveCorrida": "949385",
+                                            "pE_aFechaSalidaInicioCorrida": "20/01/2021",
+                                            "pE_aFechaBoleto": "20/01/2021",
+                                            "pE_hHoraSalidaBoleto": "00:45",
+
+                                            "pE_nClaveCorridaRegreso": 1083956,
+                                            "pE_aFechaSalidaInicioCorridaRegr": "20/01/2021",
+                                            "pE_aFechaBoletoRegreso": "21/01/2021",
+                                            "pE_hHoraSalidaBoletoRegreso": "00:30",
+
+                                            "pE_nCorridaEmpresa": 7,
+                                            "pE_nCorridaEmpresaRegreso": 7,
+                                            "pE_nConsecutivo":54730957,
+                                            "pE_nControlCache":1
+                                    }`);
+            }
+
+
+
+
+
+            const rawResponse = await fetch(
+                "http://webq.odm.com.mx/WSVentaWeb/api/PersonalizaAsientos",
+                {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
+            const content = await rawResponse.json();
+            //loading.style.display = "none";
+
+            const CostoTotal = content.Asientos.CostoTotal;
+            const MoOpe = content.Asientos.MoOpe;
+            let contador = 0;
+
+            /////// FORMATO MONEDA /////
+
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2
+            })
+
+            let A = '';
+            let I = '';
+            let M = '';
+            let E = '';
+            let P = '';
+
+            for (item of content.PasajerosIda) {
+
+                let tpBole = item.Leyenda;
+                tpBole = tpBole.split(" ");
+
+                console.log(tpBole[1]);
+                let costoBol = item.Costo;
+                let ahorro = item.CostoOri;
+                ////
+                if (tpBole[1] == 'Promocion') {
+
+                    A = 'ADULO';
+                    costAdulto = item.Costo;
+                    ahorroAdulto = item.CostoOri;
+
+                    contador++
+                }
+                /////
+                if (tpBole[1] == 'Menores') {
+
+                    let totPreMenor = formatter.format(tpBole[0] * costoBol);
+                    M = 'MENOR';
+
+                    if (tpBole[0] > 1) {
+
+                        M = 'MENORES';
+                        $('.numMenores').text(tpBole[0] + ' ' + M);
+                        $('.totalMenores').text(totPreMenor);
+
+                    } else {
+
+                        $('.numMenores').text(tpBole[0] + ' ' + M);
+                        $('.totalMenores').text(totPreMenor);
+                    }
+                    
+                }
+                /////
+
+                if (tpBole[1] == 'Insen') {
+
+                    let totPreInapm = formatter.format(tpBole[0] * costoBol);
+                    I = 'INAPAM';
+
+                    $('.numInapam').text(tpBole[0] + ' ' + I);
+                    $('.totalInapam').text(totPreInapm);
+
+
+                }
+
+                /////
+                if (tpBole[1] == 'Maestros') {
+
+                    let totPreMaestro = formatter.format(tpBole[0] * costoBol);
+                    P = 'PROFESOR';
+
+                    if (tpBole[0] > 1) {
+
+                        P = 'PROFESORES';
+                        $('.numProfesores').text(tpBole[0] + ' ' + P);
+                        $('.totalProfesores').text(totPreMaestro);
+
+                    } else {
+
+                        $('.numProfesores').text(tpBole[0] + ' ' + P);
+                        $('.totalProfesores').text(totPreMaestro);
+                    }
+
+                }
+
+                /////
+                if (tpBole[1] == 'Estudiantes') {
+
+                    let totPreEstudiante = formatter.format(tpBole[0] * costoBol);
+                    E = 'ESTUDIANTE';
+
+                    if (tpBole[0] > 1) {
+
+                        E = 'ESTUDIANTES';
+                        $('.numEstudiantes').text(tpBole[0] + ' ' + E);
+                        $('.totalEstudiantes').text(totPreEstudiante);
+
+                    } else {
+
+                        $('.numEstudiantes').text(tpBole[0] + ' ' + E);
+                        $('.totalEstudiantes').text(totPreEstudiante);
+                    }
+
+                }
+                @*console.log('Mis pasajeros: ' + item.Leyenda + ' ' + item.Costo + ' ' + item.CostoOri);*@
+                //console.log(item.CostoOri);
+            }
+
+            console.log('Mi total de Promociones: ' + contador + ' Precio: ' + costAdulto + ' Ahorro: ' + ahorroAdulto);
+
+            
+
+            let totPreAdulto = formatter.format(contador * costAdulto);
+            console.log('Mi total Adulto en Moneda: ' + totPreAdulto);
+
+            let totAhorAdulto = formatter.format(contador * ahorroAdulto);
+
+            /////////////
+
+            if (A != '') {
+                if (contador > 1) {
+                    A = 'ADULTOS';
+                }
+                $('.numAdultos').text(contador + ' ' + A);
+                $('.totalAdulto').text(totPreAdulto);
+                $('.ahorro').text(totAhorAdulto);
+            }
+
+
+            ////
+            let sumAd = $('.totalAdulto').text();
+            sumAd = sumAd.replace('$', '');
+            sumAd = sumAd.replace(',', '');
+            if (sumAd == '') {
+
+                sumAd = 0;
+            }
+
+            /////
+            let sumIn = $('.totalInapam').text();
+            sumIn = sumIn.replace('$', '');
+            sumIn = sumIn.replace(',', '');
+            if (sumIn == '') {
+
+                sumIn = 0;
+            }
+
+            ////
+            let sumMe = $('.totalMenores').text();
+            sumMe = sumMe.replace('$', '');
+            sumMe = sumMe.replace(',', '');
+            if (sumMe == '') {
+
+                sumMe = 0;
+            }
+
+            ////
+            let sumEs = $('.totalEstudiantes').text();
+            sumEs = sumEs.replace('$', '');
+            sumEs = sumEs.replace(',', '');
+            if (sumEs == '') {
+
+                sumEs = 0;
+            }
+
+            ////
+            let sumPr = $('.totalProfesores').text();
+            sumPr = sumPr.replace('$', '');
+            sumPr = sumPr.replace(',', '');
+            if (sumPr == '') {
+
+                sumPr = 0;
+            }
+
+
+            let sumatoriBol = parseFloat(sumAd) + parseFloat(sumIn) + parseFloat(sumMe) + parseFloat(sumEs) + parseFloat(sumPr);
+
+            //let sumatoriBol = sumAd + sumIn + sumMe + sumEs + sumPr;
+
+            //sumatoriBol = formatter.format(sumatoriBol);
+
+            $('.totalAcumulado').text(formatter.format(sumatoriBol));
+            console.log(content);
+
+            cargarMapa();
+            agregarboletosPaso1();
+        })();
+   
+
+    }
+
+</script>
+<script>
+    function agregarboletosPaso1() {
+        const contPasajero = document.getElementById('descripcion');
+        let tipoBoleto = document.getElementById('contBoletos');
+        let combo = document.getElementById("tpasajero");
+       
+        let adultoPas1 = document.getElementById('adultoPas1').innerHTML;
+        let menoresPas1 = document.getElementById('menoresPas1').innerHTML;
+        let senectudPas1 = document.getElementById('senectudPas1').innerHTML;
+        let estudiantesPas1 = document.getElementById('estudiantesPas1').innerHTML;
+        let profesoresPas1 = document.getElementById('profesoresPas1').innerHTML;
+
+        let totBolPas1 = parseInt(adultoPas1, 10) + parseInt(menoresPas1, 10) + parseInt(senectudPas1, 10) + parseInt(estudiantesPas1, 10) + parseInt(profesoresPas1, 10);
+
+        //---console.log('El total de Boletos paso1 es:' + totBolPas1)
+
+        let arrayBolPas1 = [];
+
+        /// Boleto A
+        for (var i = 0; i < parseInt(adultoPas1, 10); i++) {
+
+            arrayBolPas1.push('A');
+        }
+        /// Boleto M
+
+        for (var i = 0; i < parseInt(menoresPas1, 10); i++) {
+            arrayBolPas1.push('M');
+        }
+        /// Boleto I
+        for (var i = 0; i < parseInt(senectudPas1, 10); i++) {
+            arrayBolPas1.push('I');
+        }
+        /// Boleto E
+        for (var i = 0; i < parseInt(estudiantesPas1, 10); i++) {
+            arrayBolPas1.push('E');
+        }
+        /// Boleto P
+        for (var i = 0; i < parseInt(profesoresPas1, 10); i++) {
+            arrayBolPas1.push('P');
+        }
+
+
+        //---console.log(arrayBolPas1);
+        ////////
+        let incremento = 1;
+        let descNom = '';
+        let descApPat = '';
+        let descApMat = '';
+        for (item of arrayBolPas1) {
+
+
+            console.log('Mi boleto: ' + item);
+            tipoBoleto.innerHTML += `<div id="conPasaj_${incremento}" class="mr-2 A tipoBol conPasaj_${incremento}" onclick="oculDescr(this);">${item}</div>`;
+
+            contPasajero.innerHTML += `<div class="datosPasajero conPasaj_${incremento}">
+
+                                        <div style="position: relative;"><span id="numAsi_${incremento}" class="numAsi"></span><img class="imgAsiento" style="width: 50px;" src="img/AsientoAzu.png"/></div>
+                                        <p class="asiento">ASIENTO SELECCIONADO</p>
+                                        <h5>NOMBRE DEL PASAJERO</h5>
+                                        <input class="nomPasajero text-uppercase" type="text" value="${descNom} ${descApPat} ${descApMat}" />
+                                    </div>`;
+
+            
+            incremento++
+        }
+
+        @*console.log('Mi autoincremento: ' );*@
+        document.getElementById('conPasaj_1').click();
+    }
+</script>
+<script>
+    function boletoActivo() {
+
+        //document.getElementById('contBoletos').classList.remove('boletoActivo');
+
+        //console.log('Mi clave: ' + clave);
+
+        @*var element = document.getElementById("contBoletos");
+        element.classList.toggle("boletoActivo");*@
+
+        @*document.getElementById('contBoletos').addEventListener('toggle', function (e) {
+            
+            if (e.detail.value) {
+                console.log('Mi valor E: ' + e.detail.value);
+                document.querySelector('.tipoBol').classList.add('boletoActivo');
+            } else {
+                console.log('Mi valor E: ' + e.detail.value);
+                document.querySelector('.tipoBol').classList.remove('boletoActivo');
+            }
+        });*@
+
+    }
+</script>
+<script>
+    const contPasajero = document.getElementById('descripcion');
+    let tipoBoleto = document.getElementById('contBoletos');
+    let combo = document.getElementById("tpasajero");
+
+    function agregarBoleto() {
+
+        var datosPasaj = document.getElementsByClassName("datosPasajero").length;
+
+        let contador = datosPasaj + 1;
+
+        console.log("Hay " + contador + " elementos");
+
+
+        let descNom = document.getElementById("descNombre").value;
+        let descApPat = document.getElementById("apellidoPaterno").value;
+        let descApMat = document.getElementById("apellidoMaterno").value;
+
+        let tpb = combo.options[combo.selectedIndex].value;
+
+        tipoBoleto.innerHTML += `<div id="conPasaj_${contador}" class="mr-2 A tipoBol conPasaj_${contador}" onclick="oculDescr(this);">${tpb}</div>`;
+
+        contPasajero.innerHTML += `<div class="datosPasajero conPasaj_${contador}">
+
+                                        <div style="position: relative;"><span id="numAsi_${contador}" class="numAsi"></span><img class="imgAsiento" style="width: 50px;" src="img/AsientoAzu.png"/></div>
+                                        <p class="asiento">ASIENTO SELECCIONADO</p>
+                                        <h5>NOMBRE DEL PASAJERO</h5>
+                                        <input class="nomPasajero text-uppercase" type="text" value="${descNom} ${descApPat} ${descApMat}" />
+                                    </div>`;
+        @*borrarFormulario();*@
+        document.getElementById("miForm").reset();
+
+        document.getElementById(`conPasaj_${contador}`).click();
+
+
+
+    }
+
+    function oculDescr(e) {
+
+        let miId = e.id;
+        
+        console.log('Valor que me sirve: ' + miId);
+        // Color Boleto activo
+
+        let tpBol = document.getElementById('contBoletos').getElementsByClassName('tipoBol');
+
+        for (item3 of tpBol) {
+
+            var elementClasses2 = item3.classList;
+
+            let claseTiene2 = elementClasses2[3];
+
+            if (miId == claseTiene2) {
+                console.log('Ms clases son: ' + claseTiene2);
+                document.querySelector('.' + claseTiene2).classList.add('boletoActivo');
+            } else {
+                document.querySelector('.' + claseTiene2).classList.remove('boletoActivo');
+            }
+            
+ 
+        }
+
+        //document.getElementById(miId).classList.add('boletoActivo');
+
+        let recDesc1 = document.getElementById('descripcion').getElementsByClassName('datosPasajero');
+        
+
+
+        console.log(recDesc1);
+
+        for (item1 of recDesc1) {
+
+            var elementClasses = item1.classList;
+
+            let claseTiene = elementClasses[0] + ' ' + elementClasses[1];
+
+            //console.log(claseTiene);
+
+            item1.style.display = 'none';
+            //document.querySelector('.tipoBol').classList.remove('boletoActivo');
+            @*background: #033765;*@
+
+            if (claseTiene === `datosPasajero ${miId}`)
+
+            {
+                item1.style.display = 'block';
+                //document.querySelector('.tipoBol').classList.add('boletoActivo');
+            }
+
+
+        }
+
+        @*document.getElementById(miId).classList.remove('boletoActivo');
+        document.getElementById(miId).classList.add('boletoActivo');*@
+
+        boletoActivo();
+
+    }
+
+</script>
+@* ///// MAPA DE OCUPACION ////*@
+
+<script></script>
+@*///// ESTA SECCION TOMA EL VALOR DEL ASIENTO SELECIONADO /////*@
+<script>
+    function miclick(e) {
+
+        let datosPasaj = document.getElementsByClassName("datosPasajero").length;
+        let numAsiento = e.id;
+        let numAs = numAsiento.split("_");
+
+        @* Si no hay boletos *@
+        if (datosPasaj === 0) {
+
+            return alert('No tienes boletos selecionados');
+        }
+        //////
+
+
+
+        let imgAsiSelec = 'idImgAsiento_'+numAs[1];
+        let numAsie = numAs[1];
+        miAsiento(imgAsiSelec, numAsie);
+
+
+
+
+    }
+</script>
+
+<script>function numAsVerdes(num) {
+
+        numverdeGlobal = num;
+    }</script>
+@*//// SELECCION DE ASIENTOS ////*@
+
+
+<script>
+
+    function miAsiento(imgAsiSelec, numAsie) {
+
+        let idImg = document.getElementById(imgAsiSelec);
+        let dato1 = idImg.getAttribute("src");
+        let numDescripPasajero = document.querySelectorAll('.datosPasajero').length;
+        let recDesc1 = document.getElementById('descripcion').getElementsByClassName('datosPasajero');
+        let numAsi = document.getElementsByClassName('numAsi');
+
+        //---console.log(numAsi);
+
+
+
+        //---console.log('Mi imagen nueva: ' + dato1);
+
+        var num = numDescripPasajero;
+
+        var ocupado = 'img/AsientoRojo.png';
+        var libre = 'img/AsientoBco.png';
+        var seleccionado = 'img/AsientoVerde.png';
+
+        //////////////////////////////////////////////
+
+        if (ocupado == dato1) {
+
+            alert('Ocupado');
+
+        }
+
+        if (libre == dato1) {
+
+
+            idImg.setAttribute("src", "img/AsientoVerde.png");
+
+                /// PONE EL NUMERO EN EL ASIENTO VISIBLE  /// 
+                    for (item of recDesc1) {
+
+                        let classVisible = item.style.display;
+
+                        if (classVisible === 'block') {
+                            console.log('1 pasajero visible');
+                            console.log(item);
+                            @*var inputNombre = document.getElementById("nombre");*@
+
+                            let spanId = item.querySelector('.numAsi').id;
+                            let spNum = document.getElementById(spanId);
+                            let span_Text = document.getElementById(spanId).innerText;
+
+                            if (span_Text == '') {
+                                console.log('Tu asiento ya tiene numero');
+                                document.getElementById(spanId).innerHTML = numAsie;
+                            }
+                            else {
+
+                                let clickAsiBlanc = numAsi;
+
+                                for (item of clickAsiBlanc) {
+                                    let spanId2 = item.id;
+                                    let spNum2 = document.getElementById(spanId2);
+                                    var span_Text2 = document.getElementById(spanId2).innerText;
+
+                                    console.log('Mi numero es: ' + span_Text2);
+
+                                    if (span_Text2 == '') {
+                                        let num = spanId2;
+                                        let numAs = num.split("_");
+                                        let clickIdBol = 'conPasaj_' + numAs[1];
+                                        console.log('Mi click nuevo: ' + clickIdBol);
+
+                                        document.getElementById(spanId2).innerHTML = numAsie;/// checar esta linea->
+                                        document.getElementById(clickIdBol).click();
+
+                                        return
+                                    }
+                                }
+                                @*console.log(numAsi);*@
+                            }
+                            @*alert('Mi id visible: ' + spanId + ' El asiento que presiono: ' + numAsie + ' Mi texto actual: ' + span_Text);*@
+
+
+
+
+
+                            @*spNum.innerHTML = numAsie;*@
+
+                            @* console.log(spanNum);*@
+                            @*console.log(spanId);*@
+
+                        }
+                        @* console.log(classVisible);*@
+                    }
+                ///////////
+
+            let lugares = document.querySelectorAll('#MapaOcupacion img[src="img/AsientoVerde.png"').length;
+
+            console.log('Mis elementos verde:' + lugares);
+
+
+            if (lugares <= num) {
+
+                // alert('El lugar es menor o igual');
+
+                console.log(lugares);
+
+            } else {
+                idImg.setAttribute("src", "img/AsientoBco.png");
+                /// QUITA EL NUMERO EN EL ASIENTO VISIBLE  ///
+                for (item of numAsi) {
+
+                    let spanId = item.id;
+                    var span_Text = document.getElementById(spanId).innerText;
+
+                    if (numAsie === span_Text) {
+                        document.getElementById(spanId).innerHTML = '';
+                    }
+
+                }
+                ///////////
+            }
+
+        }
+
+        if (seleccionado == dato1) {
+
+            idImg.setAttribute("src", "img/AsientoBco.png");
+            /// QUITA EL NUMERO EN EL ASIENTO VISIBLE  ///
+
+
+            for (item of numAsi) {
+
+                let spanId = item.id;
+                var span_Text = document.getElementById(spanId).innerText;
+
+                if (numAsie === span_Text) {
+                    document.getElementById(spanId).innerHTML = '';
+                }
+
+            }
+
+        }
+
+
+    }
+</script>
+
+
+<script>
+    function cargarMapa() {
+
+        ////////////// MAPA DE OCUPACION /////////////////////
+        let MapaOcupacion = document.getElementById("MapaOcupacion");
+        let fila5 = document.getElementById("fila5");
+        let fila4 = document.getElementById("fila4");
+
+        let fila2 = document.getElementById("fila2");
+        let fila1 = document.getElementById("fila1");
+
+
+
+        @* ESTE CODIGO ES DE PRUEBA *@
+
+        ////////////
+
+        (async () => {
+            consMap = document.getElementById('ConsPas2').innerHTML;
+
+            //---console.log(consMap);
+
+            let data2 = JSON.parse(`{    "pE_TipoTarjeta": "TB",
+                                "pE_nModoCorridas": "1",
+                                "pE_nConsecutivo":${consMap}}`);
+            @* let data = 'Diagrama/Mapa.json';*@
+
+            let data = 'http://webq.odm.com.mx/WSVentaWeb/api/DiagramaAsientos';
+            const rawResponse = await fetch(data,
+                {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data2),
+
+                }
+            );
+            const content = await rawResponse.json();
+
+            const datos = content;
+
+            console.log(datos.Diagrama);
+            @* console.log(datos);*@
+            let vuelta = 1;
+            let idElementos = 1;
+            let colorNume = '';
+
+            for (ocupacion of datos.Diagrama) {
+
+                if (ocupacion.Asientos != "") {
+
+                    console.log('Tu asiento es: ' + ocupacion.Asientos + ' Estatus: ' + ocupacion.Estados + ' Piso: ' + ocupacion.piso.trim() + ' TV: ' + ocupacion.Imagenes);
+
+                    let numAsiento = Number(ocupacion.Asientos).toString();;
+                    let tv = ocupacion.Imagenes.substr(-5, 1);
+
+
+                    /// CHECAMOS SI EL BUS ES DE 1 PISO
+
+                    //if (ocupacion.piso == 1) {
+                        //---console.log(tv);
+                        
+                        if (tv === 'T') {
+
+                            tv = 'TV';
+                        } else {
+                            tv = "";
+                        }
+
+                        //alert('Mi vuelta general:' + vuelta);
+                        if (vuelta == 4) {
+
+                            if (ocupacion.Estados === '1') {
+                                imgAsiento = 'img/AsientoBco.png';
+                                colorNume = 'clasNum';
+                            } else {
+                                imgAsiento = 'img/AsientoRojo.png';
+                                colorNume = 'clasNumRojo';
+                            }
+
+                            fila5.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" class="tablaclick" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+
+                                        </td>`;
+                            //alert('Vuelta 4');
+
+                            vuelta = 0;
+                        }
+                        if (vuelta == 3) {
+
+                            if (ocupacion.Estados === '1') {
+                                imgAsiento = 'img/AsientoBco.png';
+                                colorNume = 'clasNum';
+                            } else {
+                                imgAsiento = 'img/AsientoRojo.png';
+                                colorNume = 'clasNumRojo';
+                            }
+
+                            fila4.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+
+                            //alert('Vuelta 3');
+                        }
+
+                        @*if (vuelta === 3) {
+                            fila3.innerHTML += `<td></td>`;
+                        }*@
+
+                        if (vuelta == 2) {
+
+                            if (ocupacion.Estados === '1') {
+                                imgAsiento = 'img/AsientoBco.png';
+                                colorNume = 'clasNum';
+                            } else {
+                                imgAsiento = 'img/AsientoRojo.png';
+                                colorNume = 'clasNumRojo';
+                            }
+
+                            fila2.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+
+                            //alert('Vuelta 2');
+                        }
+                        if (vuelta == 1) {
+
+                            if (ocupacion.Estados === '1') {
+                                imgAsiento = 'img/AsientoBco.png';
+                                colorNume = 'clasNum';
+                            } else {
+                                imgAsiento = 'img/AsientoRojo.png';
+                                colorNume = 'clasNumRojo';
+                            }
+
+                            fila1.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+                            //alert('Vuelta 1');
+                        }
+
+                        
+                    //}
+                    
+                    vuelta++
+
+                }
+
+                
+                idElementos++
+
+            }
+
+        })();
+    }
+</script>

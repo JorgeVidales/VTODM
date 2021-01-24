@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{928981DF-75D3-48BC-BF18-C0CFFEC8F1FB}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Paso1/Index.cshtml">
+    <Files>
+      <File FileName="Views/Paso1/Index.cshtml" Line="22" Column="196" />
+      <File FileName="Controllers/Paso1Controller.cs" Line="32" Column="1" />
+      <File FileName="Program.cs" Line="16" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PasosVentaODM" expanded="True">
+            <Node name="PasosVentaODM" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Paso1" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.PasosVentaODM PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

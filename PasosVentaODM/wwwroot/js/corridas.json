@@ -1,0 +1,26 @@
+﻿{
+  "Corridas": [
+    {
+      "claveCorrida": "  3834",
+      "FechaSalidaInicio": "11/12/2020",
+      "FechaSalidaBoleto": "12/12/2020",
+      "HoraSalida": "02:20",
+      "FechaLlegada": "05:30",
+      "ClaveClaseServicio": "PP",
+      "ClaveServicio": "SERVICIO PLUS",
+      "EmpresaCorrida": "067",
+      "Tarifa": " 384.00",
+      "DescripcionEmpresaCorrida": "TRANSPORTES Y AUTOBUSES DEL PACIFICO SA DE CV",
+      "Viaje": "Escalas",
+      "TipoAutobus": "Sencillo",
+      "NumAsientosDis": "  40",
+      "TarifaPromo": " 345.00",
+      "Pantallas": "INDV"
+    },
+
+
+
+
+  ]
+
+}

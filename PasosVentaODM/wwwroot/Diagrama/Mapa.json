@@ -1,0 +1,373 @@
+﻿{
+    "Encabezado": {
+        "Filas": "9",
+        "NoCapturaUltFila": "S",
+        "Filas2do": "0"
+    },
+    "Diagrama": [
+       
+        {
+            "Asientos": "001",
+            "Estados": "0",
+            "Imagenes": "Asiento_V.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "002",
+            "Estados": "0",
+            "Imagenes": "Asiento_VT.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "003",
+            "Estados": "0",
+            "Imagenes": "Asiento_VT.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "004",
+            "Estados": "0",
+            "Imagenes": "Asiento_V.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "005",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "006",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "007",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "008",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "009",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "010",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "011",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "012",
+            "Estados": "1",
+            "Imagenes": "Asiento_LT.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "013",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "014",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "015",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "016",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "017",
+            "Estados": "1",
+            "Imagenes": "Asiento_LT.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "018",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "019",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "020",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "021",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "022",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "023",
+            "Estados": "0",
+            "Imagenes": "Asiento_V.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "024",
+            "Estados": "0",
+            "Imagenes": "Asiento_V.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "025",
+            "Estados": "0",
+            "Imagenes": "Asiento_V.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "026",
+            "Estados": "0",
+            "Imagenes": "Asiento_V.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "027",
+            "Estados": "0",
+            "Imagenes": "Asiento_V.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "028",
+            "Estados": "1",
+            "Imagenes": "Asiento_LT.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "029",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "030",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "031",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "032",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "033",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "034",
+            "Estados": "1",
+            "Imagenes": "Asiento_L.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_U.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        },
+        {
+            "Asientos": "",
+            "Estados": "0",
+            "Imagenes": "Objeto_.jpg",
+            "piso": "   1"
+        }
+    ],
+    "Mensaje": {
+        "Error": ""
+    }
+}

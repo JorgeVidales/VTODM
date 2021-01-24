@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ODM</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/espera.css" />
+    <link rel="stylesheet" href="~/css/crono.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+
+
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
+
+    <style>
+        footer {
+            position: relative;
+            width: 100%;
+            bottom: 0px;
+        }
+
+        #prueba2 {
+            border-bottom: #00346e solid 1px;
+        }
+
+        #navbarSupportedContent {
+            position: relative;
+            top: 21px;
+        }
+
+        #footerDiv {
+            margin: 0px;
+            background: #033062;
+        }
+
+            #footerDiv a {
+                color: white;
+            }
+
+                #footerDiv a:hover {
+                    color: grey;
+                }
+
+        .padre {
+            display: flex;
+            align-items: center;
+        }
+
+        .hijo {
+            width: 100%;
+        }
+
+        #top ul li {
+            display: inline;
+            line-height: 30px;
+            margin: 0 5px;
+        }
+
+        .redSocial2 {
+            font-size: x-large;
+        }
+
+        #top a {
+            text-decoration: none;
+        }
+    </style>
+    <link rel="stylesheet" href="~/css/paso1.css" />
+    <link rel="stylesheet" href="~/css/paso2.css" />
+</head>
+<body>
+    <header>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VentaOdm</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>*@
+        <nav id="prueba2" class="navbar navbar-expand-lg navbar-light ">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <div>
+                <a href="https://odm.com.mx/">
+                    <img class="img-fluid rounded mx-auto d-block img1" style="width: 69%; width: 50%" src="https://odm.com.mx/imagen/logoODM.webp" alt="Logo Omnibus de México">
+                </a>
+            </div>
+
+            <!-- <img class="img-fluid rounded mx-auto d-block"  src="https://odm.com.mx/images/marquesina.jpg" alt=""> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto" style="margin: auto;">
+                    <li class="nav-item">
+                        <a class="nav-link" style="width: 142px;" asp-action="Index">
+                            <i class="fas fa-shipping-fast"></i> Envíos ODM
+                            <!-- <span class="sr-only">(current)</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="width: 120px;" asp-action="Privacy">
+                            <i class="fas fa-bus"></i> Cobertura
+                            <!-- <span class="sr-only">(current)</span> -->
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="width: 160px" href=""><i class="fas fa-map"></i> Puntos de venta</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <!-- <a class="nav-link" href="#"><i class="far fa-handshake"></i> Servicios</a> -->
+                        <a class="nav-link" style="width: 109px;" href=""><i class="far fa-handshake"></i> Servicios</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="factura" href="https://venta.odm.com.mx/FacturacionElectronica/IndexFacturaElec.html" class="nav-link"><i class="fas fa-file-alt"></i> Facturación</a>
+                    </li>
+
+                </ul>
+                <!-- <form style="display: block;" id="login" class="form-inline my-2 my-lg-0 "> -->
+
+                <div style="display: none;" class="col-lg-3">
+                    <ul class="nav navbar-nav navbar-right" style="padding-bottom: 100px;">
+                        <li style="margin-right: 10px;"><a id="loginReg" href="#modalRegistro" data-toggle="modal"><span class="fas fa-user"></span> Ingresar</a></li>
+
+                        <!-- <li><a href="#"><span class="fas fa-sign-in-alt"></span> Registrar</a></li> -->
+                    </ul>
+                </div>
+
+
+                <!--  </form> -->
+            </div>
+        </nav>
+    </header>
+    <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="">
+        <div id="footerDiv" class="text-center">
+            <div>
+                <!-- <h4 align="center">Footer</h4> -->
+                <!-- ////// INICIO PREGUNTAS ///////// -->
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="quienes-somos2">Quiénes somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="preguntas-frecuentes">Preguntas frecuentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://venta.odm.com.mx/netScripts/request.aspx?APPNAME=Navegante&amp;PRGNAME=AccesoEx&amp;ARGUMENTS=-AAG" target="_blanck">Agencias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactanos">Contáctanos</a>
+                    </li>
+                </ul>
+                <!-- ////// FIN PREGUNTAS ///////// -->
+
+            </div>
+            @*///////////*@
+
+            <div class="container" id="top">
+                <div align="center" class="row">
+                    <div class="col">
+                        <ul>
+                            <li>
+                                <a href="https://www.facebook.com/OmnibusdeMexicoOficial/?fref=ts" target="_blank">
+                                    <i class="fab fa-facebook redSocial2" style="size: 5px" ;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/omnibus_oficial" target="_blank">
+                                    <i class="fab fa-twitter redSocial2" aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.instagram.com/omnibus_oficial/" target="_blank">
+                                    <i class="fab fa-instagram redSocial2"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCyQ_-uZqptGN2M45DNOl7CQ" target="_blank">
+                                    <i class="fab fa-youtube redSocial2"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ////////////////// LOGO BLANCO ///////////////////////////// -->
+            <div align="center" class="container">
+                <img class="img16" width="25%" src="https://odm.com.mx/imagen/logo-blanco-ODM.png" alt="Logo blanco Omnibus de México" />
+            </div>
+            <!-- ////////////////// FIN LOGO BLANCO ///////////////////////////// -->
+            <!-- ///////////// CALL CENTER /////////////// -->
+            <!-- <div class="startToky">
+                <img src="imagen/startToky.png">
+            </div> -->
+            <!-- ////////// FIN CALL CENTER ////////////// -->
+            <!-- ///////////// CALL CENTER /////////////// -->
+            <!-- <div  class="chat">
+                <img src="imagen/chat.png">
+            </div> -->
+            <!-- ////////// FIN CALL CENTER ////////////// -->
+            <!-- ///////// INICIO MAPA DEL SITIO /////////-->
+
+            <div class="conteiner">
+                <div class="">
+                    <div class="col">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Mapa del sitio</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ///////// INICIO POLITICAS /////////-->
+            <div class="conteiner">
+                <div class="">
+                    <div class="col">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a class="nav-link" href="aviso-privacidad">Aviso de privacidad | Políticas de viaje</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ////////  -->
+
+        </div>
+
+
+        @*<div class="padre text-center">
+                <div class="hijo"></div>
+
+            </div>*@
+
+        <div class="text-center">
+            <p style="margin: 0px;" class="justify-content-center"> &copy; OMNIBUS DE MÉXICO TODOS LOS DERECHOS RESERVADOS 2020</p>
+        </div>
+    </footer>
+    @*<div class="float-none">&copy; OMNIBUS DE MÉXICO TODOS LOS DERECHOS RESERVADOS 2020</div>*@
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js" integrity="sha512-wGKmIfDWUJSUvxUfUayQPJj7ADCD60La3up0VCbq+MTFcOUQ2hlH2McnYFafHgLTsOrGwOdiHKX4p1v0BerCyQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            @*alert('Diste un click')*@
+
+            jQuery(document).on('change', '#org1', (event) => {
+                const orgViaja = event.target.value;
+                orgCompleto = $('#org1 option:selected').text();
+                console.log(orgViaja);
+                console.log(orgCompleto);
+                $('#dest1').html('<option selected="selected" disabled>¿A Dónde Viajas?</option>');
+                cargarDestino(orgViaja);
+                @*alert('algo');*@
+            });
+        })
+    </script>
+
+    <script>
+        /// SECCION PARA ASIGNAR LA FECHA QUE VIENE DEL FORMULARIO 
+        $(function () {
+
+            let dato3 = $("#idFechSalida").text();
+            let dato4 = $("#idFechRegreso").text();
+
+
+            
+            let separaFecha = dato3.split("/");
+            let diaSal = separaFecha[0];
+            let mesSal = separaFecha[1] - 1;
+            let yearSal = separaFecha[2];
+
+            var arrayMes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+            let mesLetraSal = arrayMes[mesSal];
+
+            let fechSalLetra = diaSal + ' ' + mesLetraSal + ' ' + yearSal;
+           
+            $("#datepicker, #datepicker2").datepicker({
+                minDate: new Date(),
+                dateFormat: 'dd M yy'
+            });
+
+            formFechaSalApi = dato3;
+            
+
+            $('#datepicker').datepicker('setDate', fechSalLetra);
+            $('#datepicker2').datepicker('option', 'minDate', fechSalLetra);
+            //// PARA ASIGNAR FECHA DE REGRESO CON LOS DATOS DEL FORMULARIO
+
+            console.log('Fecha de regreso' + dato4);
+
+            if (dato4 == '_') {
+
+                console.log('No tienes fecha de regreso');
+            } else {
+                let separaFecha2 = dato4.split("/");
+
+                let diaReg = separaFecha2[0];
+                let mesReg = separaFecha2[1] - 1;
+                let yearReg = separaFecha2[2];
+
+                let mesLetraReg = arrayMes[mesReg];
+
+                formFechaRegApi = dato4;
+                let fechRegLetra = diaReg + ' ' + mesLetraReg + ' ' + yearReg;
+                $('#datepicker2').datepicker('setDate', fechRegLetra);
+                $("#quitar").css('display', 'block');
+            }
+            
+        });
+        ////////////////////////
+
+
+        jQuery(document).on('change', '#datepicker', (event) => {
+            const element = event.target;
+            @*console.log('Estoy checando:'+element.value);*@
+            jQuery('#datepicker2').datepicker('option', 'minDate', element.value);
+        });
+
+
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '<Ant',
+            nextText: 'Sig>',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+    </script>
+
+    <script>
+        var $dates = $('#datepicker2').datepicker({
+            minDate: new Date(),
+            
+            dateFormat: 'dd M yy',
+
+        });
+    @*/////////////////////////////*@
+        $("#datepicker2").change(function () {
+            $("#quitar").css('display', 'block');
+        });
+    @*/////////////////////////////*@
+        $("#datepicker").change(function () {
+
+            var yearHoy = (new Date()).getFullYear();
+            var montHoy = (new Date()).getMonth();
+            var dayHoy = (new Date()).getDate();
+
+            let feSeleccion= $("#datepicker").val();
+            var arrayDeCadenas = feSeleccion.split(" ");
+
+            var yearSelec = arrayDeCadenas[0];
+            var mesSelec = arrayDeCadenas[1];
+            var diaSelec = arrayDeCadenas[2];
+
+
+            var arrayMes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+            var buscarMes = mesSelec;
+            var result = arrayMes.indexOf(buscarMes);
+
+            var mesNum = result + 1;
+            if (mesNum < 10) {
+                mesNum = '0' + mesNum;
+            }
+            feSelec = diaSelec + '-' + mesNum + '-' + yearSelec;
+
+            formFechaSalApi = yearSelec + '/' + mesNum + '/' + diaSelec;
+
+            console.log(feSelec)
+
+
+            @*console.log(arrayDeCadenas);
+            console.log(dayHoy + '/' + montHoy + '/' + yearHoy)*@
+
+            @*let fHoy = new Date(yearHoy, montHoy, dayHoy);*@
+            let fHoy = new Date();
+            let fEquis = new Date(2020, 11, 18);
+
+
+
+            @*console.info(feCompleta)*@
+
+            if (fHoy > fEquis) {
+
+                console.log('la fecha actual es mayor');
+            }
+
+            @*console.log('Es la fecha de hoy: ' + fHoy);*@
+
+        @*$("#fechaSalOculta").val(fech)*@
+
+            @* /////////////////
+            FECHA 1
+                a)si la fecha es la del dia actual, se queda como fecha1.
+                b) Si la fecha seleccionada es mayor a la fecha de hoy, la fecha1 sera menor a la seleccionada
+            *@
+
+            var fecha1 = new Date(feSelec);
+            var dias = 1; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+            fecha1.setDate(fecha1.getDate() + dias);
+            var f1dia = fecha1.getDate();
+            var f1mes = fecha1.getMonth() + 1;
+            var f1year = fecha1.getFullYear();
+
+            if (f1dia < 10) {
+                f1dia = '0' + f1dia;
+            }
+            if (f1mes <10) {
+                f1mes = '0' + f1mes;
+            }
+
+            var fe1Completa = f1dia + '/' + f1mes + '/' + f1year;
+
+            $("#fe1").text(fe1Completa);
+
+
+
+            @* FECHA 2 a) Si la fecha seleccionada es mayor a la fecha de hoy, la fecha2 sera la fecha seleccionada b)Si la fecha es la de  *@
+            var fecha2 = new Date(feSelec);
+            var dias2 = 2; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+            fecha2.setDate(fecha2.getDate() + dias2);
+            var f2dia = fecha2.getDate();
+            var f2mes = fecha2.getMonth() + 1;
+            var f2year = fecha2.getFullYear();
+
+            if (f2dia < 10) {
+                f2dia = '0' + f2dia;
+            }
+            if (f2mes < 10) {
+                f2mes = '0' + f2mes;
+            }
+
+            var fe2Completa = f2dia + '/' + f2mes + '/' + f2year;
+            $("#fe2").text(fe2Completa);
+
+
+            @* FECHA 3 a) La fecha3 sera la fecha2 + 1 *@
+            var fecha3 = new Date(feSelec);
+            var dias3 = 3; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+            fecha3.setDate(fecha3.getDate() + dias3);
+            var f3dia = fecha3.getDate();
+            var f3mes = fecha3.getMonth() + 1;
+            var f3year = fecha3.getFullYear();
+
+            if (f3dia < 10) {
+                f3dia = '0' + f3dia;
+            }
+            if (f3mes < 10) {
+                f3mes = '0' + f3mes;
+            }
+
+            var fe3Completa = f3dia + '/' + f3mes + '/' + f3year;
+
+            $("#fe3").text(fe3Completa);
+
+
+            @* FECHA 4 a) La fecha4 sera la fecha3 + 1 *@
+            var fecha4 = new Date(feSelec);
+            var dias4 = 4; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+            fecha4.setDate(fecha4.getDate() + dias4);
+            var f4dia = fecha4.getDate();
+            var f4mes = fecha4.getMonth() + 1;
+            var f4year = fecha4.getFullYear();
+
+            if (f4dia < 10) {
+                f4dia = '0' + f4dia;
+            }
+            if (f4mes < 10) {
+                f4mes = '0' + f4mes;
+            }
+
+            var fe4Completa = f4dia + '/' + f4mes + '/' + f4year;
+
+            $("#fe4").text(fe4Completa);
+            @* FECHA 5 a) La fecha5 sera la fecha4 + 1 *@
+            var fecha5 = new Date(feSelec);
+            var dias5 = 5; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+            fecha5.setDate(fecha5.getDate() + dias5);
+            var f5dia = fecha5.getDate();
+            var f5mes = fecha5.getMonth() + 1;
+            var f5year = fecha5.getFullYear();
+
+            if (f5dia < 10) {
+                f5dia = '0' + f5dia;
+            }
+            if (f5mes < 10) {
+                f5mes = '0' + f5mes;
+            }
+
+            var fe5Completa = f5dia + '/' + f5mes + '/' + f5year;
+
+            $("#fe5").text(fe5Completa);
+
+        });
+    @*/////////////////////////////*@
+        $('#quitar').on('click', function () {
+            $dates.datepicker('setDate', null);
+            $("#quitar").css('display', 'none');
+            $('#tarjetas1').css('display', 'block');
+            $('#tarjetas2').css('display', 'none');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            var tiempo = {
+
+                minuto: 4,
+                segundo: 59
+            };
+
+            var tiempo_corriendo = null;
+
+            tiempo_corriendo = setInterval(function () {
+                @*// Segundos*@
+
+                    tiempo.segundo--;
+                if (tiempo.segundo === 0) {
+                    tiempo.segundo = 60;
+                    tiempo.minuto--;
+                }
+
+                @*// Minutos*@
+
+                $("#minute").text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
+                $("#second").text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
+
+                var minutos = $("#minute").text();
+                var segundos = $("#second").text();
+
+                @*console.log('minutos: ' + minutos + ' ' + ' ' + 'segundos: ' + segundos);*@
+
+                var pagina = "https://odm.com.mx/";
+
+                if (minutos == '0-1' && segundos == '60') {
+
+                    @*alert('Tu sesión ha expirado. Por favor vuelve a intentarlo');*@
+                    tiempo.segundo = 5;
+                    tiempo.minuto = 0;
+
+                    @*location.href = pagina*@
+                }
+
+
+            }, 1000);
+
+        })
+    </script>
+
+
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

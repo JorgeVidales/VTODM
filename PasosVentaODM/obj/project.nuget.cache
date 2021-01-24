@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YvN7MRqknC0WWODzdyXLMvHsd+aDPhOw2gNGBX9dw1jiXrPuCzaJWQ4018gSrMZtKB29mQrucoljzHHQIZlVYg==",
+  "success": true,
+  "projectFilePath": "/Users/ProgramadorWeb/Desktop/PasosVentaODM/PasosVentaODM/PasosVentaODM.csproj",
+  "expectedPackageFiles": [
+    "/Users/ProgramadorWeb/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

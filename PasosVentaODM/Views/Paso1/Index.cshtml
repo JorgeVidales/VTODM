@@ -1,0 +1,1979 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Paso1";
+}
+@*@model PasosVentaODM.Models.Formulario*@
+<style>
+    .pas1 {
+        width: 30px;
+        height: 30px;
+        background: #023765;
+        text-align: center;
+        line-height: 29px;
+        border-radius: 50px;
+        font-size: larger;
+        color: white;
+    }
+
+    .pas2, .pas3, .pas4 {
+        width: 30px;
+        height: 30px;
+        background: #edeff0;
+        border-radius: 50px;
+    }
+
+    .ocultar {
+        display: none;
+    }
+</style>
+<div class="row cuadroVenta">
+    <div class="col-lg-3 col-md-6 mt-3 mb-lg-3 origen">
+        <div id="origen">
+            <span id="orgspan">ORGINEN</span>
+            <select id="org1" class="orgdest org1">
+                <option disabled="">¿De Dónde Sales?</option>
+                <option value="ACR">Acambaro Gto</option>
+                <option value="ACT">Actopan Hgo</option>
+                <option value="AEA">Aeropuerto Mty. A N.l</option>
+                <option value="CNJ">Agencia Conejo</option>
+                <option value="APS">Agua Prieta Son</option>
+                <option value="AGU2">Aguascalientes Agr. Norte</option>
+                <option value="AGU">Aguascalientes C. Autobus</option>
+                <option value="AHU">Ahuacatlán Nay</option>
+                <option value="AHT">Ahuetita</option>
+                <option value="ALL">Allende Chih</option>
+                <option value="CAO">Alvaro Obregon Chih</option>
+                <option value="ANG">Angostura Chih</option>
+                <option value="ASC">Ascención Chih</option>
+                <option value="ATA">Atlacomulco Mex</option>
+                <option value="BAC">Bachiniva Chih</option>
+                <option value="BJU">Benito Juarez Chih</option>
+                <option value="SCD">Cadereyta Jimenez N.l.</option>
+                <option value="CCA">Camargo Chih</option>
+                <option value="CGT">Camargo Tamps.</option>
+                <option value="C101">Campo 101 Chih</option>
+                <option value="CSM">Campo Seis Y Medio Chih</option>
+                <option value="CNE">Cananea Son</option>
+                <option value="CIJ">Cañada De Islas Jal</option>
+                <option value="CAS">Casas Grandes Chih</option>
+                <option value="CYA">Celaya Gto</option>
+                <option value="CHA">Chapulhuacán Hgo</option>
+                <option value="CUU">Chihuahua Central Autobus</option>
+                <option value="PIM">Chihuahua Pistolasmeneses</option>
+                <option value="ZOO">Chihuahua Zootecnia</option>
+                <option value="CHIN">China N.l.</option>
+                <option value="ATG">Ciudad Altamirano Gro</option>
+                <option value="CTO">Ciudad Cuauhtemoc Chih</option>
+                <option value="DEL">Ciudad Delicias Chih</option>
+                <option value="CGZ">Ciudad Guzman Jal</option>
+                <option value="HID">Ciudad Hidalgo Mich</option>
+                <option value="JIM">Ciudad Jimenez Chih</option>
+                <option value="CJS">Ciudad Juarez Chih</option>
+                <option value="CDM">Ciudad Mante Tamps</option>
+                <option value="MIE">Ciudad Mier Tamps.</option>
+                <option value="CEM">Ciudad Valles Slp</option>
+                <option value="CVM">Ciudad Victoria Tamps</option>
+                <option value="CIN">Col. Independencia Chih</option>
+                <option value="COL">Colima Col</option>
+                <option value="QVO">Colonia Quevedo Chih</option>
+                <option value="CLT">Colotlán Jal</option>
+                <option value="COO">Concepción Del Oro Zac</option>
+                <option value="CBC">Corral Blanco</option>
+                <option value="BEJ">Crucero Belén Jal</option>
+                <option value="CPA">Crucero Palomas Chih</option>
+                <option value="CTP">Crucero Tepatitlán Jal</option>
+                <option value="CUE">Cuencamé Dgo</option>
+                <option value="CUI">Cuitaca Son</option>
+                <option value="CUT">Cutzamala Gro</option>
+                <option value="DHI">Dolores Hidalgo Gto</option>
+                <option value="DGO">Durango Central Autobus</option>
+                <option value="EBA">Ebano Slp</option>
+                <option value="BAT">El Batán Jal</option>
+                <option value="ROD">El Rodeo Dgo</option>
+                <option value="ENC">Encarnación De Díaz Jal</option>
+                <option value="FIM">Fco. I. Madero Dgo</option>
+                <option value="FRE">Fresnillo Zac</option>
+                <option value="GAL">Galeana Chih</option>
+                <option value="VGC">Gema Cuitzeo Mich</option>
+                <option value="GBRA">General Bravo N.l.</option>
+                <option value="GFA">Gomez Farias Chih</option>
+                <option value="GOP">Gomez Palacio C. Autobus</option>
+                <option value="HAM">Gomez Palacio T. Hamburgo</option>
+                <option value="SLU">Granjas Sta. Lucia Dgo</option>
+                <option value="GDL">Guadalajara Jal</option>
+                <option value="GD1">Guadalajara Modulo 1</option>
+                <option value="AEG">Aeropuerto Gdl Jal</option>
+                <option value="GVI">Guadalupe Victoria Dgo</option>
+                <option value="GTO">Guanajuato Gto</option>
+                <option value="HA2">Hamburgo 2 Dgo</option>
+                <option value="AHG">Hidalgo Reynosa</option>
+                <option value="AHG">Hidalgo Reynosa Tamps</option>
+                <option value="HUA">Huauchinango Pue</option>
+                <option value="HUE">Huejucar Jal</option>
+                <option value="ZAR">Ignacio Zaragoza Chih</option>
+                <option value="IPO">Irapuato Gto</option>
+                <option value="IXP">Ixtapa Zihuatanejo Gro</option>
+                <option value="IXT">Ixtlan Del Rio Nay</option>
+                <option value="JGY">Jagueyes Chih</option>
+                <option value="JAP">Jalpa Zac</option>
+                <option value="JAN">Janos Chih</option>
+                <option value="JAR">Jaralillo Jal</option>
+                <option value="JER">Jerez Zac</option>
+                <option value="JSA">Jesus Aguirre</option>
+                <option value="JU2">Juan Aldama 2 Zac</option>
+                <option value="JUA">Juan Aldama Zac</option>
+                <option value="JUC">Juchipila. Zac.</option>
+                <option value="LBB">La Barca Jal</option>
+                <option value="LCM">La Copa Matamoros Tamps</option>
+                <option value="LJA">La Joya Coah</option>
+                <option value="MIN">La Mina Chih</option>
+                <option value="LPI">La Piedad Mich</option>
+                <option value="LPN">La Pinta Chih</option>
+                <option value="LQE">La Quemada Chih</option>
+                <option value="LZA">La Zarca Dgo</option>
+                <option value="LGS">Lagos De Moreno Jal</option>
+                <option value="LAG">Lagunitas Chih</option>
+                <option value="LNI">Las Nieve Dgo</option>
+                <option value="LVA">Las Varas Chih</option>
+                <option value="LAC">Lazaro Cardenas Chih</option>
+                <option value="LZC">Lazaro Cardenas Mich</option>
+                <option value="LEB">Lebaron Chih</option>
+                <option value="BJX">Leon Gto</option>
+                <option value="LOR">Loreto Zac</option>
+                <option value="LRY">Los Reyes Mich</option>
+                <option value="LMO">Luis Moya. Zac.</option>
+                <option value="ZLO">Manzanillo Col</option>
+                <option value="MVT">Maravatio Mich</option>
+                <option value="PLF">Mat. Plaza Fiesta Tamps</option>
+                <option value="MAC">Matamoros Coahuila Coah</option>
+                <option value="MAM">Matamoros. Tamps.</option>
+                <option value="MA57">Matehuala 57</option>
+                <option value="MHN">Matehuala Noreste</option>
+                <option value="MA57">Matehuala Terminal 57</option>
+                <option value="MHN">Matehuala Slp</option>
+                <option value="MLP">Matlapa Slp</option>
+                <option value="MZT">Mazatlan Sin.</option>
+                <option value="MDM">Mercado Del Mar Gdl Jal</option>
+                <option value="MTP">Metro Plaza</option>
+                <option value="MEX">Mexico Central Norte</option>
+                <option value="OBS">Mexico Observatorio</option>
+                <option value="MAL">Miguel Aleman. Tamps.</option>
+                <option value="MTY">Monterrey Central Autobus</option>
+                <option value="MTF">Monterrey Terminal Fierro</option>
+                <option value="MLM">Morelia Mich</option>
+                <option value="MRL">Moroleon Gto</option>
+                <option value="MOY">Moyahua Zac</option>
+                <option value="NOC">Nochistlán Zac</option>
+                <option value="NOG">Nogales Son</option>
+                <option value="NDI">Nombre De Dios Dgo</option>
+                <option value="NLD">Nuevo Laredo Tamps.</option>
+                <option value="OCO">Ocotlan Jal</option>
+                <option value="OJI">Ojinaga Chih</option>
+                <option value="OCN">Ojo Caliente Nte-sur Zac</option>
+                <option value="PCA">Pachuca Hgo</option>
+                <option value="PAR">Parral. Chih.</option>
+                <option value="PTC">Patzcuaro Mich</option>
+                <option value="PEB">Peña Blanca Chih</option>
+                <option value="PBC">Peñon Blanco Dgo</option>
+                <option value="SPM">Periférico Matamoro tamps</option>
+                <option value="PAZ">Poza Rica Ver</option>
+                <option value="PPA">Puerto Palomas Chih.</option>
+                <option value="QET">Queretaro Qro</option>
+                <option value="RCO">Rancho Colorado Chih</option>
+                <option value="REX">Reynosa. Tams.</option>
+                <option value="RFM">Ricardo Flores Magon. Chi</option>
+                <option value="RIB">Rio Bravo Tamps.</option>
+                <option value="RGR">Rio Grande Zac</option>
+                <option value="SAI">Sain Alto Zac</option>
+                <option value="SMX">Salamanca Gto</option>
+                <option value="SLN">Salinas Slp</option>
+                <option value="SWN">Saltillo Norte</option>
+                <option value="SLW">Saltillo Central Autobus</option>
+                <option value="SIO">Saltillo Suc. El Indio</option>
+                <option value="SAV">Salvatierra Gto</option>
+                <option value="SBV">San Buenaventura. Chih.</option>
+                <option value="SFG">San Felipe Gto Gto</option>
+                <option value="SJL">San Juan De Los Lagos jal</option>
+                <option value="LZO">San Lorenzo Chih</option>
+                <option value="SPA">San Luis De La Paz Gto</option>
+                <option value="SLP">San Luis Potosi. Slp.</option>
+                <option value="SMA">San Miguel Allende Gto</option>
+                <option value="APU">San Pedro Apulco Zac</option>
+                <option value="SMO">Santa Maria Del Oro Dgo</option>
+                <option value="SAU">Saucillo Chih</option>
+                <option value="SIL">Silao Gto</option>
+                <option value="SOM">Sombrerete Zac</option>
+                <option value="SOT">Soto Mainez Chih</option>
+                <option value="CFN">Suc Contraflujo Norte</option>
+                <option value="CZO">Suc. El Carrizo Hgo. Dgo</option>
+                <option value="MXS">Suc. Mexticacan Jal</option>
+                <option value="STZ">Suc. Tecnológico Zac</option>
+                <option value="SMOR">Sucursal Morelos</option>
+                <option value="PA2">Sucursal Parral Chih</option>
+                <option value="SCA">Sucursal Santa Catarina</option>
+                <option value="SLX">Super Lexo</option>
+                <option value="TAB">Tabasco. Zac.</option>
+                <option value="TMZ">Tamazunchale Slp</option>
+                <option value="TAH">Tamiahua Ver</option>
+                <option value="TAM">Tampico Central Autobus</option>
+                <option value="TMN">Tampico Norte Tamps</option>
+                <option value="TLE">Tampico Terminal Ejercito</option>
+                <option value="TAN">Tamuin Slp</option>
+                <option value="TEC">Tecoman Col</option>
+                <option value="TEJ">Tejupilco Mex</option>
+                <option value="TEO2">Teocaltiche 2 Jal</option>
+                <option value="TEO">Teocaltiche Jal</option>
+                <option value="TPT">Tepatitlan Jal</option>
+                <option value="TNY">Tepic Central Autobus Nay</option>
+                <option value="CLO">Tepic Terminal Colosio</option>
+                <option value="TPZ">Tepotzotlán Mex</option>
+                <option value="TEU">Teul De Glez Ortega Zac</option>
+                <option value="TLA">Tlaltenango Zac</option>
+                <option value="TLC">Toluca Mex</option>
+                <option value="TRC">Torreón Coah</option>
+                <option value="TLI">Tren Ligero Jal</option>
+                <option value="TCA">Tres Castillos. Chih.</option>
+                <option value="THG">Tula Hgo</option>
+                <option value="TUJ">Tuxpan Jalisco Jal</option>
+                <option value="TXM">Tuxpan Michoacán Mich</option>
+                <option value="TCT">Tuxpan Term. Centro Ver</option>
+                <option value="TXP">Tuxpan Veracruz</option>
+                <option value="URI">Uriangato</option>
+                <option value="UPN">Uruapan Mich</option>
+                <option value="VHT">Valle Hermoso Tamps</option>
+                <option value="VENC">Venecia Tamps.</option>
+                <option value="VGE">Vicente Guerrero Dgo</option>
+                <option value="VAH">Villa Ahumada Chih</option>
+                <option value="VOC">Villa Ocampo. Dgo</option>
+                <option value="VIL">Villanueva Zac</option>
+                <option value="VREA">Villarreales</option>
+                <option value="VIG">Villas De Guadiana Dgo</option>
+                <option value="YAH">Yahualica Jal</option>
+                <option value="YUR">Yuriria Gto</option>
+                <option value="ZCL">Zacatecas Central Autobus</option>
+                <option value="GZA">Zacatecas Trmnl Guadalupe</option>
+                <option value="ZAM">Zamora Mich</option>
+                <option value="ZPP">Zapopan Jal</option>
+                <option value="ZIH">Zihuatanejo Gro</option>
+                <option value="ZTC">Zitacuaro Mich</option>
+            </select>
+            @*<input id="org1" class="orgdest " type="text" value="MÉXICO, CENTRAL DEL NORTE" />*@
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mt-3 mb-lg-3 destino">
+        <div id="destino">
+            <span id="destspan">DESTINO</span>
+            @*<input id="dest1" class="orgdest" type="text" value="MONTERREY, CENTRAL AUTOBÚS" />*@
+            <select id="dest1" name="destinocode" class="valores orgdest">
+                <option selected="selected" disabled>¿A Dónde Viajas?</option>
+                <!-- <option value="MTY">Monterrey Nuevo Leon</option> -->
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-6 mt-3 mb-lg-3 fecha1">
+        @*<div id="fecha1"><span id="fecha">SALIDA</span><input id="datepicker" readonly="readonly" class="fechaCom"
+            type="text" value="@Model.FeSalida" /></div>*@
+        <div id="fecha1">
+            <span id="fecha">SALIDA</span>
+            <input id="datepicker" class="fechaCom" readonly="readonly" type="text" value="" />
+        </div>
+        @*<input type="hidden" id="fechaSalOculta" value="@Model.FechaSalida" />*@
+    </div>
+    <div class="col-lg-2 col-md-6 mt-3 mb-lg-3 fecha2">
+        @*<div id="fecha2"><span id="fecha">REGRESO</span><input id="datepicker2" readonly="readonly" class="fechaCom"
+            type="text" value="@Model.FeRegreso" /><i id="quitar" class="">X</i></div>*@
+        <div id="fecha2">
+            <span id="fecha">REGRESO</span>
+            <input id="datepicker2" readonly="readonly" class="fechaCom" type="text" value="" />
+            <i id="quitar" class="">X</i>
+        </div>
+        @*<input type="hidden" id="fecharegreso" value="@Model.FechaRegreso" />*@
+    </div>
+    <div class="col-lg-1 mt-3 mb-3">
+        <div id="json_post" class="buscar btn btn-dark">Buscar</div>
+    </div>
+
+</div>
+@*<div id="cuadroVenta">
+    <div id="origen"><span id="orgspan">ORGINEN</span><input class="orgdest" type="text" value="MÉXICO, CENTRAL DEL NORTE"
+    /></div>
+    <div id="destino"><span id="destspan">DESTINO</span><input class="orgdest" type="text" value="MONTERREY, CENTRAL
+    AUTOBÚS" /></div>
+
+    <div id="fecha1"><span id="fecha">SALIDA</span><input class="fechaCom" type="text" value="JUE 08 OCT 2020" /></div>
+    <div id="fecha2"><span id="fecha">REGRESO</span><input class="fechaCom" type="text" value="JUE 15 OCT 2020" /></div>
+    </div>*@
+<div style="display: none;">
+    <p id="idOrigenIata">@ViewData["OrigenIATA"]</p>
+    <p id="idDestinoIata">@ViewData["DestinoIATA"]</p>
+    <p id="idFechSalida">@ViewData["FechaSalida"]</p>
+    <p id="idFechRegreso">@ViewData["FechaRegreso"]</p>
+
+    <p id="idAdulto">@ViewData["Adulto"]</p>
+    <p id="idMenos">@ViewData["Menores"]</p>
+    <p id="idInapam">@ViewData["Inapam"]</p>
+    <p id="idEstudiante">@ViewData["Estudiantes"]</p>
+    <p id="idProfesor">@ViewData["Profesores"]</p>
+
+    <p id="idConPas1">@ViewData["Consecutivo"]</p>
+    <p id="idConPas2">@ViewData["ConsPas2"]</p>
+</div>
+
+
+@*<p>Consecutivo: @ViewData["Consecutivo"]</p>
+    <p>Consecutivo: @ViewBag.Consecutivo</p>*@
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-lg-2 diasform">
+            <p id="fe1">MIE 07 OCT</p>
+        </div>
+        <div class="col-lg-2 diasform">
+            <p id="fe2">JUE 08 OCT</p>
+        </div>
+        <div class="col-lg-2 diasform">
+            <p id="fe3">VIE 09 OCT</p>
+        </div>
+        <div class="col-lg-2 diasform">
+            <p id="fe4">SAB 10 OCT</p>
+        </div>
+        <div class="col-lg-2 diasform">
+            <p id="fe5">DOM 11 OCT</p>
+        </div>
+    </div>
+</div>
+
+<div id="cronos" class="container">
+    <div class="row">
+        <div class="col align-self-center">
+            <p><span id="minute">05</span>:<span id="second">00</span></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row contpaso1">
+    <div class="pasos">
+        <div class="bus"><i class="fas fa-bus-alt"></i></div>
+        <div class="pas1">1</div>
+        <div class="linea"></div>
+        <div class="pas2"></div>
+        <div class="linea"></div>
+        <div class="pas3"></div>
+        <div class="linea"></div>
+        <div class="pas4"></div>
+    </div>
+    <div class="col-lg-3">
+        @*<div id="todos" class="diasform horarioform inactive">*@
+        <div id="todos" class="inactive">
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">TODOS</h4>
+        </div>
+        <div id="madrugada" class="inactive">
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">MADRUGADA</h4>
+        </div>
+        <div id="dia" class="inactive">
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">MAÑANA</h4>
+        </div>
+        <div id="tarde" class="inactive">
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">TARDE</h4>
+        </div>
+        <div id="noche" class="inactive">
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">NOCHE</h4>
+        </div>
+    </div>
+    @*//////////////// TARJETAS DINAMICAS VIAJE SENCILLO ///////////////////////*@
+    <div id="tarjetas1" class="col-lg-8 ">
+       
+    </div>
+    @*//////////////// TARJETAS DINAMICAS VIAJE REDONDO ///////////////////////*@
+    <div id="tarjetas2" style="display: none;" class="col-lg-8">
+        
+    </div>
+
+    <div id="cargando" class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+
+<div style="display: none;">
+    <form name="paso2" method="POST" action="Paso2">
+        @*///// DATOS DEL FORMULARIO INICIAL /////*@
+        <input id="adulto" name="adulto" type="hidden" value="@ViewData["Adulto"]">
+        <input id="menores" name="menores" type="hidden" value="@ViewData["Menores"]">
+        <input id="senectud" name="senectud" type="hidden" value="@ViewData["Inapam"]">
+        <input id="estudiantes" name="estudiantes" type="hidden" value="@ViewData["Estudiantes"]">
+        <input id="profesores" name="profesores" type="hidden" value="@ViewData["Profesores"]">
+
+        <input id="origencode" name="origencode" type="hidden" value="">
+        <input id="origCompleto" name="origCompleto" type="hidden" value="">
+
+
+        <input id="destinocode" name="destinocode" type="hidden" value="">
+        <input id="destCompleto" name="destCompleto" type="hidden" value="">
+
+        <input id="fechasalida" name="fechasalida" type="hidden" value="">
+        <input id="fecharegreso" name="fecharegreso" type="hidden" value="">
+
+        @*//// DATOS DE VIAJE SALIDA /////*@
+        <input id="logoEmpresaSalida" type="hidden" value="">
+        <input id="logoServImgSalida" type="hidden" value="">
+
+        <input id="pE_nClaveCorrida" name="pE_nClaveCorrida" type="hidden" value="">
+        <input id="pE_aFechaSalidaInicioCorrida" name="pE_aFechaSalidaInicioCorrida" type="hidden" value="">
+
+        <input id="pE_aFechaBoleto" name="pE_aFechaBoleto" type="hidden" value="">
+        <input id="pE_hHoraSalidaBoleto" name="pE_hHoraSalidaBoleto" type="hidden" value="">
+
+        <input id="FechaLlegadaSalida" name="FechaLlegadaSalida" type="hidden" value="">
+        <input id="HoraLlegadaSalida" name="HoraLlegadaSalida" type="hidden" value="">
+
+        <input id="pE_CorridaEmpresa" name="pE_CorridaEmpresa" type="hidden" value="">
+
+        @*///// DATOS DE VIAJE REGRESO //////*@
+        <input id="logoEmpresaRegreso" type="hidden" value="">
+        <input id="logoServImgRegreso" type="hidden" value="">
+
+        <input id="pE_nClaveCorridaRegreso" name="pE_nClaveCorridaRegreso" type="hidden" value="">
+        <input id="pE_aFechaSalidaInicioCorridaRegr" name="pE_aFechaSalidaInicioCorridaRegr" type="hidden" value="">
+
+        <input id="pE_aFechaBoletoRegreso" name="pE_aFechaBoletoRegreso" type="hidden" value="">
+        <input id="pE_hHoraSalidaBoletoRegreso" name="pE_hHoraSalidaBoletoRegreso" type="hidden" value="">
+
+        <input id="FechaLlegadaRegreso" name="FechaLlegadaRegreso" type="hidden" value="">
+        <input id="HoraLlegadaRegreso" name="HoraLlegadaRegreso" type="hidden" value="">
+
+        <input id="pE_CorridaEmpresaRegreso" name="pE_CorridaEmpresaRegreso" type="hidden" value="">
+
+        @* /// DATOS COMPARTIDOS ///*@
+        <input id="consPas2" name="consPas2" type="hidden" value="">
+        <input id="pE_nControlCache" name="pE_nControlCache" type="hidden" value="1">
+
+        <button type="submit">Envíe su mensaje</button>
+    </form>
+</div>
+
+<!--<button id="carga_ajax">Carga contenido</button>
+<button id="json_get">Request JSON GET</button>-->
+@*<button id="json_post">Request JSON POST</button>*@
+<!--<div id="mensaje"></div>
+<div id="loading">cargando...</div>-->
+
+<script>
+    /////////////// CREAR SECION ///////////
+
+    (async () => {
+        let data = JSON.parse('{"pE_aModo":"1" }');
+        const rawResponse = await fetch(
+            "http://webq.odm.com.mx/WSVentaWeb/api/CrearSesion",
+            {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            }
+        );
+        const content = await rawResponse.json();
+
+        const datos = content;
+        let consApi = document.getElementById('idConPas1');
+        miConsecutivo = datos.sesion.pS_nConsecutivo;
+        consApi.innerHTML = datos.sesion.pS_nConsecutivo;
+        @* console.log(datos.sesion.pS_nConsecutivo);*@
+
+
+    })();
+</script>
+
+<script>setTimeout(function () {
+        $("#org1").select2();
+        $("#dest1").select2();
+
+    }, 1200);</script>
+
+<script>
+    let destinos = document.getElementById('dest1');
+
+    function cargarDestino(org) {
+
+        fetch(`enlistado/destinos48/${org}.json`)
+        .then(respuesta => respuesta.json())
+            .then(datos => {
+                @*console.log(datos);*@
+                for (item of datos) {
+
+                    @*console.log(item.id);*@
+                    destinos.innerHTML += `<option value="${item.id}">${item.value}</option>`;
+                }
+
+            })
+    }
+    @*cargarDestino();*@
+</script>
+
+<script>
+
+    const resultado = document.querySelector('#tarjetas1');
+    const btnBuscar = document.querySelector('#json_post');
+    const esperando = document.getElementById('cargando');
+
+
+    window.addEventListener('load', () => {
+        btnBuscar.addEventListener('click', buscarCorrida);
+    });
+
+    /////////// IMPORTANTE ENVIO DE DATOS ///////////////////////
+
+    function buscarCorrida(e) {
+
+         origen = document.querySelector('#org1').value;
+         origenCom = $("#org1 option:selected").text();
+         destino = document.querySelector('#dest1').value;
+         destinoCom = $("#dest1 option:selected").text();
+         fechSalida = formFechaSalApi;
+         fechRegreso = formFechaRegApi;
+
+        console.log('origen: ' + origen);
+        console.log('origenComleto: ' + origenCom);
+        console.log('destino: ' + destino);
+        console.log('destinoComleto: ' + destinoCom);
+        console.log('fechSalida: ' + fechSalida);
+        console.log('fechRegreso: ' + fechRegreso);
+        // Validar
+
+
+
+        // Consultar API
+
+
+        console.log('Buscando corrida');
+    }
+    /////////////////////////////////////////////////////////////
+
+    let datos = document.getElementById('tarjetas1');
+    var loading = document.getElementById("cargando");
+
+
+        var boton = document.getElementById('json_post');
+        boton.addEventListener('click', function () {
+            loading.style.display = 'block';
+
+            adultos = document.getElementById('idAdulto').innerHTML;
+            menores = document.getElementById('idMenos').innerHTML;
+            inapam = document.getElementById('idInapam').innerHTML;
+            estudiantes = document.getElementById('idEstudiante').innerHTML;
+            profesores = document.getElementById('idProfesor').innerHTML;
+
+            consApi2 = $('#idConPas1').text();
+            origen = document.querySelector('#org1').value;
+            destino = document.querySelector('#dest1').value;
+            fechSalida = formFechaSalApi;
+
+            console.log('Mi A: ' + adultos);
+            console.log('Mi M: ' + menores);
+            console.log('Mi I: ' + inapam);
+            console.log('Mi E: ' + estudiantes);
+            console.log('Mi P: ' + profesores);
+            console.log('Mi Consecutivo: ' + consApi2);
+            console.log('Mi origen: ' + origen);
+            console.log('Mi destino: ' + destino);
+            console.log('Mi Fecha Salida: ' + fechSalida);
+            datos.innerHTML = ''; ///// LIMPIA EL HTML
+            (async () => {
+                var data = JSON.parse(`{  "pE_aOrigen": "${origen}",
+                                  "pE_aDestino": "${destino}",
+                                  "pE_aFecha": "${fechSalida}",
+                                  "pE_nAdultos": ${adultos},
+                                  "pE_nInsen": ${inapam},
+                                  "pE_nNinos": ${menores},
+                                  "pE_nEstudiantes": ${estudiantes},
+                                  "pE_nMaestro": ${profesores},
+                                  "pE_aViajeRedondo": "V1",
+                                  "pE_nModo": 1,
+                                  "pS_nConsecutivo":${consApi2},
+                                  "pS_nActualizaPasajeros":1}`);
+
+                const rawResponse = await fetch(
+                    "http://webq.odm.com.mx/WSVentaWeb/api/RecuperaCorridas",
+                    {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    }
+                );
+                const content = await rawResponse.json();
+                loading.style.display = "none";
+
+
+                arrayHorarios = [];
+                let arr = [1, 2, 3];
+                let autoinc = 1;
+
+                for (item2 of content.Corridas) {
+
+                    //// PARA CHECAR EL SERVICIO
+                    let empresa = item2.EmpresaCorrida;
+                    let logoEmpresa = '';
+                    let tipoBus = item2.TipoAutobus;
+
+                    let servicio = item2.ClaveServicio;
+                    let logoServImg = '';
+
+                    if (servicio == 'SERVICIO PLUS' || servicio == 'PLUS NORESTE' || tipoBus == 'Doble') {
+                        logoServImg = 'resources/servplus.png';
+                    }
+
+                    if (servicio == 'PRIMERA') {
+                        logoServImg = 'resources/servprimclas.png';
+                    }
+
+                    if (servicio == 'PRIMERA EQUIPADO' || servicio == 'PRIMERA NORESTE' || servicio == 'ECONOMICO NORESTE') {
+                        logoServImg = 'resources/servprimclasequip.png';
+                    }
+                    if (servicio == 'PRIMERA BASICO') {
+                        logoServImg = 'resources/servbasic.png';
+                    }
+
+
+                    /// PARA PONER EL LOGO DE LA EMPRESA
+
+
+
+
+                    if (servicio == 'SERVICIO PLUS' && empresa == '007') {
+                        logoEmpresa = 'logos_servicios/logoODMplus.svg';
+                    }
+                    if (servicio == 'SERVICIO PLUS' && empresa == '067') {
+                        logoEmpresa = 'logos_servicios/tapPlus.svg';
+
+                        @*alert(empresa);*@
+                    }
+                    if (servicio == 'PRIMERA EQUIPADO') {
+                        logoEmpresa = 'logos_servicios/odm1ce.svg';
+                    }
+                    if (servicio == 'PRIMERA') {
+                        logoEmpresa = 'logos_servicios/odm1c.svg';
+                    }
+                    if (servicio == 'PLUS NORESTE' || servicio == 'ECONOMICO NORESTE') {
+                        logoEmpresa = 'logos_servicios/noreste.svg';
+                    }
+                    if (servicio == 'PRIMERA BASICO') {
+                        logoEmpresa = 'logos_servicios/odm1pb.svg';
+                    }
+                    if (tipoBus == 'Doble') {
+                        logoEmpresa = 'logos_servicios/odmDoblePiso.svg';
+
+                        @*alert(tipoBus);*@
+                    }
+
+                    arrayHorarios.push(item2.HoraSalida);
+
+                    var hoursMinutes = item2.HoraSalida.split(/[.:]/);
+                    var hours = parseInt(hoursMinutes[0], 10);
+                    var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+                    var fechaDec = hours + minutes / 60;
+                    var classHorario = '';
+                    if (fechaDec < 7) {
+                        console.log('Horarios en la madrugada: ' + item2.HoraSalida);
+                        classHorario = 'classmadru';
+                    }
+
+                    if (fechaDec >= 7 && fechaDec < 12) {
+                        console.log('Horarios en la mañana: ' + item2.HoraSalida);
+                        classHorario = 'classdia';
+                    }
+                    if (fechaDec >= 12 && fechaDec < 19) {
+                        console.log('Horarios en la tarde: ' + item2.HoraSalida);
+                        classHorario = 'classtarde';
+                    }
+                    if (fechaDec >= 19 && fechaDec <= 23.983333333333334) {
+                        console.log('Horarios en la noche: ' + item2.HoraSalida);
+                        classHorario = 'classnoche';
+                    }
+
+
+                    if (item2.FechaSalidaInicio == "0") {
+                        datos.innerHTML =`<h3>No se encontraron horarios para esa corrida.</h3>`
+                    } else {
+                                const formatter = new Intl.NumberFormat('en-US', {
+                                    style: 'currency',
+                                    currency: 'USD',
+                                    minimumFractionDigits: 2
+                                })
+
+                        let tarifaForMoneda = formatter.format(item2.Tarifa);
+                        let TarifaPromoMoneda = formatter.format(item2.TarifaPromo);
+
+                        datos.innerHTML += `
+                                    <h4>SALIDA</h4>
+                                    <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
+                                        <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                            <span class="descuento">-10%</span>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-lg-5 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">ORIGEN</p>
+                                                    <p id="origenCom_${autoinc}">${origenCom}</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">DESTINO</p>
+                                                    <p id="destinoCom_${autoinc}">${destinoCom}</p>
+                                                </div>
+
+                                                <div class="col-lg-5 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">SALIDA</p>
+                                                    <p id="FechaSalidaInicio_${autoinc}" style="margin: 0px;">${item2.FechaSalidaInicio}</p>
+                                                    <p id="HoraSalida_${autoinc}">${item2.HoraSalida} HRS</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">LLEGADA</p>
+                                                    <p id="FechaLlegada_${autoinc}" style="margin: 0px;">${item2.FechaLlegada}</p>
+                                                    <p id="HoraLlegada_${autoinc}">${item2.HoraLlegada} HRS</p>
+                                                </div>
+
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 50%;" src="${logoServImg}" /></div>
+                                                <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
+                                                    <span class="taquilla">${tarifaForMoneda}</span>
+                                                    <span class="internet">${TarifaPromoMoneda}</span>
+                                                    <span id="enviarSalida_${autoinc}" class="elegir" onclick="enviarDatosSalida(this);">ELEGIR</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                              <input id="logoEmpresaSalida_${autoinc}" type="hidden" value="${logoEmpresa}">
+                                              <input id="logoServImgSalida_${autoinc}" type="hidden" value="${logoServImg}">
+
+                                              <input id="pE_nClaveCorrida_${autoinc}" type="hidden" value="${item2.claveCorrida}">
+                                              <input id="pE_aFechaSalidaInicioCorrida_${autoinc}" type="hidden" value="${item2.FechaSalidaInicio}">
+                                              <input id="pE_aFechaBoleto_${autoinc}" type="hidden" value="${item2.FechaSalidaBoleto}">
+                                              <input id="pE_hHoraSalidaBoleto_${autoinc}" type="hidden" value="${item2.HoraSalida}">
+                                              <input id="pE_CorridaEmpresa_${autoinc}" type="hidden" value="${item2.EmpresaCorrida}">
+                                              <input id="pE_nConsecutivo_${autoinc}" type="hidden" value="${consApi2}">
+                                              
+                                    </div>`;
+
+                    }
+
+                    autoinc++
+                    @*console.log(autoinc);*@
+                }
+
+                @*console.log(arrayHorarios);*@
+                filtroHorarios(arrayHorarios);
+
+            })();
+
+
+        });
+</script>
+
+@* CONSULTA VIAJE REDONDO *@
+<script>
+    function viajeRedondo() {
+        /////////////////////////////////////////////////////////////
+
+        let datos = document.getElementById('tarjetas2');
+        var loading = document.getElementById("cargando");
+
+        //// fecha de regreso
+        let feSeleccion = $("#datepicker2").val();
+        var arrayDeCadenas = feSeleccion.split(" ");
+
+        var yearSelec = arrayDeCadenas[0];
+        var mesSelec = arrayDeCadenas[1];
+        var diaSelec = arrayDeCadenas[2];
+
+
+        var arrayMes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        var buscarMes = mesSelec;
+        var result = arrayMes.indexOf(buscarMes);
+
+        var mesNum = result + 1;
+        if (mesNum < 10) {
+            mesNum = '0' + mesNum;
+        }
+        feSelec = diaSelec + '-' + mesNum + '-' + yearSelec;
+
+        formFechaRegApi = yearSelec + '/' + mesNum + '/' + diaSelec;
+        //////
+
+
+            loading.style.display = 'block';
+
+            adultos = document.getElementById('idAdulto').innerHTML;
+            menores = document.getElementById('idMenos').innerHTML;
+            inapam = document.getElementById('idInapam').innerHTML;
+            estudiantes = document.getElementById('idEstudiante').innerHTML;
+            profesores = document.getElementById('idProfesor').innerHTML;
+
+            consApi2 = $('#idConPas1').text();
+            origen = document.querySelector('#org1').value;
+            destino = document.querySelector('#dest1').value;
+            fechSalida = formFechaSalApi;
+
+            console.log('Mi A: ' + adultos);
+            console.log('Mi M: ' + menores);
+            console.log('Mi I: ' + inapam);
+            console.log('Mi E: ' + estudiantes);
+            console.log('Mi P: ' + profesores);
+            console.log('Mi Consecutivo: ' + consApi2);
+            console.log('Mi origen: ' + origen);
+            console.log('Mi destino: ' + destino);
+            console.log('Mi Fecha Salida: ' + fechSalida);
+            datos.innerHTML = ''; ///// LIMPIA EL HTML
+            (async () => {
+                var data = JSON.parse(`{  "pE_aOrigen": "${destino}",
+                                  "pE_aDestino": "${origen}",
+                                  "pE_aFecha": "${formFechaRegApi}",
+                                  "pE_nAdultos": ${adultos},
+                                  "pE_nInsen": ${inapam},
+                                  "pE_nNinos": ${menores},
+                                  "pE_nEstudiantes": ${estudiantes},
+                                  "pE_nMaestro": ${profesores},
+                                  "pE_aViajeRedondo": "V2",
+                                  "pE_nModo": 1,
+                                  "pS_nConsecutivo":${consApi2},
+                                  "pS_nActualizaPasajeros":1}`);
+
+                const rawResponse = await fetch(
+                    "http://webq.odm.com.mx/WSVentaWeb/api/RecuperaCorridas",
+                    {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    }
+                );
+                const content = await rawResponse.json();
+                loading.style.display = "none";
+
+
+                arrayHorarios2 = [];
+                let arr = [1, 2, 3];
+                let autoinc = 1;
+
+                for (item2 of content.Corridas) {
+
+                    //// PARA CHECAR EL SERVICIO
+                    let empresa = item2.EmpresaCorrida;
+                    let logoEmpresa = '';
+                    let tipoBus = item2.TipoAutobus;
+
+                    let servicio = item2.ClaveServicio;
+                    let logoServImg = '';
+
+                    if (servicio == 'SERVICIO PLUS' || servicio == 'PLUS NORESTE' || tipoBus == 'Doble') {
+                        logoServImg = 'resources/servplus.png';
+                    }
+
+                    if (servicio == 'PRIMERA') {
+                        logoServImg = 'resources/servprimclas.png';
+                    }
+
+                    if (servicio == 'PRIMERA EQUIPADO' || servicio == 'PRIMERA NORESTE' || servicio == 'ECONOMICO NORESTE') {
+                        logoServImg = 'resources/servprimclasequip.png';
+                    }
+                    if (servicio == 'PRIMERA BASICO') {
+                        logoServImg = 'resources/servbasic.png';
+                    }
+
+
+                    /// PARA PONER EL LOGO DE LA EMPRESA
+
+
+
+
+                    if (servicio == 'SERVICIO PLUS' && empresa == '007') {
+                        logoEmpresa = 'logos_servicios/logoODMplus.svg';
+                    }
+                    if (servicio == 'SERVICIO PLUS' && empresa == '067') {
+                        logoEmpresa = 'logos_servicios/tapPlus.svg';
+
+                        @* alert(empresa);*@
+                    }
+                    if (servicio == 'PRIMERA EQUIPADO') {
+                        logoEmpresa = 'logos_servicios/odm1ce.svg';
+                    }
+                    if (servicio == 'PRIMERA') {
+                        logoEmpresa = 'logos_servicios/odm1c.svg';
+                    }
+                    if (servicio == 'PLUS NORESTE' || servicio == 'ECONOMICO NORESTE') {
+                        logoEmpresa = 'logos_servicios/noreste.svg';
+                    }
+                    if (servicio == 'PRIMERA BASICO') {
+                        logoEmpresa = 'logos_servicios/odm1pb.svg';
+                    }
+                    if (tipoBus == 'Doble') {
+                        logoEmpresa = 'logos_servicios/odmDoblePiso.svg';
+
+                        @* alert(tipoBus);*@
+                    }
+
+                    arrayHorarios2.push(item2.HoraSalida);
+
+                    var hoursMinutes = item2.HoraSalida.split(/[.:]/);
+                    var hours = parseInt(hoursMinutes[0], 10);
+                    var minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+                    var fechaDec = hours + minutes / 60;
+                    var classHorario = '';
+                    if (fechaDec < 7) {
+                        console.log('Horarios en la madrugada: ' + item2.HoraSalida);
+                        classHorario = 'classmadru';
+                    }
+
+                    if (fechaDec >= 7 && fechaDec < 12) {
+                        console.log('Horarios en la mañana: ' + item2.HoraSalida);
+                        classHorario = 'classdia';
+                    }
+                    if (fechaDec >= 12 && fechaDec < 19) {
+                        console.log('Horarios en la tarde: ' + item2.HoraSalida);
+                        classHorario = 'classtarde';
+                    }
+                    if (fechaDec >= 19 && fechaDec <= 23.983333333333334) {
+                        console.log('Horarios en la noche: ' + item2.HoraSalida);
+                        classHorario = 'classnoche';
+                    }
+
+
+                    if (item2.FechaSalidaInicio == "0") {
+                        datos.innerHTML = `<h3>No se encontraron horarios para esa corrida.</h3>`
+                    } else {
+                        const formatter = new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                            minimumFractionDigits: 2
+                        })
+
+                        let tarifaForMoneda = formatter.format(item2.Tarifa);
+                        let TarifaPromoMoneda = formatter.format(item2.TarifaPromo);
+
+                        datos.innerHTML += `
+                                    <h4>REGRESO</h4>
+                                    <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
+                                        <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                            <span class="descuento">-10%</span>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-lg-5 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">ORIGEN</p>
+                                                    <p id="origenComReg_${autoinc}">${destinoCom}</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">DESTINO</p>
+                                                    <p id="destinoComReg_${autoinc}">${origenCom}</p>
+                                                </div>
+
+                                                <div class="col-lg-5 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">SALIDA</p>
+                                                    <p id="FechaSalidaInicioReg_${autoinc}" style="margin: 0px;">${item2.FechaSalidaInicio}</p>
+                                                    <p id="HoraSalidaReg_${autoinc}">${item2.HoraSalida} HRS</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">LLEGADA</p>
+                                                    <p id="FechaLlegadaReg_${autoinc}" style="margin: 0px;">${item2.FechaLlegada}</p>
+                                                    <p id="HoraLlegadaReg_${autoinc}">${item2.HoraLlegada} HRS</p>
+                                                </div>
+
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 50%;" src="${logoServImg}" /></div>
+                                                <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
+                                                    <span class="taquilla">${tarifaForMoneda}</span>
+                                                    <span class="internet">${TarifaPromoMoneda}</span>
+                                                    <span id="enviarSalidaReg_${autoinc}" class="elegir" onclick="enviarDatosRegreso(this);">ELEGIR</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                              <input id="logoEmpresaRegreso_${autoinc}" type="hidden" value="${logoEmpresa}">
+                                              <input id="logoServImgRegreso_${autoinc}" type="hidden" value="${logoServImg}">
+
+                                              <input id="pE_nClaveCorridaRegreso_${autoinc}" type="hidden" value="${item2.claveCorrida}">
+                                              <input id="pE_aFechaSalidaInicioCorridaRegr_${autoinc}" type="hidden" value="${item2.FechaSalidaInicio}">
+                                              <input id="pE_aFechaBoletoRegreso_${autoinc}" type="hidden" value="${item2.FechaSalidaBoleto}">
+                                              <input id="pE_hHoraSalidaBoletoRegreso_${autoinc}" type="hidden" value="${item2.HoraSalida}">
+                                              <input id="FechaLlegadaRegreso_${autoinc}" type="hidden" value="${item2.FechaLlegada}">
+                                              <input id="HoraLlegadaRegreso_${autoinc}" type="hidden" value="${item2.HoraLlegada}">
+                                              <input id="pE_CorridaEmpresaRegreso_${autoinc}" type="hidden" value="${item2.EmpresaCorrida}">
+                                              <input id="pE_nConsecutivo_${autoinc}" type="hidden" value="${consApi2}">
+                                    </div>`;
+
+                    }
+
+                    autoinc++
+                    @* console.log(autoinc);*@
+                }
+
+                @* console.log(arrayHorarios);*@
+                filtroHorariosReg(arrayHorarios);
+
+            })();
+    }
+</script>
+<script>
+    window.addEventListener('click', function (e) {
+        let todos = document.getElementById('todos');
+        let madru = document.getElementById('madrugada');
+        let dia = document.getElementById('dia');
+        let tard = document.getElementById('tarde');
+        let noch = document.getElementById('noche');
+
+
+        //////// SI EL ARREGLO NO ESTA DEFINIDO ///////////
+
+        if (typeof arrayHorarios === 'undefined') {
+            // se ejecutan estas instrucciones
+            @*return console.log('SELECCIONA UNA CORRIDA');*@
+        }
+
+        for (item of arrayHorarios) {
+
+            @*console.log('Mi arreglo: ' + item);*@
+            if (item == '0') {
+                @*return console.log('SELECCIONA UNA CORRIDA 2');*@
+            }
+        }
+        ///////////////////
+
+        if (document.getElementById('todos').contains(e.target)) {
+            console.log('Diste click en todos');
+
+            if (todos.className === 'active') {
+                todos.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            } else {
+                todos.className = 'active';
+                madru.className = 'inactive';
+                dia.className = 'inactive';
+                tard.className = 'inactive';
+                noch.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            }
+
+        }
+        ///////////////////
+
+        if (document.getElementById('madrugada').contains(e.target)) {
+            console.log('Diste click en madrugada');
+
+            if (madru.className === 'active') {
+                madru.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+
+            } else {
+                madru.className = 'active';
+                todos.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            }
+        }
+
+        ///////////////////
+
+        if (document.getElementById('dia').contains(e.target)) {
+            console.log('Diste click en dia');
+
+            if (dia.className === 'active') {
+                dia.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            } else {
+                dia.className = 'active';
+                todos.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            }
+        }
+
+        ///////////////////
+
+        if (document.getElementById('tarde').contains(e.target)) {
+            console.log('Diste click en tarde');
+
+            if (tard.className === 'active') {
+                tard.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            } else {
+                tard.className = 'active';
+                todos.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            }
+        }
+
+        ///////////////////
+
+
+        if (document.getElementById('noche').contains(e.target)) {
+            console.log('Diste click en noche');
+
+            if (noch.className === 'active') {
+                noch.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            } else {
+                noch.className = 'active';
+                todos.className = 'inactive';
+                filtroHorarios(arrayHorarios);
+                filtroHorariosReg(arrayHorarios);
+            }
+        }
+
+        ///////////////////
+    });
+
+
+</script>
+@* //////////// FILTRAR HORARIOS SALIDA //////////////////// *@
+<script>
+    function filtroHorarios(arregloHorarios) {
+
+        let todos = document.getElementById('todos');
+        let madru = document.getElementById('madrugada');
+        let dia = document.getElementById('dia');
+        let tard = document.getElementById('tarde');
+        let noch = document.getElementById('noche');
+
+        let argHorarios = arregloHorarios;
+
+        let todosActivo = true;
+        let madruActivo = true;
+        let diaActivo = true;
+        let tardActivo = true;
+        let nochActivo = true;
+
+        var container = document.querySelector('#tarjetas1');
+        var madrugadaClass = container.querySelectorAll('div.classmadru');
+        var diaClass = container.querySelectorAll('div.classdia');
+        var tardeClass = container.querySelectorAll('div.classtarde');
+        var nocheClass = container.querySelectorAll('div.classnoche');
+
+
+        ///////////////////
+
+            if (todos.className === 'active') {
+                todosActivo = true;
+
+            } else {
+                todosActivo = false;
+            }
+
+        ///////////////////
+
+
+
+            if (madru.className === 'active') {
+                madruActivo = true;
+
+                madrugadaClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: block');
+                });
+
+                @*console.log(madrugadaClass);*@
+
+            } else {
+                madruActivo = false;
+                madrugadaClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: none');
+                });
+            }
+
+        ///////////////////
+
+
+            if (dia.className === 'active') {
+                diaActivo = true;
+                diaClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: block');
+                });
+            } else {
+                diaActivo = false;
+                diaClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: none');
+                });
+            }
+
+
+        ///////////////////
+
+
+            if (tard.className === 'active') {
+                tardActivo = true;
+                tardeClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: block');
+                });
+            } else {
+                tardActivo = false;
+                tardeClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: none');
+                });
+            }
+
+        ///////////////////
+
+            if (noch.className === 'active') {
+                nochActivo = true;
+                nocheClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: block');
+                });
+            } else {
+                nochActivo = false;
+                nocheClass.forEach(function (userItem) {
+                    userItem.setAttribute('style', 'display: none');
+                });
+            }
+
+        ///////////////////
+
+        if (todosActivo === false && madruActivo === false && diaActivo === false && tardActivo === false && nochActivo == false) {
+
+            console.log('todo es falso');
+            madrugadaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            diaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            tardeClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            nocheClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+        }
+
+        if (todosActivo === true) {
+
+            madrugadaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            diaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            tardeClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            nocheClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+        }
+
+        console.log(todosActivo);
+        console.log(madruActivo);
+        console.log(diaActivo);
+        console.log(tardActivo);
+        console.log(nochActivo);
+
+
+
+        console.log(argHorarios);
+    }
+</script>
+
+@* //////////// FILTRAR HORARIOS REGRESO //////////////////// *@
+
+
+<script>
+    function filtroHorariosReg(arregloHorarios) {
+
+        let todos = document.getElementById('todos');
+        let madru = document.getElementById('madrugada');
+        let dia = document.getElementById('dia');
+        let tard = document.getElementById('tarde');
+        let noch = document.getElementById('noche');
+
+        let argHorarios = arregloHorarios;
+
+        let todosActivo = true;
+        let madruActivo = true;
+        let diaActivo = true;
+        let tardActivo = true;
+        let nochActivo = true;
+
+        var container = document.querySelector('#tarjetas2');
+        var madrugadaClass = container.querySelectorAll('div.classmadru');
+        var diaClass = container.querySelectorAll('div.classdia');
+        var tardeClass = container.querySelectorAll('div.classtarde');
+        var nocheClass = container.querySelectorAll('div.classnoche');
+
+
+        ///////////////////
+
+        if (todos.className === 'active') {
+            todosActivo = true;
+
+        } else {
+            todosActivo = false;
+        }
+
+        ///////////////////
+
+
+
+        if (madru.className === 'active') {
+            madruActivo = true;
+
+            madrugadaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            @* console.log(madrugadaClass);*@
+
+            } else {
+            madruActivo = false;
+            madrugadaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: none');
+            });
+        }
+
+        ///////////////////
+
+
+        if (dia.className === 'active') {
+            diaActivo = true;
+            diaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+        } else {
+            diaActivo = false;
+            diaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: none');
+            });
+        }
+
+
+        ///////////////////
+
+
+        if (tard.className === 'active') {
+            tardActivo = true;
+            tardeClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+        } else {
+            tardActivo = false;
+            tardeClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: none');
+            });
+        }
+
+        ///////////////////
+
+        if (noch.className === 'active') {
+            nochActivo = true;
+            nocheClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+        } else {
+            nochActivo = false;
+            nocheClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: none');
+            });
+        }
+
+        ///////////////////
+
+        if (todosActivo === false && madruActivo === false && diaActivo === false && tardActivo === false && nochActivo == false) {
+
+            console.log('todo es falso');
+            madrugadaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            diaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            tardeClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            nocheClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+        }
+
+        if (todosActivo === true) {
+
+            madrugadaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            diaClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            tardeClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+
+            nocheClass.forEach(function (userItem) {
+                userItem.setAttribute('style', 'display: block');
+            });
+        }
+
+        console.log(todosActivo);
+        console.log(madruActivo);
+        console.log(diaActivo);
+        console.log(tardActivo);
+        console.log(nochActivo);
+
+
+
+        console.log(argHorarios);
+    }
+</script>
+
+
+@*ENVIA LOS DATOS SALIDA AL PASO 2 *@
+<script>
+    function enviarDatosSalida(b) {
+        let valId = b.id;
+        let id = valId.split("_");
+        var valor = id[1];
+        console.log('Mi Id para de tar: ' + valor);
+
+
+        origen = document.querySelector('#org1').value;
+        origenCom = $("#org1 option:selected").text();
+        destino = document.querySelector('#dest1').value;
+        destinoCom = $("#dest1 option:selected").text();
+        fechSalida = formFechaSalApi;
+
+        fechRegreso = $("#datepicker2").val();//formFechaRegApi;
+
+        fechRegreso = fechRegreso.split(" ");
+
+        fechdiaReg = fechRegreso[0];
+        fechmesReg = fechRegreso[1];
+        fechyearReg = fechRegreso[2];
+
+        var arrayMes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        var buscarMes = fechmesReg;
+        var result = arrayMes.indexOf(buscarMes);
+
+        var mesNumReg = result + 1;
+
+        if (mesNumReg < 10) {
+
+            mesNumReg = '0' + mesNumReg
+        }
+
+        var feSelecReg = fechdiaReg + '/' + mesNumReg + '/' + fechyearReg;
+
+
+
+        if (feSelecReg == '/00/undefined') {
+
+            feSelecReg = '_';
+        }
+        console.log(feSelecReg);
+
+        /*
+        <input id="origencode" name="origencode" type="hidden" value="">
+        <input id="destinocode" name="destinocode" type="hidden" value="">
+        <input id="fechasalida" name="fechasalida" type="hidden" value="">
+        <input id="fecharegreso" name="fecharegreso" type="hidden" value="">
+        <input id="logoEmpresaRegreso_${autoinc}" type="hidden" value="${logoEmpresa}">
+        <input id="logoServImgRegreso_${autoinc}" type="hidden" value="${logoServImg}">
+        */
+
+        $('#origencode').val(origen);
+        $('#destinocode').val(destino);
+        $('#fechasalida').val(fechSalida);
+        $('#fecharegreso').val(feSelecReg);
+
+        let logoEmpresaSalida = 'logoEmpresaSalida_' + valor;
+        let logoServImgSalida = 'logoServImgSalida_' + valor;
+
+        let dato1 = 'pE_nClaveCorrida_'+valor;
+        let dato2 = 'pE_aFechaSalidaInicioCorrida_'+valor;
+        let dato3 = 'pE_aFechaBoleto_'+valor;
+        let dato4 = 'pE_hHoraSalidaBoleto_'+valor;
+        let dato5 = 'pE_nClaveCorridaRegreso_'+valor;
+
+        let dato9 = 'pE_CorridaEmpresa_'+valor;
+
+        let dato11 = 'pE_nConsecutivo_'+valor;
+
+
+        let dato13 = 'FechaSalidaInicio_' + valor; ///////////---------------------------------------------
+        let dato14 = 'HoraSalida_' + valor;
+        let dato15 = 'FechaLlegada_' + valor;
+        let dato16 = 'HoraLlegada_' + valor;
+
+        let dato17 = 'origenCom_' + valor;
+        let dato18 = 'destinoCom_' + valor;
+
+        @*console.log(dato1);*@
+
+        /*
+        <input id="pE_nClaveCorrida" name="pE_nClaveCorrida" type="hidden" value="">
+        <input id="pE_aFechaSalidaInicioCorrida" name="pE_aFechaSalidaInicioCorrida" type="hidden" value="">
+        <input id="pE_aFechaBoleto" name="pE_aFechaBoleto" type="hidden" value="">
+        <input id="pE_hHoraSalidaBoleto" name="pE_hHoraSalidaBoleto" type="hidden" value="">
+        <input id="pE_CorridaEmpresa" name="pE_CorridaEmpresa" type="hidden" value="">
+        <input id="consPas2" name="consPas2" type="hidden" value="">
+        */
+        let logoEmpresaSal= $(`#${logoEmpresaSalida}`).val();
+        console.log(logoEmpresaSal);
+        $('#logoEmpresaSalida').val(logoEmpresaSal);
+
+        let logoServImgSal = $(`#${logoServImgSalida}`).val();
+        console.log(logoServImgSal);
+        $('#logoServImgSalida').val(logoServImgSal);
+
+        let pE_nClaveCorrida = $(`#${dato1}`).val();
+        console.log(pE_nClaveCorrida);
+        $('#pE_nClaveCorrida').val(pE_nClaveCorrida);
+
+        let pE_aFechaSalidaInicioCorrida = $(`#${dato2}`).val();
+        console.log(pE_aFechaSalidaInicioCorrida);
+        $('#pE_aFechaSalidaInicioCorrida').val(pE_aFechaSalidaInicioCorrida);
+
+        let pE_aFechaBoleto = $(`#${dato3}`).val();
+        console.log(pE_aFechaBoleto);
+        $('#pE_aFechaBoleto').val(pE_aFechaBoleto);
+
+        let pE_hHoraSalidaBoleto = $(`#${dato4}`).val();
+        console.log(pE_hHoraSalidaBoleto);
+        $('#pE_hHoraSalidaBoleto').val(pE_hHoraSalidaBoleto);
+
+        let pE_CorridaEmpresa = $(`#${dato9}`).val();
+        console.log(pE_CorridaEmpresa);
+        $('#pE_CorridaEmpresa').val(pE_CorridaEmpresa);
+
+        let pE_nConsecutivo = $(`#${dato11}`).val();
+        console.log(pE_nConsecutivo);
+        $('#consPas2').val(pE_nConsecutivo);////--------->Consecutivo
+
+
+
+        let FechaLlegadaSalida = $(`#${dato15}`).text();
+        console.log(FechaLlegadaSalida);
+        $('#FechaLlegadaSalida').val(FechaLlegadaSalida);
+
+        let HoraLlegadaSalida = $(`#${dato16}`).text();
+        console.log(HoraLlegadaSalida);
+        $('#HoraLlegadaSalida').val(HoraLlegadaSalida);
+
+
+        let origCompleto = $(`#${dato17}`).text();
+        console.log(origCompleto);
+        $('#origCompleto').val(origCompleto);
+
+        let destCompleto = $(`#${dato18}`).text();
+        console.log(destCompleto);
+        $('#destCompleto').val(destCompleto);
+
+        /*
+        <input id="pE_nClaveCorridaRegreso" name="pE_nClaveCorridaRegreso" type="hidden" value="">
+        <input id="pE_aFechaSalidaInicioCorridaRegr" name="pE_aFechaSalidaInicioCorridaRegr" type="hidden" value="">
+
+        <input id="pE_aFechaBoletoRegreso" name="pE_aFechaBoletoRegreso" type="hidden" value="">
+        <input id="pE_hHoraSalidaBoletoRegreso" name="pE_hHoraSalidaBoletoRegreso" type="hidden" value="">
+
+        <input id="FechaLlegadaRegreso" name="FechaLlegadaRegreso" type="hidden" value="">
+        <input id="HoraLlegadaRegreso" name="HoraLlegadaRegreso" type="hidden" value="">
+
+        <input id="pE_CorridaEmpresaRegreso" name="pE_CorridaEmpresaRegreso" type="hidden" value="">
+        <input id="logoEmpresaRegreso_${autoinc}" type="hidden" value="${logoEmpresa}">
+        <input id="logoServImgRegreso_${autoinc}" type="hidden" value="${logoServImg}">
+
+        */
+        /// PARA LIMPIAR LAS VARIABLES DEL REGRESO
+
+        $('#logoEmpresaRegreso').val('');
+        $('#logoServImgRegreso').val('');
+
+        $('#pE_nClaveCorridaRegreso').val('');
+        $('#pE_aFechaSalidaInicioCorridaRegr').val('');
+
+        $('#pE_aFechaBoletoRegreso').val('');
+        $('#pE_hHoraSalidaBoletoRegreso').val('');
+
+        $('#FechaLlegadaRegreso').val('');
+        $('#HoraLlegadaRegreso').val('');
+
+        $('#pE_CorridaEmpresaRegreso').val('');
+
+        enviarFormulario();
+    }
+</script>
+
+@*ENVIA LOS DATOS REGRESO AL PASO 2 *@
+<script>
+    function enviarDatosRegreso(b) {
+        let valId = b.id;
+        let id = valId.split("_");
+        var valor = id[1];
+        console.log('Mi Id para de tar: ' + valor);
+
+
+        @*origen = document.querySelector('#org1').value;
+        origenCom = $("#org1 option:selected").text();
+        destino = document.querySelector('#dest1').value;
+        destinoCom = $("#dest1 option:selected").text();
+        fechSalida = formFechaSalApi;*@
+
+        //alert(fechSalida);
+
+        fechRegreso = $("#datepicker2").val();//formFechaRegApi;
+
+        fechRegreso = fechRegreso.split(" ");
+
+        fechdiaReg = fechRegreso[0];
+        fechmesReg = fechRegreso[1];
+        fechyearReg = fechRegreso[2];
+
+        var arrayMes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        var buscarMes = fechmesReg;
+        var result = arrayMes.indexOf(buscarMes);
+
+        var mesNumReg = result + 1;
+
+        if (mesNumReg < 10) {
+
+            mesNumReg = '0' + mesNumReg
+        }
+
+        var feSelecReg = fechdiaReg + '/' + mesNumReg + '/' + fechyearReg;
+
+        
+
+        
+
+        /*
+        <input id="pE_nClaveCorridaRegreso_${autoinc}" type="hidden" value="${item2.claveCorrida}">
+        <input id="pE_aFechaSalidaInicioCorridaRegr_${autoinc}" type="hidden" value="${item2.FechaSalidaInicio}">
+        <input id="pE_aFechaBoletoRegreso_${autoinc}" type="hidden" value="${item2.FechaSalidaBoleto}">
+        <input id="pE_hHoraSalidaBoletoRegreso_${autoinc}" type="hidden" value="${item2.HoraSalida}">
+        <input id="pE_CorridaEmpresaRegreso_${autoinc}" type="hidden" value="${item2.EmpresaCorrida}">
+
+
+        <input id="pE_nConsecutivo_${autoinc}" type="hidden" value="${consApi2}">
+         */
+        let logoEmpresaRegreso = 'logoEmpresaRegreso_' + valor;
+        let logoServImgRegreso = 'logoServImgRegreso_' + valor;
+
+        let dato1 = 'pE_aFechaSalidaInicioCorridaRegr_'+valor;
+        let dato2 = 'pE_hHoraSalidaBoletoRegreso_' + valor;
+
+        let dato3 = 'pE_aFechaBoletoRegreso_'+valor;
+        let dato4 = 'HoraLlegadaRegreso_' + valor;
+        let dato7 = 'FechaLlegadaRegreso_' + valor;
+
+        let dato5 = 'pE_CorridaEmpresaRegreso_' + valor;
+        let dato6 = 'pE_nClaveCorridaRegreso_'+valor;
+
+        //alert(feSelecReg);
+
+        @*console.log(dato1);*@
+
+        /*
+        <input id="pE_nClaveCorridaRegreso" name="pE_nClaveCorridaRegreso" type="hidden" value="">
+        <input id="pE_aFechaSalidaInicioCorridaRegr" name="pE_aFechaSalidaInicioCorridaRegr" type="hidden" value="">
+
+        <input id="pE_aFechaBoletoRegreso" name="pE_aFechaBoletoRegreso" type="hidden" value="">
+        <input id="pE_hHoraSalidaBoletoRegreso" name="pE_hHoraSalidaBoletoRegreso" type="hidden" value="">
+        <input id="HoraLlegadaRegreso" name="HoraLlegadaRegreso" type="hidden" value="">
+        
+        <input id="pE_CorridaEmpresaRegreso" name="pE_CorridaEmpresaRegreso" type="hidden" value="">//----------------------------------------------------------------------------------
+
+        */
+
+        let logoEmReg = $(`#${logoEmpresaRegreso}`).val();
+        console.log(logoEmReg);
+        $('#logoEmpresaRegreso').val(logoEmReg);
+
+        let logoServImgReg = $(`#${logoServImgRegreso}`).val();
+        console.log(logoServImgReg);
+        $('#logoServImgRegreso').val(logoServImgReg);
+
+
+
+        let pE_aFechaSalidaInicioCorridaRegr = $(`#${dato1}`).val();
+        console.log(pE_aFechaSalidaInicioCorridaRegr);
+        $('#pE_aFechaSalidaInicioCorridaRegr').val(pE_aFechaSalidaInicioCorridaRegr);
+
+        let pE_hHoraSalidaBoletoRegreso = $(`#${dato2}`).val();
+        console.log(pE_hHoraSalidaBoletoRegreso);
+        $('#pE_hHoraSalidaBoletoRegreso').val(pE_hHoraSalidaBoletoRegreso);
+
+        let pE_aFechaBoletoRegreso = $(`#${dato3}`).val();
+        console.log(pE_aFechaBoletoRegreso);
+        $('#pE_aFechaBoletoRegreso').val(pE_aFechaBoletoRegreso);
+
+        let FechaLlegadaRegreso = $(`#${dato7}`).val();
+        console.log(FechaLlegadaRegreso);
+        $('#FechaLlegadaRegreso').val(FechaLlegadaRegreso);
+
+        let HoraLlegadaRegreso = $(`#${dato4}`).val();
+        console.log(HoraLlegadaRegreso);
+        $('#HoraLlegadaRegreso').val(HoraLlegadaRegreso);
+
+        let pE_CorridaEmpresaRegreso = $(`#${dato5}`).val();
+        console.log(pE_CorridaEmpresaRegreso);
+        $('#pE_CorridaEmpresaRegreso').val(pE_CorridaEmpresaRegreso);
+
+        let pE_nClaveCorridaRegreso = $(`#${dato6}`).val();
+        console.log(pE_nClaveCorridaRegreso);
+        $('#pE_nClaveCorridaRegreso').val(pE_nClaveCorridaRegreso);
+
+        //return
+        @*let pE_nConsecutivo = $(`#${dato11}`).val();
+        console.log(pE_nConsecutivo);*@
+
+        @*let pE_nControlCache = $(`#${dato12}`).val();
+        console.log(pE_nControlCache);*@
+
+        enviarFormularioRegreso();
+    }
+</script>
+
+@* ///////  EVIA EL FORMULARIO SALIDA /////////////*@
+<script>
+    function enviarFormulario() {
+        let fecharegreso = $("#datepicker2").val();
+
+        console.log('Mi fecha de regreso: ' + fecharegreso);
+        if (fecharegreso == '') {
+            //alert('Viaje sencillo');
+            document.paso2.submit();
+
+        } else {
+            $('#tarjetas1').css('display', 'none');
+            $('#tarjetas2').css('display', 'block');
+            viajeRedondo();
+            //alert('Tarjeta de regreso');
+        }
+    }
+</script>
+@* ///////  EVIA EL FORMULARIO REGRESO /////////////*@
+<script>
+    function enviarFormularioRegreso() {
+ 
+            document.paso2.submit();
+            //alert('TU VIAJE REDONDO YA SE ENVIO');
+        
+    }
+</script>
+
+@* //////// ASIGNA LAS 5 FECHAS COMO TEXTO //////////////// *@
+<script>
+    setTimeout(function () {
+        let fecharegreso = $("#fecharegreso").val();
+
+        if (fecharegreso === '_') {
+
+            $("#datepicker2").val('');
+            $("#quitar").css('display', 'none');
+
+
+
+            @*alert(fecharegreso);*@
+        }
+        @*/////////////////////////*@
+
+        let feSeleccion = $("#datepicker").val();
+        var arrayDeCadenas = feSeleccion.split(" ");
+
+        var yearSelec = arrayDeCadenas[0];
+        var mesSelec = arrayDeCadenas[1];
+        var diaSelec = arrayDeCadenas[2];
+
+
+        var arrayMes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        var buscarMes = mesSelec;
+        var result = arrayMes.indexOf(buscarMes);
+
+        var mesNum = result + 1;
+        var feSelec = diaSelec + '-' + mesNum + '-' + yearSelec;
+
+        @* /////////////////
+                FECHA 1
+                a)si la fecha es la del dia actual, se queda como fecha1.
+                b) Si la fecha seleccionada es mayor a la fecha de hoy, la fecha1 sera menor a la seleccionada
+            *@
+
+            var fecha1 = new Date(feSelec);
+        var dias = 1; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+        fecha1.setDate(fecha1.getDate() + dias);
+        var f1dia = fecha1.getDate();
+        var f1mes = fecha1.getMonth() + 1;
+        var f1year = fecha1.getFullYear();
+
+        if (f1dia < 10) {
+            f1dia = '0' + f1dia;
+        }
+        if (f1mes < 10) {
+            f1mes = '0' + f1mes;
+        }
+
+        var fe1Completa = f1dia + '/' + f1mes + '/' + f1year;
+
+        $("#fe1").text(fe1Completa);
+
+
+
+        @* FECHA 2 a) Si la fecha seleccionada es mayor a la fecha de hoy, la fecha2 sera la fecha seleccionada b) Si la fecha es la de *@
+            var fecha2 = new Date(feSelec);
+        var dias2 = 2; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+        fecha2.setDate(fecha2.getDate() + dias2);
+        var f2dia = fecha2.getDate();
+        var f2mes = fecha2.getMonth() + 1;
+        var f2year = fecha2.getFullYear();
+
+        if (f2dia < 10) {
+            f2dia = '0' + f2dia;
+        }
+        if (f2mes < 10) {
+            f2mes = '0' + f2mes;
+        }
+        var fe2Completa = f2dia + '/' + f2mes + '/' + f2year;
+        $("#fe2").text(fe2Completa);
+
+
+        @* FECHA 3 a) La fecha3 sera la fecha2 + 1 *@
+            var fecha3 = new Date(feSelec);
+        var dias3 = 3; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+        fecha3.setDate(fecha3.getDate() + dias3);
+        var f3dia = fecha3.getDate();
+        var f3mes = fecha3.getMonth() + 1;
+        var f3year = fecha3.getFullYear();
+
+        if (f3dia < 10) {
+            f3dia = '0' + f3dia;
+        }
+        if (f3mes < 10) {
+            f3mes = '0' + f3mes;
+        }
+
+        var fe3Completa = f3dia + '/' + f3mes + '/' + f3year;
+
+        $("#fe3").text(fe3Completa);
+
+
+        @* FECHA 4 a) La fecha4 sera la fecha3 + 1 *@
+            var fecha4 = new Date(feSelec);
+        var dias4 = 4; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+        fecha4.setDate(fecha4.getDate() + dias4);
+        var f4dia = fecha4.getDate();
+        var f4mes = fecha4.getMonth() + 1;
+        var f4year = fecha4.getFullYear();
+
+        if (f4dia < 10) {
+            f4dia = '0' + f4dia;
+        }
+        if (f4mes < 10) {
+            f4mes = '0' + f4mes;
+        }
+
+        var fe4Completa = f4dia + '/' + f4mes + '/' + f4year;
+
+        $("#fe4").text(fe4Completa);
+        @* FECHA 5 a) La fecha5 sera la fecha4 + 1 *@
+            var fecha5 = new Date(feSelec);
+        var dias5 = 5; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+        fecha5.setDate(fecha5.getDate() + dias5);
+        var f5dia = fecha5.getDate();
+        var f5mes = fecha5.getMonth() + 1;
+        var f5year = fecha5.getFullYear();
+
+        if (f5dia < 10) {
+            f5dia = '0' + f5dia;
+        }
+        if (f5mes < 10) {
+            f5mes = '0' + f5mes;
+        }
+
+        var fe5Completa = f5dia + '/' + f5mes + '/' + f5year;
+
+        $("#fe5").text(fe5Completa);
+
+    }, 300);
+
+</script>
+
+
+@* ////// TOMA LOS VALORES QUE VIENEN DEL FORMULARIO *@
+<script>
+    window.onload = function () {
+
+        let dato1 = $("#idOrigenIata").text();
+        let dato2 = $("#idDestinoIata").text();
+        let dato3 = $("#idFechSalida").text();
+        let dato4 = $("#idFechRegreso").text();
+
+        let dato5 = $("#idAdulto").text();
+        let dato6 = $("#idMenos").text();
+        let dato7 = $("#idInapam").text();
+        let dato8 = $("#idEstudiante").text();
+        let dato9 = $("#idProfesor").text();
+
+        let separaFecha = dato3.split("/");
+        let diaSal = separaFecha[0];
+        let mesSal = separaFecha[1]-1;
+        let yearSal = separaFecha[2];
+
+        var arrayMes = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+        let mesLetraSal = arrayMes[mesSal];
+
+        let fechSalLetra = diaSal + ' ' + mesLetraSal + ' ' + yearSal;
+
+
+        fechaSalida(dato1, dato2);
+        @*alert('dia: ' + diaSal + ' mes: ' + mesLetraSal + ' año: ' + yearSal);*@
+    }
+</script>
+
+@* //////// ASIGNA EL ORIGEN Y DESTINO QUE VIENEN DEL FORMULARIO ////////// *@
+<script>
+    function fechaSalida(dato1, dato2) {
+
+        console.log(dato1);
+        console.log(dato2);
+        $("#org1 option[value=" + dato1 + "]").attr("selected", true);
+
+
+        cargarDestino(dato1); ///--> Envia la variable para cargar el Destino
+
+        setTimeout(function () {
+
+            $("#dest1 option[value=" + dato2 + "]").attr("selected", true);
+            let miDesComp = $("#dest1 option:selected").text();
+
+            $("#select2-dest1-container").text(miDesComp);
+
+            $("#json_post").trigger("click");
+        }, 500);
+
+    }
+</script>
+
