@@ -157,20 +157,41 @@
                 </div>
             </div>
             @*/////////////////////////*@
-            <div id="cmap" class="col cuadroMapa centerTable">
-                <table id="MapaOcupacion" class="tablaclick">
-                    <tr id="fila5">
-                    </tr>
-                    <tr id="fila4">
-                    </tr>
-                    <tr id="fila3" style="height:15px; width:15px;">
-                    </tr>
-                    <tr id="fila2">
-                    </tr>
-                    <tr id="fila1">
-                    </tr>
-                </table>
+
+        <div id="cmap" class="col cuadroMapa centerTable">
+
+            <div class="segPisoBtn">
+                <input id="piso1" type="button" onclick="ocultarPiso(this);" value="PISO 1" />
+                <input id="piso2" type="button" onclick="ocultarPiso(this);" value="PISO 2" />
             </div>
+            
+
+            <table id="MapaOcupacion" class="tablaclick">
+                <tr id="fila5">
+                </tr>
+                <tr id="fila4">
+                </tr>
+                <tr id="fila3" style="height:15px; width:15px;">
+                </tr>
+                <tr id="fila2">
+                </tr>
+                <tr id="fila1">
+                </tr>
+            </table>
+            @*//////// DIAGRAMA SEGUNDO PISO ///////*@
+            <table id="MapaOcupacion2" style="display: none;" class="tablaclick">
+                <tr id="pas2fila5">
+                </tr>
+                <tr id="pas2fila4">
+                </tr>
+                <tr id="pas2fila3" style="height:15px; width:15px;">
+                </tr>
+                <tr id="pas2fila2">
+                </tr>
+                <tr id="pas2fila1">
+                </tr>
+            </table>
+        </div>
             @*/////////////////////////*@
             <div class="row mt-3 align-self-end">
                 <div class="col-lg-5">Servicios</div>
@@ -440,6 +461,8 @@
                     contador = tpBole[0];
                     ahorroAdulto = 0;
                     let totPreAdulto = formatter.format(contador * costAdulto);
+
+                    alert(totPreAdulto);
                     A = 'ADULO';
                     
 
@@ -842,10 +865,12 @@
     }
 </script>
 
-<script>function numAsVerdes(num) {
+<script>
+    function numAsVerdes(num) {
 
         numverdeGlobal = num;
-    }</script>
+    }
+</script>
 @*//// SELECCION DE ASIENTOS ////*@
 
 
@@ -944,15 +969,18 @@
                 ///////////
 
             let lugares = document.querySelectorAll('#MapaOcupacion img[src="img/AsientoVerde.png"').length;
+            let lugares2 = document.querySelectorAll('#MapaOcupacion2 img[src="img/AsientoVerde.png"').length;
+
+            let sumLugar = lugares + lugares2;
 
             console.log('Mis elementos verde:' + lugares);
 
 
-            if (lugares <= num) {
+            if (sumLugar <= num) {
 
                 // alert('El lugar es menor o igual');
 
-                console.log(lugares);
+                console.log(sumLugar);
 
             } else {
                 idImg.setAttribute("src", "img/AsientoBco.png");
@@ -1000,6 +1028,7 @@
     function cargarMapa() {
 
         ////////////// MAPA DE OCUPACION /////////////////////
+
         let MapaOcupacion = document.getElementById("MapaOcupacion");
         let fila5 = document.getElementById("fila5");
         let fila4 = document.getElementById("fila4");
@@ -1007,6 +1036,14 @@
         let fila2 = document.getElementById("fila2");
         let fila1 = document.getElementById("fila1");
 
+        ////////////// MAPA DE OCUPACION SEGUNDO PISO /////////////////////
+
+        let MapaOcupacion2 = document.getElementById("MapaOcupacion2");
+        let pas2fila5 = document.getElementById("pas2fila5");
+        let pas2fila4 = document.getElementById("pas2fila4");
+
+        let pas2fila2 = document.getElementById("pas2fila2");
+        let pas2fila1 = document.getElementById("pas2fila1");
 
 
         @* ESTE CODIGO ES DE PRUEBA *@
@@ -1018,9 +1055,9 @@
 
             //---console.log(consMap);
 
-            let data2 = JSON.parse(`{    "pE_TipoTarjeta": "TB",
-                                "pE_nModoCorridas": "1",
-                                "pE_nConsecutivo":${consMap}}`);
+            let data2 = JSON.parse(`{   "pE_TipoTarjeta": "TB",
+                                        "pE_nModoCorridas": "1",
+                                        "pE_nConsecutivo":${consMap}}`);
             @* let data = 'Diagrama/Mapa.json';*@
 
             let data = 'http://webq.odm.com.mx/WSVentaWeb/api/DiagramaAsientos';
@@ -1057,7 +1094,7 @@
 
                     /// CHECAMOS SI EL BUS ES DE 1 PISO
 
-                    //if (ocupacion.piso == 1) {
+                    if (ocupacion.piso == 1) {
                         //---console.log(tv);
                         
                         if (tv === 'T') {
@@ -1078,10 +1115,10 @@
                                 colorNume = 'clasNumRojo';
                             }
 
-                            fila5.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" class="tablaclick" style="position:relative;">
+                            fila5.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" class="tablaclick" style="position:relative;">
                                             <span class="botones ${colorNume}">${numAsiento}</span>
                                             <span class="clasTV">${tv}</span>
-                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
 
                                         </td>`;
                             //alert('Vuelta 4');
@@ -1098,10 +1135,10 @@
                                 colorNume = 'clasNumRojo';
                             }
 
-                            fila4.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" style="position:relative;">
+                            fila4.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
                                             <span class="botones ${colorNume}">${numAsiento}</span>
                                             <span class="clasTV">${tv}</span>
-                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
                                         </td>`;
 
                             //alert('Vuelta 3');
@@ -1121,10 +1158,10 @@
                                 colorNume = 'clasNumRojo';
                             }
 
-                            fila2.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" style="position:relative;">
+                            fila2.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
                                             <span class="botones ${colorNume}">${numAsiento}</span>
                                             <span class="clasTV">${tv}</span>
-                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
                                         </td>`;
 
                             //alert('Vuelta 2');
@@ -1139,17 +1176,235 @@
                                 colorNume = 'clasNumRojo';
                             }
 
-                            fila1.innerHTML += `<td id="idElementos_${idElementos}" onclick="miclick(this);" style="position:relative;">
+                            fila1.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
                                             <span class="botones ${colorNume}">${numAsiento}</span>
                                             <span class="clasTV">${tv}</span>
-                                            <img id="idImgAsiento_${idElementos}" class="clasAsImg" src="${imgAsiento}" />
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
                                         </td>`;
                             //alert('Vuelta 1');
                         }
 
                         
-                    //}
-                    
+                    }
+
+
+                    // CHECAMOS SI EL BUS ES DE 2 PISOS
+
+                    if (ocupacion.piso == 2) {
+
+                        $('.segPisoBtn').css('display', 'block');
+                        //---console.log(tv);
+
+                        if (tv === 'T') {
+
+                            tv = 'TV';
+                        } else {
+                            tv = "";
+                        }
+                        ///////
+
+                        if (numAsiento <  5) {
+
+                            console.log('Mi numero de asiento es: ' + numAsiento)
+                            if (vuelta == 4) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+
+
+                                pas2fila5.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+                                vuelta = 0;
+                            }
+                            if (vuelta == 3) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+
+
+                                pas2fila4.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+
+                            }
+
+                            if (vuelta == 2) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+                                pas2fila2.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+
+                            }
+                            if (vuelta == 1) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+                                pas2fila1.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+                            }
+                        }
+                        ///////
+
+                        if (numAsiento == 5 || numAsiento == 6 || numAsiento == 7 || numAsiento == 8 || numAsiento == 9 || numAsiento == 10) {
+                            if (vuelta == 2) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+
+
+                                pas2fila2.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+                                pas2fila5.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            
+                                        </td>`;
+                                vuelta = 0;
+                            }
+                            if (vuelta == 1) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+
+
+                                pas2fila1.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+
+                                pas2fila4.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                           
+                                        </td>`;
+                            }
+                        }
+                        //////
+
+                        if (numAsiento > 10) {
+                             console.log('Mi numero de asiento es: ' + numAsiento)
+                            if (vuelta == 4) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+
+
+                                pas2fila5.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+                                vuelta = 0;
+                            }
+                            if (vuelta == 3) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+
+
+                                pas2fila4.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+
+                            }
+
+                            if (vuelta == 2) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+                                pas2fila2.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+
+                            }
+                            if (vuelta == 1) {
+
+                                if (ocupacion.Estados === '1') {
+                                    imgAsiento = 'img/AsientoBco.png';
+                                    colorNume = 'clasNum';
+                                } else {
+                                    imgAsiento = 'img/AsientoRojo.png';
+                                    colorNume = 'clasNumRojo';
+                                }
+
+                                pas2fila1.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
+                                            <span class="botones ${colorNume}">${numAsiento}</span>
+                                            <span class="clasTV">${tv}</span>
+                                            <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
+                                        </td>`;
+                            }
+                        }
+                    }
                     vuelta++
 
                 }
@@ -1160,5 +1415,33 @@
             }
 
         })();
+    }
+</script>
+
+<script>
+    function ocultarPiso(e) {
+
+        let piso = e.id;
+
+        if (piso == 'piso1') {
+            //alert('Mi piso es: ' + e.id);
+            $('#MapaOcupacion').css({ 'display': 'block','margin': '0px 0px 0px 50%'});
+            $('#MapaOcupacion2').css('display', 'none');
+
+            $('#piso1').css({ 'background': '#033765', 'color': 'white' })
+            $('#piso2').css({ 'background': 'white', 'color': '#033765' })
+
+        }
+
+        if (piso == 'piso2') {
+            //alert('Mi piso es: ' + e.id);
+            $('#MapaOcupacion').css('display', 'none');
+            $('#MapaOcupacion2').css('display', 'block');
+
+            $('#piso2').css({ 'background': '#033765', 'color': 'white' })
+            $('#piso1').css({ 'background': 'white', 'color': '#033765' })
+        }
+        //alert('Mi piso es: '+ e.id);
+
     }
 </script>
