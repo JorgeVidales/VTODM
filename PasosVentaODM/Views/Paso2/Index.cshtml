@@ -158,54 +158,70 @@
             </div>
             @*/////////////////////////*@
 
-        <div id="cmap" class="col cuadroMapa centerTable">
-
             <div class="segPisoBtn">
                 <input id="piso1" type="button" onclick="ocultarPiso(this);" value="PISO 1" />
                 <input id="piso2" type="button" onclick="ocultarPiso(this);" value="PISO 2" />
             </div>
-            
 
-            <table id="MapaOcupacion" class="tablaclick">
-                <tr id="fila5">
-                </tr>
-                <tr id="fila4">
-                </tr>
-                <tr id="fila3" style="height:15px; width:15px;">
-                </tr>
-                <tr id="fila2">
-                </tr>
-                <tr id="fila1">
-                </tr>
-            </table>
-            @*//////// DIAGRAMA SEGUNDO PISO ///////*@
-            <table id="MapaOcupacion2" style="display: none;" class="tablaclick">
-                <tr id="pas2fila5">
-                </tr>
-                <tr id="pas2fila4">
-                </tr>
-                <tr id="pas2fila3" style="height:15px; width:15px;">
-                </tr>
-                <tr id="pas2fila2">
-                </tr>
-                <tr id="pas2fila1">
-                </tr>
-            </table>
-        </div>
+            <div id="cmap" style="overflow: auto; white-space: nowrap;" class="col cuadroMapa centerTable">
+
+
+
+                <div id="cargando" style="position: absolute; top: -66px;" class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+
+                <table id="MapaOcupacion" class="tablaclick">
+
+
+
+                    <tr id="fila5">
+                    </tr>
+                    <tr id="fila4">
+                    </tr>
+                    <tr id="fila3" style="height:15px; width:15px;">
+                    </tr>
+                    <tr id="fila2">
+                    </tr>
+                    <tr id="fila1">
+                    </tr>
+                </table>
+                @*//////// DIAGRAMA SEGUNDO PISO ///////*@
+                <table id="MapaOcupacion2" style="display: none;" class="tablaclick">
+                    <tr id="pas2fila5">
+                    </tr>
+                    <tr id="pas2fila4">
+                    </tr>
+                    <tr id="pas2fila3" style="height:15px; width:15px;">
+                    </tr>
+                    <tr id="pas2fila2">
+                    </tr>
+                    <tr id="pas2fila1">
+                    </tr>
+                </table>
+
+
+            </div>
             @*/////////////////////////*@
-            <div class="row mt-3 align-self-end">
-                <div class="col-lg-5">Servicios</div>
-                <div class="col-lg-7">
+            <div class="row mt-4 align-self-end">
+                <div class="col-lg-5 mb-4 mt-3">
+                    <img src="img/IcoSer.svg"/>
+                </div>
+                <div class="col-lg-7 mb-4">
                     <div style="text-align:center;" class="row ocupacion">
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-4 col-4">
                             <img src="img/AsientoBco.png" />
                             <span>DISPONIBLE</span>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-4 col-4">
                             <img src="img/AsientoRojo.png" />
                             <span>OCUPADO</span>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-4 col-4">
                             <img src="img/AsientoVerde.png" />
                             <span>SELECCIONADO</span>
                         </div>
@@ -364,12 +380,17 @@
 
      *@
         //console.log('Viaje sencillo: ' + regreso);
+        
+
+        
         (async () => {
 
             /*
 
 
             */
+            //loading.style.display = 'block';
+
             console.log('Clave pE_nConsecutivo: ' + pE_nConsecutivo);
             console.log('Clave pE_nCorridaEmpresa: ' + pE_nCorridaEmpresa);
             console.log('Clave pE_hHoraSalidaBoleto: ' + pE_hHoraSalidaBoleto);
@@ -425,7 +446,7 @@
                 }
             );
             const content = await rawResponse.json();
-            //loading.style.display = "none";
+            
 
             const CostoTotal = content.Asientos.CostoTotal;
             const MoOpe = content.Asientos.MoOpe;
@@ -555,6 +576,7 @@
                 }
                 @*console.log('Mis pasajeros: ' + item.Leyenda + ' ' + item.Costo + ' ' + item.CostoOri);*@
                 //console.log(item.CostoOri);
+                
             }
 
             console.log('Mi total de Promociones: ' + contador + ' Precio: ' + costAdulto + ' Ahorro: ' + ahorroAdulto);
@@ -635,9 +657,11 @@
 
             cargarMapa();
             agregarboletosPaso1();
+            //loading.style.display = "none";
+            
         })();
    
-
+        
     }
 
 </script>
@@ -1027,6 +1051,8 @@
 <script>
     function cargarMapa() {
 
+        const loading = document.getElementById("cargando");
+       
         ////////////// MAPA DE OCUPACION /////////////////////
 
         let MapaOcupacion = document.getElementById("MapaOcupacion");
@@ -1049,10 +1075,14 @@
         @* ESTE CODIGO ES DE PRUEBA *@
 
         ////////////
-
+        
+        //loading.style.display = 'block';
         (async () => {
+            
+
             consMap = document.getElementById('ConsPas2').innerHTML;
 
+            
             //---console.log(consMap);
 
             let data2 = JSON.parse(`{   "pE_TipoTarjeta": "TB",
@@ -1075,7 +1105,7 @@
             const content = await rawResponse.json();
 
             const datos = content;
-
+            loading.style.display = 'none';
             console.log(datos.Diagrama);
             @* console.log(datos);*@
             let vuelta = 1;
