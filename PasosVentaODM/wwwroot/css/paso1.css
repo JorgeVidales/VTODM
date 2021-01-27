@@ -319,5 +319,9 @@ footer {
     color: #023765;
     cursor: pointer;
 }
-
+.btn-dark:hover {
+    color: #fff;
+    background-color: #a5353a!important;
+    border-color: #a5353a!important;
+}
 

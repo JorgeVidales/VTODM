@@ -209,7 +209,7 @@
             @*/////////////////////////*@
             <div class="row mt-4 align-self-end">
                 <div class="col-lg-5 mb-4 mt-3">
-                    <img src="img/IcoSer.svg"/>
+                    <img src="img/IcoSer.svg" />
                 </div>
                 <div class="col-lg-7 mb-4">
                     <div style="text-align:center;" class="row ocupacion">
@@ -241,20 +241,20 @@
                     </div>
 
                     @*<span class="A">A</span>
-                    <span class="N">N</span>
-                    <span class="I">I</span>
-                    <span class="E">E</span>
-                    <span class="M">M</span>*@
+                        <span class="N">N</span>
+                        <span class="I">I</span>
+                        <span class="E">E</span>
+                        <span class="M">M</span>*@
 
 
                 </div>
                 @*//////////////*@
                 <div id="descripcion" class="col-lg-12">
                     @*<div id="datosPasajero">
-                <p class="asiento">ASIENTO SELECCIONADO</p>
-                <h5 style="color: #033765;">NOMBRE DEL PASAJERO</h5>
-                <input class="nomPasajero" type="text" value="FERNANDO MACIEL" />
-            </div>*@
+                            <p class="asiento">ASIENTO SELECCIONADO</p>
+                            <h5 style="color: #033765;">NOMBRE DEL PASAJERO</h5>
+                            <input class="nomPasajero" type="text" value="FERNANDO MACIEL" />
+                        </div>*@
                 </div>
                 @*//////////////*@
                 <div class="col-lg-12 mt-4 mb-1">
@@ -265,34 +265,44 @@
                 @*//////////////*@
 
                 @*//////////////*@
-                <div class="col-lg-12 mb-3 costoTpB">
+            <div class="col-lg-12 mb-3 costoTpB">
 
-                    <div class="AdultoTot">
-                        <span class="text-uppercase numAdultos"></span>
-                        <span style="position: absolute; right: 40px;" class="totalAdulto"></span>
-                    </div>
 
-                    <div class="InapamTot">
-                        <span class="text-uppercase numInapam"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalInapam"></span>
-                    </div>
-
-                    <div class="MenorTot">
-                        <span class="text-uppercase numMenores"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalMenores"></span>
-                    </div>
-
-                    <div class="EstudianteTot">
-                        <span class="text-uppercase numEstudiantes"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalEstudiantes"></span>
-                    </div>
-
-                    <div class="ProfesorTot">
-                        <span class="text-uppercase numProfesores"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalProfesores"></span>
-                    </div>
-
+                <div id="cargando2" style=" position: relative; top: 0px; left: 0px;" class="spinner">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
                 </div>
+
+
+                <div class="AdultoTot">
+                    <span class="text-uppercase numAdultos"></span>
+                    <span style="position: absolute; right: 40px;" class="totalAdulto"></span>
+                </div>
+
+                <div class="InapamTot">
+                    <span class="text-uppercase numInapam"></span>
+                    <span style="position: absolute; right: 40px;" class="total totalInapam"></span>
+                </div>
+
+                <div class="MenorTot">
+                    <span class="text-uppercase numMenores"></span>
+                    <span style="position: absolute; right: 40px;" class="total totalMenores"></span>
+                </div>
+
+                <div class="EstudianteTot">
+                    <span class="text-uppercase numEstudiantes"></span>
+                    <span style="position: absolute; right: 40px;" class="total totalEstudiantes"></span>
+                </div>
+
+                <div class="ProfesorTot">
+                    <span class="text-uppercase numProfesores"></span>
+                    <span style="position: absolute; right: 40px;" class="total totalProfesores"></span>
+                </div>
+
+            </div>
                 @*//////////////*@
                 <div class="col-lg-12">
 
@@ -360,7 +370,9 @@
 <script>
     window.onload = function () {
 
+       
 
+        
         //// VIAJE SENCILLO
         regreso = document.getElementById('fecharegreso2').innerHTML;
         pE_nClaveCorrida = document.getElementById('pE_nClaveCorrida2').innerHTML;
@@ -375,14 +387,14 @@
 
         @*
 
-
+        
 
 
      *@
         //console.log('Viaje sencillo: ' + regreso);
-        
 
-        
+        var loading = document.getElementById("cargando2");
+
         (async () => {
 
             /*
@@ -446,7 +458,7 @@
                 }
             );
             const content = await rawResponse.json();
-            
+
 
             const CostoTotal = content.Asientos.CostoTotal;
             const MoOpe = content.Asientos.MoOpe;
@@ -485,9 +497,9 @@
 
                     alert(totPreAdulto);
                     A = 'ADULO';
-                    
 
-                    
+
+
                     //ahorroAdulto = item.CostoOri;
 
                     //console.log(costAdulto);
@@ -520,7 +532,7 @@
                         $('.numMenores').text(tpBole[0] + ' ' + M);
                         $('.totalMenores').text(totPreMenor);
                     }
-                    
+
                 }
                 /////
 
@@ -576,12 +588,12 @@
                 }
                 @*console.log('Mis pasajeros: ' + item.Leyenda + ' ' + item.Costo + ' ' + item.CostoOri);*@
                 //console.log(item.CostoOri);
-                
+
             }
 
             console.log('Mi total de Promociones: ' + contador + ' Precio: ' + costAdulto + ' Ahorro: ' + ahorroAdulto);
 
-            
+
 
             let totPreAdulto = formatter.format(contador * costAdulto);
             console.log('Mi total Adulto en Moneda: ' + totPreAdulto);
@@ -657,11 +669,12 @@
 
             cargarMapa();
             agregarboletosPaso1();
-            //loading.style.display = "none";
-            
+
+            loading.style.display = "none";
+            masBoletos();
         })();
-   
-        
+
+
     }
 
 </script>
@@ -670,7 +683,7 @@
         const contPasajero = document.getElementById('descripcion');
         let tipoBoleto = document.getElementById('contBoletos');
         let combo = document.getElementById("tpasajero");
-       
+
         let adultoPas1 = document.getElementById('adultoPas1').innerHTML;
         let menoresPas1 = document.getElementById('menoresPas1').innerHTML;
         let senectudPas1 = document.getElementById('senectudPas1').innerHTML;
@@ -717,7 +730,12 @@
 
 
             console.log('Mi boleto: ' + item);
-            tipoBoleto.innerHTML += `<div id="conPasaj_${incremento}" class="mr-2 A tipoBol conPasaj_${incremento}" onclick="oculDescr(this);">${item}</div>`;
+            let tpb = item;
+            let contador = incremento;
+
+            //alert(tpb);
+            // `<img id="conPasaj_${contador}" class="mr-2 A tipoBol conPasaj_${contador}" src="img/${tpb}.svg" onclick="oculDescr(this);"/>`;
+            tipoBoleto.innerHTML += `<img id="conPasaj_${contador}" class="mr-2 A tipoBol conPasaj_${contador}" src="img/${tpb}.svg" onclick="oculDescr(this);"/>`;
 
             contPasajero.innerHTML += `<div class="datosPasajero conPasaj_${incremento}">
 
@@ -727,7 +745,7 @@
                                         <input class="nomPasajero text-uppercase" type="text" value="${descNom} ${descApPat} ${descApMat}" />
                                     </div>`;
 
-            
+
             incremento++
         }
 
@@ -746,7 +764,7 @@
         element.classList.toggle("boletoActivo");*@
 
         @*document.getElementById('contBoletos').addEventListener('toggle', function (e) {
-            
+
             if (e.detail.value) {
                 console.log('Mi valor E: ' + e.detail.value);
                 document.querySelector('.tipoBol').classList.add('boletoActivo');
@@ -778,7 +796,8 @@
 
         let tpb = combo.options[combo.selectedIndex].value;
 
-        tipoBoleto.innerHTML += `<div id="conPasaj_${contador}" class="mr-2 A tipoBol conPasaj_${contador}" onclick="oculDescr(this);">${tpb}</div>`;
+       
+        tipoBoleto.innerHTML += `<img id="conPasaj_${contador}" class="mr-2 A tipoBol conPasaj_${contador}" src="img/${tpb}.svg" onclick="oculDescr(this);"/>`;
 
         contPasajero.innerHTML += `<div class="datosPasajero conPasaj_${contador}">
 
@@ -792,14 +811,65 @@
 
         document.getElementById(`conPasaj_${contador}`).click();
 
+        //alert(tpb);
 
+@*
+    <p id="adultoPas1">@ViewData["adulto"]</p>
+    <p id="menoresPas1">@ViewData["menores"]</p>
+    <p id="senectudPas1">@ViewData["senectud"]</p>
+    <p id="estudiantesPas1">@ViewData["estudiantes"]</p>
+    <p id="profesoresPas1">@ViewData["profesores"]</p>
+
+*@
+
+        if (tpb == 'A') {
+
+          let ad =   parseInt($('#adultoPas1').text());
+          let sumAd = ad + 1;
+
+            $('#adultoPas1').text(sumAd)
+            //alert(sumAd)
+        }
+        if (tpb == 'M') {
+
+            let men = parseInt($('#menoresPas1').text());
+            let sumMen = men + 1;
+
+            $('#menoresPas1').text(sumMen)
+        }
+        if (tpb == 'I') {
+
+            let inapam = parseInt($('#senectudPas1').text());
+            let sumInapam = inapam + 1;
+
+            $('#senectudPas1').text(sumInapam)
+        }
+        if (tpb == 'E') {
+
+            let estud = parseInt($('#estudiantesPas1').text());
+            let sumEstud = estud + 1;
+
+            $('#estudiantesPas1').text(sumEstud)
+        }
+        if (tpb == 'P') {
+
+            let profe = parseInt($('#profesoresPas1').text());
+            let sumProfe = profe + 1;
+
+            $('#profesoresPas1').text(sumProfe)
+        }
+
+
+        masBoletos();
+
+        //////////--------------------------------------------------------------------------------------------------
 
     }
 
     function oculDescr(e) {
 
         let miId = e.id;
-        
+
         console.log('Valor que me sirve: ' + miId);
         // Color Boleto activo
 
@@ -817,14 +887,14 @@
             } else {
                 document.querySelector('.' + claseTiene2).classList.remove('boletoActivo');
             }
-            
- 
+
+
         }
 
         //document.getElementById(miId).classList.add('boletoActivo');
 
         let recDesc1 = document.getElementById('descripcion').getElementsByClassName('datosPasajero');
-        
+
 
 
         console.log(recDesc1);
@@ -889,12 +959,10 @@
     }
 </script>
 
-<script>
-    function numAsVerdes(num) {
+<script>function numAsVerdes(num) {
 
         numverdeGlobal = num;
-    }
-</script>
+    }</script>
 @*//// SELECCION DE ASIENTOS ////*@
 
 
@@ -933,7 +1001,7 @@
 
             idImg.setAttribute("src", "img/AsientoVerde.png");
 
-                /// PONE EL NUMERO EN EL ASIENTO VISIBLE  /// 
+                /// PONE EL NUMERO EN EL ASIENTO VISIBLE  ///
                     for (item of recDesc1) {
 
                         let classVisible = item.style.display;
@@ -1052,7 +1120,7 @@
     function cargarMapa() {
 
         const loading = document.getElementById("cargando");
-       
+
         ////////////// MAPA DE OCUPACION /////////////////////
 
         let MapaOcupacion = document.getElementById("MapaOcupacion");
@@ -1075,14 +1143,14 @@
         @* ESTE CODIGO ES DE PRUEBA *@
 
         ////////////
-        
+
         //loading.style.display = 'block';
         (async () => {
-            
+
 
             consMap = document.getElementById('ConsPas2').innerHTML;
 
-            
+
             //---console.log(consMap);
 
             let data2 = JSON.parse(`{   "pE_TipoTarjeta": "TB",
@@ -1126,7 +1194,7 @@
 
                     if (ocupacion.piso == 1) {
                         //---console.log(tv);
-                        
+
                         if (tv === 'T') {
 
                             tv = 'TV';
@@ -1214,7 +1282,7 @@
                             //alert('Vuelta 1');
                         }
 
-                        
+
                     }
 
 
@@ -1330,7 +1398,7 @@
                                             <img id="idImgAsiento_${numAsiento}" class="clasAsImg" src="${imgAsiento}" />
                                         </td>`;
                                 pas2fila5.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
-                                            
+
                                         </td>`;
                                 vuelta = 0;
                             }
@@ -1353,7 +1421,7 @@
                                         </td>`;
 
                                 pas2fila4.innerHTML += `<td id="idElementos_${numAsiento}" onclick="miclick(this);" style="position:relative;">
-                                           
+
                                         </td>`;
                             }
                         }
@@ -1439,7 +1507,7 @@
 
                 }
 
-                
+
                 idElementos++
 
             }
@@ -1448,14 +1516,13 @@
     }
 </script>
 
-<script>
-    function ocultarPiso(e) {
+<script>function ocultarPiso(e) {
 
         let piso = e.id;
 
         if (piso == 'piso1') {
             //alert('Mi piso es: ' + e.id);
-            $('#MapaOcupacion').css({ 'display': 'block','margin': '0px 0px 0px 50%'});
+            $('#MapaOcupacion').css({ 'display': 'block', 'margin': '0px 0px 0px 50%' });
             $('#MapaOcupacion2').css('display', 'none');
 
             $('#piso1').css({ 'background': '#033765', 'color': 'white' })
@@ -1473,5 +1540,351 @@
         }
         //alert('Mi piso es: '+ e.id);
 
+    }</script>
+
+<script>
+    function masBoletos() {
+
+
+       
+
+        ////////
+
+        const loading2 = document.getElementById("cargando2");
+
+        let org2 = $('#origencode2').text();
+
+        let des2 = $('#destinocode2').text();
+
+        let fechSal2 = $('#fechasalida2').text();
+
+        let A2 = $('#adultoPas1').text();
+        let M2 = $('#menoresPas1').text();
+        let I2 = $('#senectudPas1').text();
+        let E2 = $('#estudiantesPas1').text();
+        let P2 = $('#profesoresPas1').text();
+
+        let consecu2 = $('#pE_nConsecutivo2').text()
+
+        console.log(consecu2);
+
+        /// BORRA LAS VARIABLES DE TIPBOL
+
+        $('.numAdultos').text('');
+        $('.totalAdulto').text('');
+
+        $('.numMenores').text('');
+        $('.totalMenores').text('');
+
+        $('.numInapam').text('');
+        $('.totalInapam').text('');
+
+        $('.numProfesores').text('');
+        $('.totalProfesores').text('');
+
+        $('.numEstudiantes').text('');
+        $('.totalEstudiantes').text('');
+
+        $('.totalAcumulado').text('');
+        $('.ahorro').text('');
+        ///// ACTUALIZA LA CORRIDA
+        loading2.style.display = "block";
+        var url = 'http://webq.odm.com.mx/WSVentaWeb/api/RecuperaCorridas';
+        //var data = { username: 'example' };
+
+        var data = JSON.parse(`{  "pE_aOrigen": "${org2}",
+                                  "pE_aDestino": "${des2}",
+                                  "pE_aFecha": "${fechSal2}",
+                                  "pE_nAdultos": ${A2},
+                                  "pE_nInsen": ${I2},
+                                  "pE_nNinos": ${M2},
+                                  "pE_nEstudiantes": ${E2},
+                                  "pE_nMaestro": ${P2},
+                                  "pE_aViajeRedondo": "V1",
+                                  "pE_nModo": 1,
+                                  "pS_nConsecutivo":${consecu2},
+                                  "pS_nActualizaPasajeros":1}`);
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then(function (result) {
+                if (result.ok) return result.json();
+
+
+            })
+            .then(function (data) {
+                console.log(data);
+
+                actPase();
+            });
+
+
+
+
+    }</script>
+
+<script>
+    function actPase() {
+
+        
+
+        ////// ACTUALIZA EL PASE DE ABORDAR
+        const loading2 = document.getElementById("cargando2");
+
+        let clvCorrida = ($('#pE_nClaveCorrida2').text()).trim();
+        //alert(clvCorrida);
+        let fechSalInCorrida = $('#pE_aFechaSalidaInicioCorrida2').text();
+        let fechBol = $('#pE_aFechaBoleto2').text();
+        let hrSalBol = $('#pE_hHoraSalidaBoleto2').text();
+        let nCorriEmpre = parseInt($('#pE_nCorridaEmpresa2').text(), 10); //parseInt(pE_nCorridaEmpresa, 10);
+        let consecu2 = $('#pE_nConsecutivo2').text()
+
+        var url2 = 'http://webq.odm.com.mx/WSVentaWeb/api/PersonalizaAsientos';
+        var data2 = JSON.parse(`{   "pE_nClaveCorrida": ${clvCorrida},
+                                    "pE_aFechaSalidaInicioCorrida": "${fechSalInCorrida}",
+                                    "pE_aFechaBoleto": "${fechBol}",
+                                    "pE_hHoraSalidaBoleto": "${hrSalBol}",
+                                    "pE_nCorridaEmpresa": ${nCorriEmpre},
+                                    "pE_nConsecutivo":${consecu2},
+                                    "pE_nControlCache":1}`);
+
+        
+
+        fetch(url2, {
+            method: 'POST', // or 'PUT'
+            body: JSON.stringify(data2), // data can be `string` or {object}!
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(function (result) {
+                if (result.ok) return result.json();
+
+
+            })
+            .then(function (data) {
+                //console.log(data);
+
+                loading2.style.display = "none";
+
+                let content = data;
+                const CostoTotal = content.Asientos.CostoTotal;
+                const MoOpe = content.Asientos.MoOpe;
+                let contador = 0;
+
+                /////// FORMATO MONEDA /////
+
+                const formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2
+                })
+
+                let A = '';
+                let I = '';
+                let M = '';
+                let E = '';
+                let P = '';
+
+                for (item of content.PasajerosIda) {
+
+                    let tpBole = item.Leyenda;
+                    tpBole = tpBole.split(" ");
+
+                    console.log(tpBole[1]);
+                    let costoBol = item.Costo;
+                    console.log(costoBol);
+                    let ahorro = item.CostoOri;
+
+                    ////
+                    if (tpBole[1] == 'Adultos') {
+                        costAdulto = item.Costo;
+                        contador = tpBole[0];
+                        ahorroAdulto = 0;
+                        let totPreAdulto = formatter.format(contador * costAdulto);
+
+                        alert(totPreAdulto);
+                        A = 'ADULO';
+
+
+
+                        //ahorroAdulto = item.CostoOri;
+
+                        //console.log(costAdulto);
+                        //contador++
+                    }
+                    ////
+                    if (tpBole[1] == 'Promocion') {
+
+                        A = 'ADULO';
+                        costAdulto = item.Costo;
+                        ahorroAdulto = item.CostoOri;
+
+                        console.log(costAdulto);
+                        contador++
+                    }
+                    /////
+                    if (tpBole[1] == 'Menores') {
+
+                        let totPreMenor = formatter.format(tpBole[0] * costoBol);
+                        M = 'MENOR';
+
+                        if (tpBole[0] > 1) {
+
+                            M = 'MENORES';
+                            $('.numMenores').text(tpBole[0] + ' ' + M);
+                            $('.totalMenores').text(totPreMenor);
+
+                        } else {
+
+                            $('.numMenores').text(tpBole[0] + ' ' + M);
+                            $('.totalMenores').text(totPreMenor);
+                        }
+
+                    }
+                    /////
+
+                    if (tpBole[1] == 'Insen') {
+
+                        let totPreInapm = formatter.format(tpBole[0] * costoBol);
+                        I = 'INAPAM';
+
+                        $('.numInapam').text(tpBole[0] + ' ' + I);
+                        $('.totalInapam').text(totPreInapm);
+
+
+                    }
+
+                    /////
+                    if (tpBole[1] == 'Maestros') {
+
+                        let totPreMaestro = formatter.format(tpBole[0] * costoBol);
+                        P = 'PROFESOR';
+
+                        if (tpBole[0] > 1) {
+
+                            P = 'PROFESORES';
+                            $('.numProfesores').text(tpBole[0] + ' ' + P);
+                            $('.totalProfesores').text(totPreMaestro);
+
+                        } else {
+
+                            $('.numProfesores').text(tpBole[0] + ' ' + P);
+                            $('.totalProfesores').text(totPreMaestro);
+                        }
+
+                    }
+
+                    /////
+                    if (tpBole[1] == 'Estudiantes') {
+
+                        let totPreEstudiante = formatter.format(tpBole[0] * costoBol);
+                        E = 'ESTUDIANTE';
+
+                        if (tpBole[0] > 1) {
+
+                            E = 'ESTUDIANTES';
+                            $('.numEstudiantes').text(tpBole[0] + ' ' + E);
+                            $('.totalEstudiantes').text(totPreEstudiante);
+
+                        } else {
+
+                            $('.numEstudiantes').text(tpBole[0] + ' ' + E);
+                            $('.totalEstudiantes').text(totPreEstudiante);
+                        }
+
+                    }
+                    @* console.log('Mis pasajeros: ' + item.Leyenda + ' ' + item.Costo + ' ' + item.CostoOri);*@
+                //console.log(item.CostoOri);
+
+            }
+
+                console.log('Mi total de Promociones: ' + contador + ' Precio: ' + costAdulto + ' Ahorro: ' + ahorroAdulto);
+
+
+
+                let totPreAdulto = formatter.format(contador * costAdulto);
+                console.log('Mi total Adulto en Moneda: ' + totPreAdulto);
+
+                let totAhorAdulto = formatter.format(contador * ahorroAdulto);
+
+                /////////////
+
+                if (A != '') {
+                    if (contador > 1) {
+                        A = 'ADULTOS';
+                    }
+                    $('.numAdultos').text(contador + ' ' + A);
+                    $('.totalAdulto').text(totPreAdulto);
+                    $('.ahorro').text(totAhorAdulto);
+                }
+
+
+                ////
+                let sumAd = $('.totalAdulto').text();
+                sumAd = sumAd.replace('$', '');
+                sumAd = sumAd.replace(',', '');
+                if (sumAd == '') {
+
+                    sumAd = 0;
+                }
+
+                /////
+                let sumIn = $('.totalInapam').text();
+                sumIn = sumIn.replace('$', '');
+                sumIn = sumIn.replace(',', '');
+                if (sumIn == '') {
+
+                    sumIn = 0;
+                }
+
+                ////
+                let sumMe = $('.totalMenores').text();
+                sumMe = sumMe.replace('$', '');
+                sumMe = sumMe.replace(',', '');
+                if (sumMe == '') {
+
+                    sumMe = 0;
+                }
+
+                ////
+                let sumEs = $('.totalEstudiantes').text();
+                sumEs = sumEs.replace('$', '');
+                sumEs = sumEs.replace(',', '');
+                if (sumEs == '') {
+
+                    sumEs = 0;
+                }
+
+                ////
+                let sumPr = $('.totalProfesores').text();
+                sumPr = sumPr.replace('$', '');
+                sumPr = sumPr.replace(',', '');
+                if (sumPr == '') {
+
+                    sumPr = 0;
+                }
+
+
+                let sumatoriBol = parseFloat(sumAd) + parseFloat(sumIn) + parseFloat(sumMe) + parseFloat(sumEs) + parseFloat(sumPr);
+
+                //let sumatoriBol = sumAd + sumIn + sumMe + sumEs + sumPr;
+
+                //sumatoriBol = formatter.format(sumatoriBol);
+
+                $('.totalAcumulado').text(formatter.format(sumatoriBol));
+                console.log(content);
+
+                //loading.style.display = 'none';
+
+            });
     }
 </script>
+
+
+
