@@ -137,6 +137,7 @@ footer {
     z-index: 2;
     font-weight: 700;
     color: #043162;
+    cursor: pointer;
 }
 
 .clasNumRojo {
@@ -146,6 +147,7 @@ footer {
     z-index: 2;
     font-weight: 700;
     color: white;
+    cursor: pointer;
 }
 
 .clasAsImg {

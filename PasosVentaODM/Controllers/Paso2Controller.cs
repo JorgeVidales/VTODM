@@ -53,6 +53,9 @@ namespace PasosVentaODM.Controllers
             ViewData["dato13"] = Request.Form["FechaLlegadaSalida"];
             ViewData["dato14"] = Request.Form["HoraLlegadaSalida"];
 
+            ViewData["dato15"] = Request.Form["FechaLlegadaRegreso"];
+            ViewData["dato16"] = Request.Form["HoraLlegadaRegreso"];
+
 
             return View();
         }
