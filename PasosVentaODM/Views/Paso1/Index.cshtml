@@ -369,6 +369,11 @@
     </div>
     <div class="col-lg-3">
         @*<div id="todos" class="diasform horarioform inactive">*@
+        <div id="salReg" class="">
+            <h4 id="Sal1">Salida</h4>
+            <h4 id="Reg1">Regreso</h4>
+        </div>
+
         <div id="todos" class="inactive">
             <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">TODOS</h4>
         </div>
@@ -562,11 +567,16 @@
 
     let datos = document.getElementById('tarjetas1');
     var loading = document.getElementById("cargando");
-
+    let tar2 = document.getElementById("tarjetas2");
 
         var boton = document.getElementById('json_post');
-        boton.addEventListener('click', function () {
-            loading.style.display = 'block';
+    boton.addEventListener('click', function () {
+
+        
+        loading.style.display = 'block';
+        tar2.style.display = 'none';
+
+        datos.style.display = 'block';
 
             adultos = document.getElementById('idAdulto').innerHTML;
             menores = document.getElementById('idMenos').innerHTML;
@@ -598,10 +608,10 @@
                                   "pE_nNinos": ${menores},
                                   "pE_nEstudiantes": ${estudiantes},
                                   "pE_nMaestro": ${profesores},
-                                  "pE_aViajeRedondo": "V1",
+                                  "pE_aViajeRedondo": "V2",
                                   "pE_nModo": 1,
                                   "pS_nConsecutivo":${consApi2},
-                                  "pS_nActualizaPasajeros":1}`);
+                                  "pS_nActualizaPasajeros":1}`);////---modifique V1 por V2
 
                 const rawResponse = await fetch(
                     "http://webq.odm.com.mx/WSVentaWeb/api/RecuperaCorridas",
@@ -715,14 +725,14 @@
                                 })
 
                         let tarifaForMoneda = formatter.format(item2.Tarifa);
-                        let TarifaPromoMoneda = formatter.format(item2.TarifaPromo);
+                        let TarifaPromoMoneda = formatter.format(item2.TarifaPromo);//<span class="descuento">-10%</span>
 
                         if (item2.TarifaPromo == 0) {
 
                             datos.innerHTML += `
                                     <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
                                         <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
-                                            <span class="descuento">-10%</span>
+                                            
                                         </div>
                                         <div class="container-fluid">
                                             <div class="row">
@@ -919,6 +929,7 @@
                 const content = await rawResponse.json();
                 loading.style.display = "none";
 
+                console.log(content);
 
                 arrayHorarios2 = [];
                 let arr = [1, 2, 3];
@@ -1018,8 +1029,67 @@
 
                         let tarifaForMoneda = formatter.format(item2.Tarifa);
                         let TarifaPromoMoneda = formatter.format(item2.TarifaPromo);
+                        /*
 
-                        datos.innerHTML += `
+                            <span style="text-decoration: none;" class="taquilla">${TarifaPromoMoneda}</span>
+                            <span class="internet">${tarifaForMoneda}</span>
+
+                        */
+                        if (item2.TarifaPromo == 0) {
+
+                            datos.innerHTML += `
+                                    <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
+                                        <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                            <span class="descuento">-10%</span>
+                                        </div>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-lg-5 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">ORIGEN</p>
+                                                    <p id="origenComReg_${autoinc}">${destinoCom}</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">DESTINO</p>
+                                                    <p id="destinoComReg_${autoinc}">${origenCom}</p>
+                                                </div>
+
+                                                <div class="col-lg-5 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">SALIDA</p>
+                                                    <p id="FechaSalidaInicioReg_${autoinc}" style="margin: 0px;">${item2.FechaSalidaInicio}</p>
+                                                    <p id="HoraSalidaReg_${autoinc}">${item2.HoraSalida} HRS</p>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                                    <p style="margin: 0px;">LLEGADA</p>
+                                                    <p id="FechaLlegadaReg_${autoinc}" style="margin: 0px;">${item2.FechaLlegada}</p>
+                                                    <p id="HoraLlegadaReg_${autoinc}">${item2.HoraLlegada} HRS</p>
+                                                </div>
+
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 50%;" src="${logoServImg}" /></div>
+                                                <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
+                                                    <span style="text-decoration: none;" class="taquilla">${TarifaPromoMoneda}</span>
+                                                    <span class="internet">${tarifaForMoneda}</span>
+                                                    <span id="enviarSalidaReg_${autoinc}" class="elegir" onclick="enviarDatosRegreso(this);">ELEGIR</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                              <input id="logoEmpresaRegreso_${autoinc}" type="hidden" value="${logoEmpresa}">
+                                              <input id="logoServImgRegreso_${autoinc}" type="hidden" value="${logoServImg}">
+
+                                              <input id="pE_nClaveCorridaRegreso_${autoinc}" type="hidden" value="${item2.claveCorrida}">
+                                              <input id="pE_aFechaSalidaInicioCorridaRegr_${autoinc}" type="hidden" value="${item2.FechaSalidaInicio}">
+                                              <input id="pE_aFechaBoletoRegreso_${autoinc}" type="hidden" value="${item2.FechaSalidaBoleto}">
+                                              <input id="pE_hHoraSalidaBoletoRegreso_${autoinc}" type="hidden" value="${item2.HoraSalida}">
+                                              <input id="FechaLlegadaRegreso_${autoinc}" type="hidden" value="${item2.FechaLlegada}">
+                                              <input id="HoraLlegadaRegreso_${autoinc}" type="hidden" value="${item2.HoraLlegada}">
+                                              <input id="pE_CorridaEmpresaRegreso_${autoinc}" type="hidden" value="${item2.EmpresaCorrida}">
+                                              <input id="pE_nConsecutivo_${autoinc}" type="hidden" value="${consApi2}">
+                                    </div>`;
+
+                        }
+                        else {
+                            datos.innerHTML += `
                                     <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
                                         <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
                                             <span class="descuento">-10%</span>
@@ -1069,6 +1139,9 @@
                                               <input id="pE_nConsecutivo_${autoinc}" type="hidden" value="${consApi2}">
                                     </div>`;
 
+
+                        }
+                        
                     }
 
                     autoinc++
