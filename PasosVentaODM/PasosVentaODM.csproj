@@ -12,6 +12,8 @@
     <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\Diagrama\" />
     <Folder Include="wwwroot\js\paso2\" />
+    <Folder Include="wwwroot\js\paso1\" />
+    <Folder Include="wwwroot\js\shared\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
