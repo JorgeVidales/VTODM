@@ -2,6 +2,10 @@
 const btnBuscar = document.querySelector("#json_post");
 const esperando = document.getElementById("cargando");
 
+let segPisoBtn = document.getElementById("segPisoBtn");
+
+
+
 window.addEventListener("load", () => {
     btnBuscar.addEventListener("click", buscarCorrida);
 });
@@ -25,6 +29,14 @@ function buscarCorrida(e) {
     // Validar
 
     // Consultar API
+    /////////// BORRA LOS ESTILOS DE LAS 5 FECHAS
+
+    $('#fe1P').css({ 'background': '#023765', 'color': 'white' })
+    $('#fe2P').css({ 'background': '#edeff0', 'color': '#023765' })
+    $('#fe3P').css({ 'background': '#edeff0', 'color': '#023765' })
+    $('#fe4P').css({ 'background': '#edeff0', 'color': '#023765' })
+    $('#fe5P').css({ 'background': '#edeff0', 'color': '#023765' })
+
 
     console.log("Buscando corrida");
 }
@@ -91,6 +103,8 @@ boton.addEventListener("click", function () {
         const content = await rawResponse.json();
         loading.style.display = "none";
 
+        
+
         arrayHorarios = [];
         let arr = [1, 2, 3];
         let autoinc = 1;
@@ -109,11 +123,11 @@ boton.addEventListener("click", function () {
             }
 
             if (servicio == "PRIMERA") {
-                logoServImg = "resources/servprimclas.png";
+                logoServImg = "resources/servprimclas.svg";
             }
 
             if (servicio == "PRIMERA EQUIPADO" || servicio == "PRIMERA NORESTE" || servicio == "ECONOMICO NORESTE") {
-                logoServImg = "resources/servprimclasequip.png";
+                logoServImg = "resources/servprimclasequip.svg";
             }
             if (servicio == "PRIMERA BASICO") {
                 logoServImg = "resources/servbasic.png";
@@ -187,7 +201,7 @@ boton.addEventListener("click", function () {
                 if (item2.TarifaPromo == 0) {
                     datos.innerHTML += `
                                     <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
-                                        <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                        <div class="col-lg-12"><img style="height: 23px; max-width: 80%;" src="${logoEmpresa}" />
 
                                         </div>
                                         <div class="container-fluid">
@@ -212,7 +226,7 @@ boton.addEventListener("click", function () {
                                                     <p id="HoraLlegada_${autoinc}">${item2.HoraLlegada} HRS</p>
                                                 </div>
 
-                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 50%;" src="${logoServImg}" /></div>
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
                                                 <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
                                                     <span style="text-decoration: none;" class="taquilla">${TarifaPromoMoneda}</span>
                                                     <span class="internet">${tarifaForMoneda}</span>
@@ -260,7 +274,7 @@ boton.addEventListener("click", function () {
                                                     <p id="HoraLlegada_${autoinc}">${item2.HoraLlegada} HRS</p>
                                                 </div>
 
-                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 50%;" src="${logoServImg}" /></div>
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
                                                 <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
                                                     <span class="taquilla">${tarifaForMoneda}</span>
                                                     <span class="internet">${TarifaPromoMoneda}</span>
@@ -288,6 +302,10 @@ boton.addEventListener("click", function () {
         }
 
         //@*console.log(arrayHorarios);*@
+
         filtroHorarios(arrayHorarios);
+        contHorarios();
+        //let prueba1 = 'Hola';
+        //classHorario(prueba1);
     })();
 });

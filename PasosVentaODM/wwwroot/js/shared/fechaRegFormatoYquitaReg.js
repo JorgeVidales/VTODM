@@ -20,6 +20,14 @@ $("#datepicker").change(function () {
     var mesSelec = arrayDeCadenas[1];
     var diaSelec = arrayDeCadenas[2];
 
+    $('#fe1P').css({ 'background': '#023765', 'color': 'white' })
+
+
+    $('#fe2P').css({ 'background': '#edeff0', 'color': '#023765' })
+    $('#fe3P').css({ 'background': '#edeff0', 'color': '#023765' })
+    $('#fe4P').css({ 'background': '#edeff0', 'color': '#023765' })
+    $('#fe5P').css({ 'background': '#edeff0', 'color': '#023765' })
+
     var arrayMes = [
         "Ene",
         "Feb",
@@ -72,9 +80,10 @@ $("#datepicker").change(function () {
 
     var fecha1 = new Date(feSelec);
     var dias = 1; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+
     fecha1.setDate(fecha1.getDate() + dias);
     var f1dia = fecha1.getDate();
-    var f1mes = fecha1.getMonth() + 1;
+    var f1mes = fecha1.getMonth();
     var f1year = fecha1.getFullYear();
 
     if (f1dia < 10) {
@@ -86,14 +95,34 @@ $("#datepicker").change(function () {
 
     var fe1Completa = f1dia + "/" + f1mes + "/" + f1year;
 
+    let f1mesApi = parseInt(f1mes) + 1;
+
+    if (f1mesApi < 10) {
+        f1mesApi = "0" + f1mesApi;
+    }
+    var fe1CompletaApi = f1dia + "/" + f1mesApi + "/" + f1year;
+
+    $(".fe1").text(fe1CompletaApi);
+
+    let diasPru = ["DOM", "LUN", "MAR", "MIE", "JUE", "VIE", "SAB"];
+    let meses = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+
+    let date = new Date(f1year, f1mes, f1dia);
+    let fechaNum = date.getUTCDate();
+    let mes_name = date.getMonth();
+
+    fe1Completa = diasPru[date.getDay()] + " " + fechaNum + " " + meses[mes_name];
+
+
     $("#fe1").text(fe1Completa);
 
     //@* FECHA 2 a) Si la fecha seleccionada es mayor a la fecha de hoy, la fecha2 sera la fecha seleccionada b)Si la fecha es la de  *@
     var fecha2 = new Date(feSelec);
     var dias2 = 2; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
+
     fecha2.setDate(fecha2.getDate() + dias2);
     var f2dia = fecha2.getDate();
-    var f2mes = fecha2.getMonth() + 1;
+    var f2mes = fecha2.getMonth();
     var f2year = fecha2.getFullYear();
 
     if (f2dia < 10) {
@@ -104,14 +133,31 @@ $("#datepicker").change(function () {
     }
 
     var fe2Completa = f2dia + "/" + f2mes + "/" + f2year;
+
+    let f2mesApi = parseInt(f2mes) + 1;
+
+    if (f2mesApi < 10) {
+        f2mesApi = "0" + f2mesApi;
+    }
+    var fe2CompletaApi = f2dia + "/" + f2mesApi + "/" + f2year;
+
+    $(".fe2").text(fe2CompletaApi);
+
+    let date2 = new Date(f2year, f2mes, f2dia);
+    let fechaNum2 = date2.getUTCDate();
+    let mes_name2 = date2.getMonth();
+
+    fe2Completa = diasPru[date2.getDay()] + " " + fechaNum2 + " " + meses[mes_name2];
+
     $("#fe2").text(fe2Completa);
 
     //@* FECHA 3 a) La fecha3 sera la fecha2 + 1 *@
+
     var fecha3 = new Date(feSelec);
     var dias3 = 3; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
     fecha3.setDate(fecha3.getDate() + dias3);
     var f3dia = fecha3.getDate();
-    var f3mes = fecha3.getMonth() + 1;
+    var f3mes = fecha3.getMonth();
     var f3year = fecha3.getFullYear();
 
     if (f3dia < 10) {
@@ -123,6 +169,21 @@ $("#datepicker").change(function () {
 
     var fe3Completa = f3dia + "/" + f3mes + "/" + f3year;
 
+    let f3mesApi = parseInt(f3mes) + 1;
+
+    if (f3mesApi < 10) {
+        f3mesApi = "0" + f3mesApi;
+    }
+    var fe3CompletaApi = f3dia + "/" + f3mesApi + "/" + f3year;
+
+    $(".fe3").text(fe3CompletaApi);
+
+    let date3 = new Date(f3year, f3mes, f3dia);
+    let fechaNum3 = date3.getUTCDate();
+    let mes_name3 = date3.getMonth();
+
+    fe3Completa = diasPru[date3.getDay()] + " " + fechaNum3 + " " + meses[mes_name3];
+
     $("#fe3").text(fe3Completa);
 
     //@* FECHA 4 a) La fecha4 sera la fecha3 + 1 *@
@@ -130,7 +191,7 @@ $("#datepicker").change(function () {
     var dias4 = 4; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
     fecha4.setDate(fecha4.getDate() + dias4);
     var f4dia = fecha4.getDate();
-    var f4mes = fecha4.getMonth() + 1;
+    var f4mes = fecha4.getMonth();
     var f4year = fecha4.getFullYear();
 
     if (f4dia < 10) {
@@ -142,13 +203,28 @@ $("#datepicker").change(function () {
 
     var fe4Completa = f4dia + "/" + f4mes + "/" + f4year;
 
+    let f4mesApi = parseInt(f4mes) + 1;
+
+    if (f4mesApi < 10) {
+        f4mesApi = "0" + f4mesApi;
+    }
+    var fe4CompletaApi = f4dia + "/" + f4mesApi + "/" + f4year;
+
+    $(".fe4").text(fe4CompletaApi);
+
+    let date4 = new Date(f4year, f4mes, f4dia);
+    let fechaNum4 = date4.getUTCDate();
+    let mes_name4 = date4.getMonth();
+
+    fe4Completa = diasPru[date4.getDay()] + " " + fechaNum4 + " " + meses[mes_name4];
+
     $("#fe4").text(fe4Completa);
     //@* FECHA 5 a) La fecha5 sera la fecha4 + 1 *@
     var fecha5 = new Date(feSelec);
     var dias5 = 5; // el numero 1 es el dia original, 0 es el dia anterior, el numero 2 es el dia siguiente,
     fecha5.setDate(fecha5.getDate() + dias5);
     var f5dia = fecha5.getDate();
-    var f5mes = fecha5.getMonth() + 1;
+    var f5mes = fecha5.getMonth();
     var f5year = fecha5.getFullYear();
 
     if (f5dia < 10) {
@@ -160,6 +236,21 @@ $("#datepicker").change(function () {
 
     var fe5Completa = f5dia + "/" + f5mes + "/" + f5year;
 
+    let f5mesApi = parseInt(f5mes) + 1;
+
+    if (f5mesApi < 10) {
+        f5mesApi = "0" + f5mesApi;
+    }
+    var fe5CompletaApi = f5dia + "/" + f5mesApi + "/" + f5year;
+
+    $(".fe5").text(fe5CompletaApi);
+
+    let date5 = new Date(f5year, f5mes, f5dia);
+    let fechaNum5 = date5.getUTCDate();
+    let mes_name5 = date5.getMonth();
+
+    fe5Completa = diasPru[date5.getDay()] + " " + fechaNum5 + " " + meses[mes_name5];
+
     $("#fe5").text(fe5Completa);
 });
 //@*/////////////////////////////*@
@@ -168,4 +259,104 @@ $("#quitar").on("click", function () {
     $("#quitar").css("display", "none");
     $("#tarjetas1").css("display", "block");
     $("#tarjetas2").css("display", "none");
+});
+
+///////////////
+
+$("#datepicker2").change(function () {
+
+    let my5diasAct = document.getElementsByClassName('diasform');
+
+    let cincoFech = '';
+
+    for (item of my5diasAct) {
+
+        let myColor = item.style.background;
+        let myFechReg = item.id;
+        let myPsicion = item.getElementsByTagName('input');
+
+        if (myColor == 'rgb(2, 55, 101)') {
+
+            cincoFech = myPsicion[0].innerText
+
+            //console.log(myPsicion[0].innerText)
+
+        }
+    }
+
+    //$('#fe1P').css({ 'background': '#023765', 'color': 'white' })
+
+    //$('#fe2P').css({ 'background': '#edeff0', 'color': '#023765' })
+    //$('#fe3P').css({ 'background': '#edeff0', 'color': '#023765' })
+    //$('#fe4P').css({ 'background': '#edeff0', 'color': '#023765' })
+    //$('#fe5P').css({ 'background': '#edeff0', 'color': '#023765' })
+
+    //alert(cincoFech);
+
+    let myFechaCinco = cincoFech.split("/");
+
+    let diafech5 = myFechaCinco[0];
+    let mesfech5 = myFechaCinco[1];
+    let yearfech5 = myFechaCinco[2]
+    ////////////
+    var fechaSal = $("#datepicker").val();
+
+    var arrayDeSal = fechaSal.split(" ");
+    let diaSal = arrayDeSal[0];
+    let mesSal = arrayDeSal[1].toUpperCase();
+    let yearSal = arrayDeSal[2];
+
+    let mesArray2 = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+    let mesNumSal = (mesArray2.indexOf(mesSal)) + 1;
+
+    if (mesNumSal < 10) {
+        mesNumSal = '0' + mesNumSal;
+    }
+
+    let myFechaSal = diaSal + '/' + mesNumSal + '/' + yearSal;
+
+    ///////////
+
+    var fechaReg = $("#datepicker2").val();
+
+    var arrayDeReg = fechaReg.split(" ");
+    let diaReg = arrayDeReg[0];
+    let mesReg = arrayDeReg[1].toUpperCase();
+    let yearReg = arrayDeReg[2];
+
+    let mesArray = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+    let mesNumReg = (mesArray.indexOf(mesReg)) + 1;
+
+    if (mesNumReg < 10) {
+        mesNumReg = '0' + mesNumReg;
+    }
+
+    let myFechaReg = diaReg + '/' + mesNumReg + '/' + yearReg;
+
+
+    var f1Reg = new Date(yearReg, mesNumReg, diaReg);
+    var f2myFech5 = new Date(yearfech5, mesfech5, diafech5);
+
+    if (f1Reg >=f2myFech5) {
+
+        //alert("Tu fecha de regreso es mayor a la fecha de las 5 seleccionada");
+
+        //quitaReg()
+
+    }
+    else {
+        actualizaTarj1(myFechaSal)
+
+        $('#fe1P').css({ 'background': '#023765', 'color': 'white' })
+
+        $('#fe2P').css({ 'background': '#edeff0', 'color': '#023765' })
+        $('#fe3P').css({ 'background': '#edeff0', 'color': '#023765' })
+        $('#fe4P').css({ 'background': '#edeff0', 'color': '#023765' })
+        $('#fe5P').css({ 'background': '#edeff0', 'color': '#023765' })
+    }
+
+
+    //alert(myFechaSal);
+    //actualizaTarj1(myFechaSal)
+
 });

@@ -64,6 +64,7 @@ $(function () {
 jQuery(document).on("change", "#datepicker", (event) => {
     const element = event.target;
     //@*console.log('Estoy checando:'+element.value);*@
+
     jQuery("#datepicker2").datepicker("option", "minDate", element.value);
 });
 

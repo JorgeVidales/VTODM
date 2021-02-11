@@ -155,6 +155,10 @@
 
                 if (ocupacion.piso == 2) {
                     $(".segPisoBtn").css("display", "block");
+                    let flecha = document.getElementById('flecha');
+
+                    flecha.style.display = 'none';
+
                     //---console.log(tv);
 
                     if (tv === "T") {

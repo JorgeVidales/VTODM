@@ -319,6 +319,7 @@
 
     <p id="idConPas1">@ViewData["Consecutivo"]</p>
     <p id="idConPas2">@ViewData["ConsPas2"]</p>
+
 </div>
 
 
@@ -327,20 +328,25 @@
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-lg-2 diasform">
-            <p id="fe1">MIE 07 OCT</p>
+        <div id="fe1P" class="col-lg-2 diasform">
+            <p id="fe1" onclick="bqcincofechas(this);"></p>
+            <input class="fe1" type="hidden" value="">
         </div>
-        <div class="col-lg-2 diasform">
-            <p id="fe2">JUE 08 OCT</p>
+        <div id="fe2P" class="col-lg-2 diasform">
+            <p id="fe2" onclick="bqcincofechas(this);"></p>
+            <input class="fe2" type="hidden" value="">
         </div>
-        <div class="col-lg-2 diasform">
-            <p id="fe3">VIE 09 OCT</p>
+        <div id="fe3P" class="col-lg-2 diasform">
+            <p id="fe3" onclick="bqcincofechas(this);"></p>
+            <input class="fe3" type="hidden" value="">
         </div>
-        <div class="col-lg-2 diasform">
-            <p id="fe4">SAB 10 OCT</p>
+        <div id="fe4P" class="col-lg-2 diasform">
+            <p id="fe4" onclick="bqcincofechas(this);"></p>
+            <input class="fe4" type="hidden" value="">
         </div>
-        <div class="col-lg-2 diasform">
-            <p id="fe5">DOM 11 OCT</p>
+        <div id="fe5P" class="col-lg-2 diasform">
+            <p id="fe5" onclick="bqcincofechas(this);"></p>
+            <input class="fe5" type="hidden" value="">
         </div>
     </div>
 </div>
@@ -352,8 +358,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <div class="row contpaso1">
@@ -375,19 +379,19 @@
         </div>
 
         <div id="todos" class="inactive">
-            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">TODOS</h4>
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">TODOS <span class="totClass">0</span></h4>
         </div>
         <div id="madrugada" class="inactive">
-            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">MADRUGADA</h4>
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">MADRUGADA<span class="totClass">0</span></h4>
         </div>
         <div id="dia" class="inactive">
-            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">MAÑANA</h4>
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">MAÑANA<span class="totClass">0</span></h4>
         </div>
         <div id="tarde" class="inactive">
-            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">TARDE</h4>
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">TARDE<span class="totClass">0</span></h4>
         </div>
         <div id="noche" class="inactive">
-            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">NOCHE</h4>
+            <h4 style="line-height: 26px; font-size: 16px; font-weight: 600;">NOCHE<span class="totClass">0</span></h4>
         </div>
     </div>
     @*//////////////// TARJETAS DINAMICAS VIAJE SENCILLO ///////////////////////*@
@@ -429,8 +433,8 @@
         <input id="fecharegreso" name="fecharegreso" type="hidden" value="">
 
         @*//// DATOS DE VIAJE SALIDA /////*@
-        <input id="logoEmpresaSalida" type="hidden" value="">
-        <input id="logoServImgSalida" type="hidden" value="">
+        <input id="logoEmpresaSalida" name="logoEmpresaSalida" type="hidden" value="">
+        <input id="logoServImgSalida" name="logoServImgSalida" type="hidden" value="">
 
         <input id="pE_nClaveCorrida" name="pE_nClaveCorrida" type="hidden" value="">
         <input id="pE_aFechaSalidaInicioCorrida" name="pE_aFechaSalidaInicioCorrida" type="hidden" value="">
@@ -444,8 +448,8 @@
         <input id="pE_CorridaEmpresa" name="pE_CorridaEmpresa" type="hidden" value="">
 
         @*///// DATOS DE VIAJE REGRESO //////*@
-        <input id="logoEmpresaRegreso" type="hidden" value="">
-        <input id="logoServImgRegreso" type="hidden" value="">
+        <input id="logoEmpresaRegreso" name="logoEmpresaRegreso" type="hidden" value="">
+        <input id="logoServImgRegreso" name="logoServImgRegreso" type="hidden" value="">
 
         <input id="pE_nClaveCorridaRegreso" name="pE_nClaveCorridaRegreso" type="hidden" value="">
         <input id="pE_aFechaSalidaInicioCorridaRegr" name="pE_aFechaSalidaInicioCorridaRegr" type="hidden" value="">
@@ -504,6 +508,9 @@
 @* ///////  EVIA EL FORMULARIO SALIDA /////////////*@
 <script src="js/paso1/enviarFormSalida.js"></script>
 
+@* ///////  EVIA EL FORMULARIO SALIDA /////////////*@
+<script src="js/paso1/enviarFormularioRegreso.js"></script>
+
 @* ///////  EVIA EL FORMULARIO REGRESO /////////////*@
 <script src="js/paso1/enviaTarjRegresoP2.js"></script>
 
@@ -516,3 +523,11 @@
 @* //////// ASIGNA EL ORIGEN Y DESTINO QUE VIENEN DEL FORMULARIO ////////// *@
 <script src="js/paso1/buscaOrgDest.js"></script>
 
+@* //////// NUMERO DE CORRIDAS POR HORARIO ////////// *@
+<script src="js/paso1/Horario.js"></script>
+
+@* //////// BUSCA LAS CORIDAS POR LAS 5 FECHAS ////////// *@
+<script src="js/paso1/bqCincoFechas.js"></script>
+
+@* //////// BUSCA LAS CORIDAS POR LAS 5 FECHAS ////////// *@
+<script src="js/paso1/quitaReg.js"></script>

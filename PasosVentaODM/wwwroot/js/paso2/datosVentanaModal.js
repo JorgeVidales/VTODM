@@ -3,15 +3,15 @@ let tipoBoleto = document.getElementById("contBoletos");
 let combo = document.getElementById("tpasajero");
 
 function agregarBoleto() {
-    var datosPasaj = document.getElementsByClassName("datosPasajero").length;
+    //var datosPasaj = document.getElementsByClassName("datosPasajero").length;
 
-    let contador = datosPasaj + 1;
+    //let contador = datosPasaj + 1;
 
-    console.log("Hay " + contador + " elementos");
+    //console.log("Hay " + contador + " elementos");
 
-    let descNom = document.getElementById("descNombre").value;
-    let descApPat = document.getElementById("apellidoPaterno").value;
-    let descApMat = document.getElementById("apellidoMaterno").value;
+    //let descNom = document.getElementById("descNombre").value;
+    //let descApPat = document.getElementById("apellidoPaterno").value;
+    //let descApMat = document.getElementById("apellidoMaterno").value;
 
     let tpb = combo.options[combo.selectedIndex].value;
 
@@ -36,7 +36,9 @@ function agregarBoleto() {
             tipBolNom = "PROFESOR";
             break;
     }
+    //////----checar
 
+    /*
     tipoBoleto.innerHTML += `<img id="conPasaj_${contador}" class="mr-2 A tipoBol conPasaj_${contador}" src="img/${tpb}.svg" onclick="oculDescr(this);"/>`;
 
     contPasajero.innerHTML += `<div class="datosPasajero conPasaj_${contador}">
@@ -46,17 +48,20 @@ function agregarBoleto() {
                                         <h5>NOMBRE DEL PASAJERO</h5>
                                         <input class="nomPasajero text-uppercase" type="text" value="${descNom} ${descApPat} ${descApMat}" />
                                     </div>`;
+    */
 
-    document.getElementById("miForm").reset();
+    ////////------
+    //document.getElementById("miForm").reset();
 
-    document.getElementById(`conPasaj_${contador}`).click();
+    //-------document.getElementById(`conPasaj_${contador}`).click();
 
+    /*
     if (tpb == "A") {
         let ad = parseInt($("#adultoPas1").text());
         let sumAd = ad + 1;
 
         $("#adultoPas1").text(sumAd);
-        //alert(sumAd)
+        
     }
     if (tpb == "M") {
         let men = parseInt($("#menoresPas1").text());
@@ -82,8 +87,9 @@ function agregarBoleto() {
 
         $("#profesoresPas1").text(sumProfe);
     }
+    */
 
-    masBoletos();
+    masBoletos(tpb);
 
     //////////--------------------------------------------------------------------------------------------------
 }

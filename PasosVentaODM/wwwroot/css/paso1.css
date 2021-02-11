@@ -298,6 +298,7 @@ footer {
     overflow-y: scroll;
 }
 .active {
+    position: relative;
     margin-bottom: 13px !important;
     border-radius: 0px 29px;
     margin: 0px 15px;
@@ -309,6 +310,7 @@ footer {
     text-align: center;
 }
 .inactive {
+    position: relative;
     margin-bottom: 13px !important;
     height: 25px;
     width: 67%;
@@ -351,4 +353,16 @@ footer {
 }
 .elegir:hover {
     background: #cd272f;
+}
+.totClass {
+    position: absolute;
+    background: #a5353a;
+    color: white;
+    right: 2%;
+    top: -5px;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    line-height: 26px;
+    font-size: 11px;
 }

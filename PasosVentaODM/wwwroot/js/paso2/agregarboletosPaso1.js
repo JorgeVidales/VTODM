@@ -1,4 +1,6 @@
 ﻿function agregarboletosPaso1() {
+
+    //recargaWS();
     const contPasajero = document.getElementById("descripcion");
     let tipoBoleto = document.getElementById("contBoletos");
 

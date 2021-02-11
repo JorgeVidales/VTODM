@@ -90,6 +90,8 @@
         const content = await rawResponse.json();
         loading.style.display = "none";
 
+        
+
         console.log(content);
 
         arrayHorarios2 = [];
@@ -110,11 +112,11 @@
                 servicio == "PLUS NORESTE" ||
                 tipoBus == "Doble"
             ) {
-                logoServImg = "resources/servplus.png";
+                logoServImg = "resources/servplus.svg";
             }
 
             if (servicio == "PRIMERA") {
-                logoServImg = "resources/servprimclas.png";
+                logoServImg = "resources/servprimclas.svg";
             }
 
             if (
@@ -122,10 +124,10 @@
                 servicio == "PRIMERA NORESTE" ||
                 servicio == "ECONOMICO NORESTE"
             ) {
-                logoServImg = "resources/servprimclasequip.png";
+                logoServImg = "resources/servprimclasequip.svg";
             }
             if (servicio == "PRIMERA BASICO") {
-                logoServImg = "resources/servbasic.png";
+                logoServImg = "resources/servbasic.svg";
             }
 
             /// PARA PONER EL LOGO DE LA EMPRESA
@@ -201,7 +203,7 @@
                 if (item2.TarifaPromo == 0) {
                     datos.innerHTML += `
                               <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
-                                  <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                  <div class="col-lg-12"><img style="height: 23px; max-width: 80%;" src="${logoEmpresa}" />
                                       <span class="descuento">-10%</span>
                                   </div>
                                   <div class="container-fluid">
@@ -226,7 +228,7 @@
                                               <p id="HoraLlegadaReg_${autoinc}">${item2.HoraLlegada} HRS</p>
                                           </div>
 
-                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 50%;" src="${logoServImg}" /></div>
+                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
                                           <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
                                               <span style="text-decoration: none;" class="taquilla">${TarifaPromoMoneda}</span>
                                               <span class="internet">${tarifaForMoneda}</span>
@@ -276,7 +278,7 @@
                                               <p id="HoraLlegadaReg_${autoinc}">${item2.HoraLlegada} HRS</p>
                                           </div>
 
-                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 50%;" src="${logoServImg}" /></div>
+                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
                                           <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
                                               <span class="taquilla">${tarifaForMoneda}</span>
                                               <span class="internet">${TarifaPromoMoneda}</span>
@@ -307,5 +309,6 @@
 
         //@* console.log(arrayHorarios);*@
         filtroHorariosReg(arrayHorarios);
+        contHorarios();
     })();
 }
