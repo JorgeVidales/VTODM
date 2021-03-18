@@ -128,10 +128,47 @@
     font-size: 17px;
     line-height: 1.2;
 }
-
+.espacioDatos{
+    margin-top: 10px;
+}
 @media(min-width: 992px) {
     .buscar {
         width: 195%;
+    }
+}
+
+@media(max-width: 991px){
+
+    .fechasCinco{
+        display: none;
+    }
+    .pasos {
+        display: none;
+    }
+    .horarios{
+        display: none;
+    }
+}
+@media(max-width: 817px){
+    .taquilla {
+        padding: 4px 30% !important;
+        left: 0px !important;
+    }
+    .internet {
+        padding: 4px 30% !important;
+        left: 0px !important;
+        top: 5px!important;
+        border-radius: 19px 0px!important;
+    }
+    .elegir {
+        padding: 4px 33% !important;
+        top: 7px !important;
+        left: 0px !important;
+    }
+}
+@media (max-width: 575px){
+    .divElegir{
+        text-align: center!important;
     }
 }
 
@@ -296,6 +333,7 @@ footer {
 #tarjetas1, #tarjetas2 {
     height: 725px;
     overflow-y: scroll;
+    color: #033765;
 }
 .active {
     position: relative;

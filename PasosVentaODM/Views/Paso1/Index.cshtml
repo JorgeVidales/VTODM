@@ -320,13 +320,15 @@
     <p id="idConPas1">@ViewData["Consecutivo"]</p>
     <p id="idConPas2">@ViewData["ConsPas2"]</p>
 
+    <p id="btnSolicita">@ViewData["btnpulsado"]</p>
+
 </div>
 
 
 @*<p>Consecutivo: @ViewData["Consecutivo"]</p>
     <p>Consecutivo: @ViewBag.Consecutivo</p>*@
 
-<div class="container mt-3">
+<div class="container fechasCinco mt-3">
     <div class="row">
         <div id="fe1P" class="col-lg-2 diasform">
             <p id="fe1" onclick="bqcincofechas(this);"></p>
@@ -371,7 +373,7 @@
         <div class="linea"></div>
         <div class="pas4"></div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 horarios">
         @*<div id="todos" class="diasform horarioform inactive">*@
         <div id="salReg" class="">
             <h4 id="Sal1">Salida</h4>

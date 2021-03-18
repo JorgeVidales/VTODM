@@ -1,6 +1,52 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
 <head>
+
+    <script type="text/javascript" async>
+        setTimeout(function () {
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-56739058-1', 'auto', {
+                'allowLinker': true
+            });
+            ga('require', 'linker');
+            ga('linker:autoLink', ['https://venta.odm.com.mx:30700/odm']);
+            ga('send', 'pageview');
+
+        }, 500);
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        setTimeout(function () {
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-TD3ZZ93');
+        }, 500);
+    </script>
+
+
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ODM</title>
@@ -72,6 +118,7 @@
     </style>
     <link rel="stylesheet" href="~/css/paso1.css" />
     <link rel="stylesheet" href="~/css/paso2.css" />
+    <link rel="stylesheet" href="~/css/paso3.css" />
 </head>
 <body>
     <header>
@@ -110,28 +157,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto" style="margin: auto;">
                     <li class="nav-item">
-                        <a class="nav-link" style="width: 142px;" asp-action="Index">
+                        <a class="nav-link" style="width: 142px;" href="https://www.odm.com.mx/envios-odm">
                             <i class="fas fa-shipping-fast"></i> Envíos ODM
                             <!-- <span class="sr-only">(current)</span> -->
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="width: 120px;" asp-action="Privacy">
+                        <a class="nav-link" style="width: 120px;" href="https://www.odm.com.mx/cobertura">
                             <i class="fas fa-bus"></i> Cobertura
                             <!-- <span class="sr-only">(current)</span> -->
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="width: 160px" href=""><i class="fas fa-map"></i> Puntos de venta</a>
+                        <a class="nav-link" style="width: 160px" href="https://www.odm.com.mx/puntosgoogle"><i class="fas fa-map"></i> Puntos de venta</a>
                     </li>
 
                     <li class="nav-item">
                         <!-- <a class="nav-link" href="#"><i class="far fa-handshake"></i> Servicios</a> -->
-                        <a class="nav-link" style="width: 109px;" href=""><i class="far fa-handshake"></i> Servicios</a>
+                        <a class="nav-link" style="width: 109px;" href="https://www.odm.com.mx/servicios"><i class="far fa-handshake"></i> Servicios</a>
                     </li>
 
                     <li class="nav-item">
-                        <a id="factura" href="https://venta.odm.com.mx/FacturacionElectronica/IndexFacturaElec.html" class="nav-link"><i class="fas fa-file-alt"></i> Facturación</a>
+                        <a id="factura" style="margin-bottom: 10px;" href="https://venta.odm.com.mx/FacturacionElectronica/IndexFacturaElec.html" class="nav-link"><i class="fas fa-file-alt"></i> Facturación</a>
                     </li>
 
                 </ul>
@@ -163,16 +210,16 @@
                 <!-- ////// INICIO PREGUNTAS ///////// -->
                 <ul class="nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="quienes-somos2">Quiénes somos</a>
+                        <a class="nav-link" href="https://www.odm.com.mx/quienes-somos2">Quiénes somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="preguntas-frecuentes">Preguntas frecuentes</a>
+                        <a class="nav-link" href="https://www.odm.com.mx/preguntas-frecuentes">Preguntas frecuentes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="http://venta.odm.com.mx/netScripts/request.aspx?APPNAME=Navegante&amp;PRGNAME=AccesoEx&amp;ARGUMENTS=-AAG" target="_blanck">Agencias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contactanos">Contáctanos</a>
+                        <a class="nav-link" href="https://www.odm.com.mx/contactanos">Contáctanos</a>
                     </li>
                 </ul>
                 <!-- ////// FIN PREGUNTAS ///////// -->
@@ -246,7 +293,7 @@
                     <div class="col">
                         <ul class="nav justify-content-center">
                             <li class="nav-item">
-                                <a class="nav-link" href="aviso-privacidad">Aviso de privacidad | Políticas de viaje</a>
+                                <a class="nav-link" href="https://odm.com.mx/aviso-privacidad">Aviso de privacidad | Políticas de viaje</a>
                             </li>
                         </ul>
                     </div>
@@ -282,16 +329,52 @@
 
 
     @*//////////// DETECTA EL ORIGEN SELECCIONADO Y CARGA SUS DESTINOS ////////////*@
-    <script src="js/shared/orgSeleccionado.js"></script>
+    <script src="~/js/shared/orgSeleccionado.js"></script>
 
     @*//////////// ASIGNA EL FORMATO DE FECHA TEXTO EN LOS CALENDARIOS ////////////*@
-    <script src="js/shared/fechaCalendarios.js"></script>
+    <script src="~/js/shared/fechaCalendarios.js"></script>
 
     @*//////////// ASIGNA EL FORMATO DE FECHA REGRESO TEXTO / QUITA REGRESO ////////////*@
-    <script src="js/shared/fechaRegFormatoYquitaReg.js"></script>
+    <script src="~/js/shared/fechaRegFormatoYquitaReg.js"></script>
 
     @*//////////// VARIABLES PARA EL CRONOMETRO ////////////*@
-    <script src="js/shared/cronometro.js"></script>
+    <script src="~/js/shared/cronometro.js"></script>
+
+    <script>setTimeout(function () {
+
+            ! function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '320605981652997');
+            fbq('track', 'PageView');
+
+
+        }, 5000);</script>
+
+    <script>
+        window.addEventListener("pageshow", function (event) {
+            var historyTraversal = event.persisted || (typeof window.performance != "undefined" && window.performance.navigation.type === 2);
+            if (historyTraversal) {
+                // Handle page restore.
+                window.location.reload();
+            }
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

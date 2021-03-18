@@ -26,11 +26,13 @@
 
         //@*console.log('minutos: ' + minutos + ' ' + ' ' + 'segundos: ' + segundos);*@
 
-        var pagina = "https://odm.com.mx/";
+        var pagina = "https://www.odm.com.mx/indexlocalv2.php";
 
         if (minutos == "0-1" && segundos == "59") {
-            //alert("Tu sesión ha expirado. Por favor vuelve a intentarlo");
 
+            alert("Tu sesión ha expirado. Por favor vuelve a intentarlo");
+
+            location.href = pagina;
             /* @*tiempo.segundo = 5;
                 tiempo.minuto = 0;*@
       

@@ -8,6 +8,13 @@ let segPisoBtn = document.getElementById("segPisoBtn");
 
 window.addEventListener("load", () => {
     btnBuscar.addEventListener("click", buscarCorrida);
+    localStorage.clear();
+
+    let btnSolicita = $("#btnSolicita").text();
+
+    localStorage.setItem('btnSolicita', btnSolicita);
+
+
 });
 
 /////////// IMPORTANTE ENVIO DE DATOS ///////////////////////
@@ -75,6 +82,10 @@ boton.addEventListener("click", function () {
     console.log("Mi Fecha Salida: " + fechSalida);
     datos.innerHTML = ""; ///// LIMPIA EL HTML
 
+    let orgdestIata = origen + '-' + destino;
+
+    localStorage.setItem('orgdestIata', orgdestIata);
+
     (async () => {
         var data = JSON.parse(`{  "pE_aOrigen": "${origen}",
                                   "pE_aDestino": "${destino}",
@@ -84,7 +95,7 @@ boton.addEventListener("click", function () {
                                   "pE_nNinos": ${menores},
                                   "pE_nEstudiantes": ${estudiantes},
                                   "pE_nMaestro": ${profesores},
-                                  "pE_aViajeRedondo": "V2",
+                                  "pE_aViajeRedondo": "V1",
                                   "pE_nModo": 1,
                                   "pS_nConsecutivo":${consApi2},
                                   "pS_nActualizaPasajeros":1}`); ////---modifique V1 por V2
@@ -109,7 +120,11 @@ boton.addEventListener("click", function () {
         let arr = [1, 2, 3];
         let autoinc = 1;
 
+        console.log(content)
+
         for (item2 of content.Corridas) {
+
+            //console.log(item2);
             //// PARA CHECAR EL SERVICIO
             let empresa = item2.EmpresaCorrida;
             let logoEmpresa = "";
@@ -150,7 +165,7 @@ boton.addEventListener("click", function () {
                 logoEmpresa = "logos_servicios/odm1c.svg";
             }
             if (servicio == "PLUS NORESTE" || servicio == "ECONOMICO NORESTE") {
-                logoEmpresa = "logos_servicios/noreste.svg";
+                logoEmpresa = "logos_servicios/norestep.svg";
             }
             if (servicio == "PRIMERA BASICO") {
                 logoEmpresa = "logos_servicios/odm1pb.svg";
@@ -205,7 +220,7 @@ boton.addEventListener("click", function () {
 
                                         </div>
                                         <div class="container-fluid">
-                                            <div class="row">
+                                            <div class="row espacioDatos">
                                                 <div class="col-lg-5 col-md-6 col-sm-6">
                                                     <p style="margin: 0px;">ORIGEN</p>
                                                     <p id="origenCom_${autoinc}">${origenCom}</p>
@@ -226,8 +241,8 @@ boton.addEventListener("click", function () {
                                                     <p id="HoraLlegada_${autoinc}">${item2.HoraLlegada} HRS</p>
                                                 </div>
 
-                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
-                                                <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 80%; height: 40.55px;" src="${logoServImg}" /></div>
+                                                <div class="col-lg-7 col-md-6 col-sm-6 mb-3 divElegir">
                                                     <span style="text-decoration: none;" class="taquilla">${TarifaPromoMoneda}</span>
                                                     <span class="internet">${tarifaForMoneda}</span>
                                                     <span id="enviarSalida_${autoinc}" class="elegir" onclick="enviarDatosSalida(this);">ELEGIR</span>
@@ -249,11 +264,11 @@ boton.addEventListener("click", function () {
                 } else {
                     datos.innerHTML += `
                                     <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
-                                        <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                        <div class="col-lg-12"><img style="height: 23px; max-width: 80%;" src="${logoEmpresa}" />
                                             <span class="descuento">-10%</span>
                                         </div>
                                         <div class="container-fluid">
-                                            <div class="row">
+                                            <div class="row espacioDatos">
                                                 <div class="col-lg-5 col-md-6 col-sm-6">
                                                     <p style="margin: 0px;">ORIGEN</p>
                                                     <p id="origenCom_${autoinc}">${origenCom}</p>
@@ -274,8 +289,8 @@ boton.addEventListener("click", function () {
                                                     <p id="HoraLlegada_${autoinc}">${item2.HoraLlegada} HRS</p>
                                                 </div>
 
-                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
-                                                <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 80%; height: 40.55px;" src="${logoServImg}" /></div>
+                                                <div class="col-lg-7 col-md-6 col-sm-6 mb-3 divElegir">
                                                     <span class="taquilla">${tarifaForMoneda}</span>
                                                     <span class="internet">${TarifaPromoMoneda}</span>
                                                     <span id="enviarSalida_${autoinc}" class="elegir" onclick="enviarDatosSalida(this);">ELEGIR</span>

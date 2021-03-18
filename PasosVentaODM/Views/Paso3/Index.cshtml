@@ -5,8 +5,533 @@
     ViewData["Title"] = "Paso3";
 }
 
-<div class="row">
-    <div>
-        PASO 3
+<style>
+    .pas3 {
+        width: 30px;
+        height: 30px;
+        background: #023765;
+        text-align: center;
+        line-height: 29px;
+        border-radius: 50px;
+        font-size: larger;
+        color: white;
+    }
+
+    .pasos {
+        position: absolute;
+    }
+
+    .pas1, .pas2, .pas4 {
+        width: 30px;
+        height: 30px;
+        background: #edeff0;
+        border-radius: 50px;
+    }
+    #cargaCont {
+        display: none;
+        margin: 0px;
+        background: black;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        z-index: 41;
+        left: 0px;
+        height: 100%;
+        opacity: .9;
+    }
+    
+    
+    /*////////////////*/
+    
+
+</style>
+
+<div id="cargaCont">
+    <div id="cargando" style="position: fixed; top: 30%; left: 48%; " class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
     </div>
 </div>
+
+
+<div class="row paso3">
+    <div class="pasos">
+        <div class="bus"><i class="fas fa-bus-alt"></i></div>
+        <div class="pas1"></div>
+        <div class="linea"></div>
+        <div class="pas2"></div>
+        <div class="linea"></div>
+        <div class="pas3">3</div>
+        <div class="linea"></div>
+        <div class="pas4"></div>
+    </div>
+</div>
+
+<div id="cronos" class="container">
+    <div class="row">
+        <div class="col align-self-center">
+            <p><span id="minute">05</span>:<span id="second">00</span></p>
+        </div>
+    </div>
+</div>
+
+<div style="padding: 0px;" class="container contpaso2">
+
+    @*////// RESUMEN DE LA COMPRA //////*@
+    <div class="row col-lg-12 mr-3">
+        <div class="compra">DETALLE DE COMPRA </div>
+       
+        <div id="verSalida" style="display: none;" onclick="verViaje(this)">Salida</div>
+        <div id="verRegreso" style="display: none;" onclick="verViaje(this)">Regreso</div>
+    </div>
+
+    <div style=" background: #edeff0; padding-bottom: 17px; border-radius: 0px 98px 0px 0px;" class="col-lg-12 mt-3">
+
+        <div class="detallesSalida">
+            <img id="imgSalida" style="margin: 11px 0px -14px 0px; height: 30px; max-width: 76%;" src="" />
+            <p style="margin: 20px 0px 0px 0px; font-size: larger; font-weight: 600; color: #003567;">TU SALIDA</p>
+        </div>
+
+        <div id="viajeSalida" style=" background: white; border-radius: 0px 98px 0px 0px;" class="col mt-2">
+            @*<h1>resumen</h1>*@
+            <div style="padding-top: 16px;" class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>ORIGEN</h5>
+                    <p id="origenSalida"></p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>DESTINO</h5>
+                    <p id="destinoSalida"></p>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>SALIDA</h5>
+                    <p id="fechaSalida" style="margin: 0px;">JUE 08 OCT 2020</p>
+                    <p id="hrSalida">17:00 HRS</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>LLEGADA</h5>
+                    <p id="fechaLlegada" style="margin: 0px;">VIE 09 OCT 2020</p>
+                    <p id="hrLlegada">04:00 HRS</p>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">ASIENTO</th>
+                            <th scope="col">CATEGORÍA</th>
+                            <th scope="col">AHORRO</th>
+                            <th scope="col">PRECIO</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="pasajerosSalida">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        @*////// DATOS DEL REGRESO ///////*@
+
+    <div style="display: none;" class="detallesRegreso">
+        <img id="imgRegreso" style="margin: 11px 0px -14px 0px; height: 30px; max-width: 76%;" src="" />
+        <p style="margin: 20px 0px 0px 0px; font-size: larger; font-weight: 600; color: #003567;">TU REGRESO</p>
+    </div>
+
+        <div id="viajeRegreso" style="display: none; background: white; border-radius: 0px 98px 0px 0px;" class="col mt-2">
+            @*<h1>resumen</h1>*@
+            <div style="padding-top: 16px;" class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>ORIGEN</h5>
+                    <p id="origenSalidaRegreso"></p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>DESTINO</h5>
+                    <p id="destinoSalidaRegreso"></p>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>SALIDA</h5>
+                    <p id="fechaSalidaRegreso" style="margin: 0px;">JUE 08 OCT 2020</p>
+                    <p id="hrSalidaRegreso">17:00 HRS</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <h5>LLEGADA</h5>
+                    <p id="fechaLlegadaRegreso" style="margin: 0px;">VIE 09 OCT 2020</p>
+                    <p id="hrLlegadaRegreso">04:00 HRS</p>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">ASIENTO</th>
+                            <th scope="col">CATEGORÍA</th>
+                            <th scope="col">AHORRO</th>
+                            <th scope="col">PRECIO</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="pasajerosSalidaRegreso">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    @*////// CORREO Y CELULAR //////*@
+    <div class="row col-lg-12 mr-3 mt-3">
+        <div class="compra">* CAMPOS OBLIGATORIOS</div>
+    </div>
+
+    <div style=" background: #edeff0; padding-bottom: 17px; border-radius: 0px 98px 0px 0px;" class="col-lg-12 mt-3">
+        <div class="form-group row">
+            <div class="col-lg-6">
+                <label class="col-sm-12 col-form-label correoTel">CORREO</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="correo1" onblur="correoValido()" placeholder="Correo electrónico valido">
+                </div>
+
+                <label class="col-sm-12 col-form-label correoTel">CONFIRMA TU CORREO</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="correo2" autocomplete="off" onblur="correo2Valido()" placeholder="Correo electrónico valido">
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <label class="col-sm-12 col-form-label correoTel">CELULAR</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="cel1" onkeypress="return soloNumeros(event)" placeholder="55 5555 5555">
+                </div>
+
+                <label class="col-sm-12 col-form-label correoTel">CONFIRMA TU CELULAR</label>
+                <div class="col-sm-12">
+                    <input type="text" class="form-control" id="cel2" onkeypress="return soloNumeros(event)" placeholder="55 5555 5555">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*////// METODOS DE PAGO //////*@
+    <div class="row col-lg-12 mr-3 mt-3">
+        <div class="compra">SELECCIONE MÉTODO DE PAGO</div>
+    </div>
+
+    <div style=" background: #edeff0; border-radius: 0px 98px 0px 0px;" class="col-lg-12 mt-3">
+        <div class="form-group row">
+
+            @*//////// SECCION DE LAS TARJETAS*@
+            <div class="row col-lg-12 mt-3">
+
+                <div class="col-lg-3 mb-2">
+                    <div id="visamaster" class="metodPagos metodPagosInactivo" onclick="metodoPago(this);">VISA MASTER CARD</div>
+
+                </div>
+
+                <div class="col-lg-3 mb-2">
+                    <div id="reservaciones" class="metodPagos metodPagosInactivo" onclick="metodoPago(this);">RESERVACIONES</div>
+
+                </div>
+
+                <div class="col-lg-3 mb-2">
+                    <div id="todito" class="metodPagos metodPagosInactivo" onclick="metodoPago(this);">TODITO CASH</div>
+
+                </div>
+
+                <div class="col-lg-3 mb-2">
+                    <div id="coppel" class="metodPagos metodPagosInactivo" onclick="metodoPago(this);">COPPEL PAY</div>
+
+                </div>
+
+            </div>
+            @*//////// METODOS DE PAGOS Y BOTON PARA PAGAR ////////////*@
+
+            <div style="margin: 3px;" class="row col-lg-12 mt-3 mb-3">
+
+                <div style="display: block;" class="col-lg-9 visamasterPago">
+                    <div id="datosTarjeta1" style=" background: white; width: 100%; height: 100%; border-radius: 0px 75px 0px 0px;" class="col-lg-12 pt-3">
+                        <p style=" text-align: center; font-weight: 600;">SELECCIONA LA OPCIÓN DE PAGO DE TU PREFERENCIA</p>
+
+                        <div class="table-responsive">
+                            <table style=" text-align: center;" class="table">
+                                <thead style="font-size: 12px; font-weight: 800; text-align: center;">
+                                    <tr>
+                                        <th style="font-size: large;" scope="col">BANCO</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">
+                                            3 MESES
+                                            SIN INTERESES
+                                        </th>
+                                        <th scope="col">
+                                            6 MESES
+                                            SIN INTERESES
+                                        </th>
+                                        <th scope="col">
+                                            9 MESES
+                                            SIN INTERESES
+                                        </th>
+                                        <th scope="col">
+                                            12 MESES
+                                        </th>
+                                        <th scope="col">
+                                            1 PAGO
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="bancos">
+                                    <tr>
+                                        <td scope="row">
+                                            <img style="width: 150px;" src="imgBancos/banamex.png" />
+
+                                        </td>
+                                        <th>
+                                            @*<input type="radio" name="optradio" value="Banamex">*@
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="Banamex" name="optradio" value="Banamex" onclick="selecBanco()" class="custom-control-input">
+                                                <label class="custom-control-label" for="Banamex">
+
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <img style="width: 80px;" src="imgBancos/bancomer.png" />
+
+                                        </td>
+                                        <th>
+                                            @*<input type="radio" name="optradio" value="Bancomer">*@
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="Bancomer" name="optradio" value="Bancomer" onclick="selecBanco()" class="custom-control-input">
+                                                <label class="custom-control-label" for="Bancomer">
+
+                                                </label>
+                                            </div>
+
+                                        </th>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <img style="width: 150px;" src="imgBancos/santander.png" />
+
+                                        </td>
+                                        <th>
+                                            @*<input type="radio" name="optradio" value="Santander">*@
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="Santander" name="optradio" value="Santander" onclick="selecBanco()" class="custom-control-input">
+                                                <label class="custom-control-label" for="Santander">
+
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">
+                                            <img style="width: 150px;" src="imgBancos/coppel.png" />
+
+                                        </td>
+                                        <th>
+                                            @*<input type="radio" name="optradio" value="Coppel Pay">*@
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="Coppel" name="optradio" value="Coppel" onclick="selecBanco()" class="custom-control-input">
+                                                <label class="custom-control-label" for="Coppel">
+
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 20px; color: #033362; font-weight: 600;">Otros Bancos</td>
+                                        <th>
+                                            @*<input type="radio" name="optradio" value="Otros Bancos">*@
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" id="Otros" name="optradio" value="Otros" onclick="selecBanco()" class="custom-control-input">
+                                                <label class="custom-control-label" for="Otros">
+
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #F0F3F4; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                        <td>
+                                            <span style="background: #C2C6C9; border-radius: 50%; padding: 0px 8px; position: relative;"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="datosTarjeta2" style="text-align:center; display: none; text-align: center; width: 100%; height: 100%; background: white;">
+                        <img id="logoVisaMast" onclick="logoVisaMast()" style="cursor: pointer; max-width: 100%" src="imgBancos/PortMeses.jpg" />
+
+                        <img id="logoBanco" style="cursor: pointer; max-width: 100%;" src="imgBancos/banamex.png" />
+                    </div>
+                </div>
+                <div style="display: none;" class="col-lg-9 reservacionesPago">
+                    <img src="imgBancos/ReservacionColor.png" />
+                </div>
+                <div style="display: none;" class="col-lg-9 toditoPago">
+
+                </div>
+                <div style="display: none;" class="col-lg-9 coppelPago">
+
+                </div>
+
+                @*//////////////////////////////////*@
+                <div class="col-lg-3 totalPago">
+                    <div class="tpboletos">
+                        <h4 style="margin-top: 20px;">PASAJEROS</h4>
+                        <p class="boletos adulto">ADULTO</p>
+                        <p class="boletos menor">MENOR</p>
+                        <p class="boletos inapam">INAPAM</p>
+                        <p class="boletos estudiante">ESTUDIANTE</p>
+                        <p class="boletos profesor">PROFESOR</p>
+
+                        <h5 style="margin-top: 10px;">AHORRO <span id="ahorroFinal" style="position: absolute; right: 17%;">$369.00</span></h5>
+                    </div>
+
+                    <div class="total">
+                        <h5>TOTAL <span id="totalFinal" style=" position: absolute; right: 14%;">$3,932.00</span></h5>
+                    </div>
+
+                    <div class="tpboletos">
+                        <p>*PRECIOS INCLUYEN IVA</p>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="terminos" name="terminos" onclick="radioCheck()" value="TERMINOS" class="custom-control-input">
+                        <label style=" font-size: 8px; font-weight: 900;" class="custom-control-label" for="terminos">
+                            DE ACUERDO CON <a target="_blank" href="https://www.odm.com.mx/terminos-condiciones.php">TÉRMINOS Y CONDICIONES</a>
+                            ASI COMO EL <a target="_blank" href="https://odm.com.mx/aviso-privacidad">AVISO DE PRIVACIDAD</a>
+                        </label>
+                    </div>
+
+                    <p style="font-size: 10px; margin: 9px 0px 0px 0px; font-weight: 700;">DESEO RECIBIR PROMOCIONES</p>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="si" name="promo" value="PROMO_SI" onclick="radioCheck()" class="custom-control-input">
+                        <label style=" font-size: 14px; font-weight: 600;" class="custom-control-label" for="si">
+                            SI
+                        </label>
+                    </div>
+
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="no" name="promo" value="PROMO_NO" onclick="radioCheck()" class="custom-control-input">
+                        <label style=" font-size: 14px; font-weight: 600;" class="custom-control-label" for="no">
+                            NO
+                        </label>
+                    </div>
+
+
+                    <div id="divPagar" class="mb-3 mt-2 btnPagar " onclick="enviarPasoFinal()">
+                        <span>PAGAR</span>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    @*//////// VALIDA EL CORREO /////////*@
+    <script src="js/paso3/validarCorreo.js"></script>
+
+    @*//////// VALIDA EL CELULAR /////////*@
+    <script src="js/paso3/validarCelular.js"></script>
+
+    @*//////// VALIDA LOS RADIO /////////*@
+    <script src="js/paso3/validarRadio.js"></script>
+
+    @*//////// VALIDA LOS RADIO /////////*@
+    <script src="js/paso3/pasajerosSalida.js"></script>
+
+    @*//////// METODOS DE PAGO /////////*@
+    <script src="js/paso3/metodoPago.js"></script>
+
+    @*//////// WS CONFIRMACION /////////*@
+    <script src="js/paso3/wsConfirmacion.js"></script>
+

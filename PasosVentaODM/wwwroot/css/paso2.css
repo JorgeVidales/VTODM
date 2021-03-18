@@ -98,7 +98,14 @@ footer {
     left: 12px;
     top: 2px;
 }
-
+.numAsiReg {
+    position: relative;
+    color: white;
+    z-index: 3;
+    font-weight: 700;
+    left: 12px;
+    top: 2px;
+}
 .imgAsiento {
     width: 50px;
     position: relative;
@@ -192,7 +199,7 @@ footer {
     font-weight: 700;
     text-align: center;
     cursor: pointer;
-    line-height: 21px;
+    line-height: 23px;
 }
 
 .masTexto, .menosTexto {
@@ -306,9 +313,21 @@ div.centerTable {
 .ViajeSalida{
     margin-bottom: 40px;
 }
-
+@media(max-width: 1200px){
+    .contpaso2{
+        padding-left: 89px!important;
+    }
+}
+@media(max-width: 991px) {
+    .contpaso2 {
+        padding: 0px 15px !important;
+    }
+}
 @media(max-width: 767px) {
     .cuadroMapa {
         border-radius: 0px;
     }
+}
+.ocultarMapa{
+    display: none;
 }

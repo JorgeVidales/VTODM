@@ -1,0 +1,246 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "PasoFinal/pasofinalReservacion";
+}
+
+<style>
+    .pas4 {
+        width: 30px;
+        height: 30px;
+        background: #023765;
+        text-align: center;
+        line-height: 29px;
+        border-radius: 50px;
+        font-size: larger;
+        color: white;
+    }
+
+    .pas1, .pas2, .pas3 {
+        width: 30px;
+        height: 30px;
+        background: #edeff0;
+        border-radius: 50px;
+    }
+    #pdf {
+        text-decoration: none;
+        margin: 0px;
+        width: 192px;
+        background: #C12E40;
+        color: white;
+        border-radius: 0px 50px;
+        padding: 0px 21px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="row paso2">
+    <div class="pasos">
+        <div class="bus"><i class="fas fa-bus-alt"></i></div>
+        <div class="pas1"></div>
+        <div class="linea"></div>
+        <div class="pas2"></div>
+        <div class="linea"></div>
+        <div class="pas3"></div>
+        <div class="linea"></div>
+        <div class="pas4">4</div>
+    </div>
+</div>
+
+<div style="padding: 0px;" class="container contpaso2">
+
+    <div class="row col-lg-12 mr-3 mt-4">
+        <div class="compra">MI RESERVACION</div>
+    </div>
+
+    <div style=" background: #edeff0; padding-bottom: 17px; padding-top: 1px; border-radius: 0px 98px 0px 0px;" class="col-lg-12 mt-3">
+        <div style="margin-top: 10px;">
+            <img id="logoEmpresa" style="height: 36px; max-width: 80%;" src="" />
+        </div>
+        @*///////////////// SECCION 1 ////////////////////////////////////*@
+        <div id="miReservacion" style=" background: white; color: #043262; border-radius: 0px 98px 0px 0px;" class="col mt-2">
+
+            <div class="row">
+                <div style="text-align: center;" class="col-lg-2">
+                    <img style="height: 50px;" src="~/imgBancos/correo.png" />
+                </div>
+
+                <div class="col-lg-10 mt-2">
+                    <p style="margin: 0px;">SE HA ENVIADO SU RESERVACIÓN</p>
+                    <p style="margin: 0px;">AL SIGUIENTE CORREO ELECTRÓNICO</p>
+                    <p id="correo" style="margin: 0px; font-weight: 900;"></p>
+                </div>
+                @*//////////////*@
+                <div style="text-align: center;" class="col-lg-2">
+                    <img style="height: 50px;" src="~/imgBancos/pdf.png" />
+                </div>
+
+                <div class="col-lg-10 mt-2">
+                    <p style="margin: 0px;">RESERVACIÓN EN PDF </p>
+                    <a id="pdf" target="_blank" href="">DESCARGUE AQUÍ</a>
+                    @*<p style="margin: 0px; width: 192px; background: #C12E40; color: white; border-radius: 0px 50px; padding: 0px 21px; font-weight: 600;">DESCARGUE AQUÍ</p>*@
+                </div>
+                @*///////////////*@
+                <div style="text-align: center;" class="col-lg-2">
+                    <img style="height: 50px;" src="~/imgBancos/llamar.png" />
+                </div>
+
+                <div class="col-lg-10 mt-2">
+                    <p style="margin: 0px;">CUALQUIER DUDA O ACLARACIÓN PUEDE COMUNICARSE AL</p>
+                    <p style="margin: 0px;">CENTRO DE ATENCIÓN TELEFÓNICA</p>
+                    <a style="text-decoration: none; color: #043262; font-weight: 900;" href="tel:8007656636">800 765 66 36</a>
+                </div>
+                @*/////////////*@
+                <div style="text-align: center;" class="col-lg-2">
+                    <img style="height: 50px;" src="~/imgBancos/tiempo.png" />
+                </div>
+
+                <div class="col-lg-10 mt-2">
+                    <p style="margin: 0px;">HORA LÍMITE DE PAGO</p>
+                    <p id="horaLimite" style="margin: 0px; font-weight: 900;">VIE 09 OCT 2020 / 12:30 HRS</p>
+                </div>
+            </div>
+
+        </div>
+        @*////////////////// SECCION 2 ///////////////////////////////////*@
+        <div id="miSalida" style=" background: white; color: #043262; border-radius: 0px 98px 0px 0px; padding-top: 5px;" class="col mt-4">
+
+            <div class="row">
+                <div style="font-weight: 800;" class="col-lg-3 col-md-3 col-sm-3">
+                    <p style="margin: 0;">ORIGEN</p>
+                </div>
+
+                <div class="col-lg-9 col-md-9 col-sm-9">
+                    <p id="orig" style="margin: 0px;">MÉXICO, CENTRAL NORTE</p>
+                </div>
+                @*//////////////*@
+                <div style="font-weight: 800;" class="col-lg-3 col-md-3 col-sm-3">
+                    <p style="margin: 0;">DESTINO</p>
+                </div>
+
+                <div class="col-lg-9 col-sm-9">
+                    <p id="destino" style="margin: 0px;">MONTERREY, CENTRAL AUTOBUSES</p>
+                </div>
+                @*///////////////*@
+                <div style="font-weight: 800;" class="col-lg-3">
+                    <p style="margin: 0;">FECHA DE SALIDA</p>
+                </div>
+
+                <div class="col-lg-3">
+                    <p id="fechaSalida" style="margin: 0px;">JUEV 08 OCT 2020</p>
+                </div>
+                <div style="font-weight: 800;" class="col-lg-3">
+                    <p style="margin: 0;">FECHA DE LLEGADA</p>
+                </div>
+
+                <div class="col-lg-3">
+                    <p id="fechaLlegada" style="margin: 0px;">VIE 09 OCT 2020</p>
+                </div>
+
+                @*///////////////*@
+                <div style="font-weight: 800;" class="col-lg-3">
+                    <p style="margin: 0;">HORA</p>
+                </div>
+
+                <div class="col-lg-3">
+                    <p id="horaSalida" style="margin: 0px;">17:00 HRS</p>
+                </div>
+                <div style="font-weight: 800;" class="col-lg-3">
+                    <p style="margin: 0;">HORA</p>
+                </div>
+
+                <div class="col-lg-3">
+                    <p id="horaLlegada" style="margin: 0px;">04:00 HRS</p>
+                </div>
+
+                @*///////////////*@
+                <div style="font-weight: 800;" class="col-lg-3">
+                    <p style="margin: 0;">TIPO DE SERVICIO</p>
+                </div>
+
+                <div class="col-lg-9 mt-2">
+                    <p id="servicio" style="margin: 0px;"></p>
+                </div>
+                @*////////////////////////////////////////*@
+
+            </div>
+
+        </div>
+        @*///////////////// SECCION 3 ////////////////////////////////////*@
+        <div id="porPagar1" style=" background: white; border-radius: 0px 98px 0px 0px;" class="col mt-4">
+
+            <div class="row">
+
+                <div class="col-lg-12 mt-2">
+                    <p style="font-weight: 800; margin: 0px; color: #033765;">RESERVACION PENDIENTE DE PAGO</p>
+                </div>
+
+                <div style="text-align: center;" class="col-lg-12 mt-2">
+                    <h3 id="total"></h3>
+                </div>
+
+                <div style="text-align: center;" class="col-lg-12">
+                    <svg id="barcode"></svg>
+                </div>
+
+                <div class="col-lg-2 mt-2 mb-2">
+                    <p style=" margin: 0px; background: #033765; color: white; border-radius: 0px 58px 0px 0px; padding: 10px;">REALIZA TU PAGO EN:</p>
+                </div>
+                <div class="col-lg-10 mt-2 mb-2">
+                    <img style="width: 80%;" src="~/imgBancos/servicios.png" />
+                </div>
+            </div>
+
+        </div>
+        @*///////////////// SECCION 4 ////////////////////////////////////*@
+        <div id="porPagar1" style=" background: white; border-radius: 0px 98px 0px 0px;" class="col mt-4">
+
+            <div class="row">
+
+                <div class="col-lg-12 mt-2">
+                    <p style="font-weight: 800; margin: 0px; color: #033765;">RESERVACION PENDIENTE DE PAGO</p>
+                </div>
+
+                <div style="text-align: center;" class="col-lg-12 mt-2">
+                    <h3 id="total2" ></h3>
+                </div>
+
+                <div style="text-align: center;" class="col-lg-12">
+                    <svg id="barcode2"></svg>
+                </div>
+
+                <div class="col-lg-2 mt-2 mb-2">
+                    <p style=" margin: 0px; background: #033765; color: white; border-radius: 0px 58px 0px 0px; padding: 10px;">REALIZA TU PAGO EN:</p>
+                </div>
+
+                <div class="col-lg-10 mt-2 mb-2">
+                    <img style="width: 80%;" src="~/imgBancos/megasoriana.png" />
+                </div>
+
+                <div class="col-lg-2">
+
+                </div>
+
+                <div style="color: #043262; font-weight: 700;" class="col-lg-10 mt-2 mb-2">
+                    <p style="margin: 0;">1. MENCIONAR AL CAJERO QUE ES UN PAGO DE CLUB PAGO</p>
+                    <p style="margin: 0;">2. ESCANEAR CODIGO DE BARRAS</p>
+                    <p style="margin: 0;">3. COSTO POR SERVICIO</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.3/dist/barcodes/JsBarcode.code128.min.js"></script>
+
+@*//////// WS GUARDA /////////*@
+<script src="~/js/pasoFinalResevaciones/wsGuarda.js"></script>
+
+<script>document.addEventListener('DOMContentLoaded', () => {
+
+       
+
+    })</script>
+

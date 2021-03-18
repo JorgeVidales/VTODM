@@ -1,8 +1,10 @@
 ﻿function miAsiento(imgAsiSelec, numAsie) {
+
     let idImg = document.getElementById(imgAsiSelec);
     let dato1 = idImg.getAttribute("src");
     let numDescripPasajero = document.querySelectorAll(".datosPasajero").length;
     let recDesc1 = document.getElementById("descripcion").getElementsByClassName("datosPasajero");
+
     let recDescReg1 = document.getElementById("descripcionReg").getElementsByClassName("datosPasajero");
     let numAsi = document.getElementsByClassName("numAsi");
 
@@ -19,13 +21,14 @@
     //////////////////////////////////////////////
 
     if (ocupado == dato1) {
-        alert("Ocupado");
+        //alert("Ocupado");
     }
 
     if (libre == dato1) {
         idImg.setAttribute("src", "img/AsientoVerde.png");
 
         /// PONE EL NUMERO EN EL ASIENTO VISIBLE - VIAJE SENCILLO ///
+
         for (item of recDesc1) {
             let classVisible = item.style.display;
 

@@ -174,6 +174,8 @@ namespace PasosVentaODM.Controllers
             var estudiantes = Request.Form["estudiantes"];
             var profesores = Request.Form["profesores"];
 
+            var btnpulsado = Request.Form["btnSolicita"];
+
             if (adulto == "")
             {
                 adulto = "0";
@@ -195,11 +197,14 @@ namespace PasosVentaODM.Controllers
                 profesores = "0";
             }
 
+            
 
             ViewData["OrigenIATA"] = Request.Form["origencode"];
             ViewData["DestinoIATA"] = Request.Form["destinocode"];
             ViewData["FechaSalida"] = Request.Form["fechasalida"];
-            // ViewData["FeSalida"] = Request.Form["Fsalida"];
+
+            ViewData["btnpulsado"] = btnpulsado;
+
             ViewData["FechaRegreso"] = Request.Form["fecharegreso"];
             ViewData["Consecutivo"] = Request.Form["consecutivo"];
 

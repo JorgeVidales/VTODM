@@ -15,5 +15,15 @@ namespace PasosVentaODM.Controllers
         {
             return View();
         }
+        // GET: /<controller>/
+        public IActionResult pasofinalReservacion()
+        {
+            return View();
+        }
+        // GET: /<controller>/
+        public IActionResult envioMensajeError()
+        {
+            return View();
+        }
     }
 }

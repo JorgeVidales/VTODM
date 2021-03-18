@@ -100,9 +100,7 @@ function oculDescr(e) {
     console.log("Valor que me sirve: " + miId);
     // Color Boleto activo
 
-    let tpBol = document
-        .getElementById("contBoletos")
-        .getElementsByClassName("tipoBol");
+    let tpBol = document.getElementById("contBoletos").getElementsByClassName("tipoBol");
     //let tpBolReg = document.getElementById('contBoletosReg').getElementsByClassName('tipoBol');
 
     ///// VIAJE SENCILLO ////
@@ -115,20 +113,14 @@ function oculDescr(e) {
             console.log("Ms clases son: " + claseTiene2);
             document.querySelector("." + claseTiene2).classList.add("boletoActivo");
         } else {
-            document
-                .querySelector("." + claseTiene2)
-                .classList.remove("boletoActivo");
+            document.querySelector("." + claseTiene2).classList.remove("boletoActivo");
         }
     }
 
     //document.getElementById(miId).classList.add('boletoActivo');
 
-    let recDesc1 = document
-        .getElementById("descripcion")
-        .getElementsByClassName("datosPasajero");
-    let recDescReg1 = document
-        .getElementById("descripcionReg")
-        .getElementsByClassName("datosPasajero");
+    let recDesc1 = document.getElementById("descripcion").getElementsByClassName("datosPasajero");
+    let recDescReg1 = document.getElementById("descripcionReg").getElementsByClassName("datosPasajero");
 
     console.log(recDesc1);
     //////// VIAJE SENCILLO //////////
@@ -143,6 +135,60 @@ function oculDescr(e) {
         item1.style.display = "none";
 
         if (claseTiene === `datosPasajero ${miId}`) {
+            item1.style.display = "block";
+            //document.querySelector('.tipoBol').classList.add('boletoActivo');
+        }
+    }
+
+    //boletoActivo();
+
+}
+
+
+////////////// OCULTA VIAJES REGRESO
+
+function oculDescrReg(e) {
+    let miId = e.id;
+
+    console.log("Valor que me sirve: " + miId);
+    // Color Boleto activo
+
+    let tpBol = document.getElementById("contBoletosReg").getElementsByClassName("tipoBol");
+    //let tpBolReg = document.getElementById('contBoletosReg').getElementsByClassName('tipoBol');
+
+    ///// VIAJE REDONDO ////
+
+    for (item3 of tpBol) {
+        var elementClasses2 = item3.classList;
+
+        let claseTiene2 = elementClasses2[3];
+
+        if (miId == claseTiene2) {
+            console.log("Ms clases son: " + claseTiene2);
+            document.querySelector("." + claseTiene2).classList.add("boletoActivo");
+        } else {
+            document.querySelector("." + claseTiene2).classList.remove("boletoActivo");
+        }
+    }
+
+    //document.getElementById(miId).classList.add('boletoActivo');
+
+    let recDesc1 = document.getElementById("descripcionReg").getElementsByClassName("datosPasajeroReg");
+    let recDescReg1 = document.getElementById("descripcionReg").getElementsByClassName("datosPasajeroReg");
+
+    console.log(recDesc1);
+    //////// VIAJE REDONDO //////////
+
+    for (item1 of recDesc1) {
+        var elementClasses = item1.classList;
+
+        let claseTiene = elementClasses[0] + " " + elementClasses[1];
+
+        //console.log(claseTiene);
+
+        item1.style.display = "none";
+
+        if (claseTiene === `datosPasajeroReg ${miId}`) {
             item1.style.display = "block";
             //document.querySelector('.tipoBol').classList.add('boletoActivo');
         }

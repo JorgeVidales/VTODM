@@ -80,3 +80,5 @@
 /Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/obj/Debug/netcoreapp3.1/PasosVentaODM.dll
 /Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/obj/Debug/netcoreapp3.1/PasosVentaODM.pdb
 /Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/obj/Debug/netcoreapp3.1/PasosVentaODM.genruntimeconfig.cache
+/Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/obj/Debug/netcoreapp3.1/Razor/Views/PasoFinal/pasofinalReservacion.cshtml.g.cs
+/Users/ProgramadorWeb/Desktop/VTODM/PasosVentaODM/obj/Debug/netcoreapp3.1/Razor/Views/PasoFinal/envioMensajeError.cshtml.g.cs

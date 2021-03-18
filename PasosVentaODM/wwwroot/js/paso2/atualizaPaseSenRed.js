@@ -1,4 +1,5 @@
-﻿function actPase() {
+﻿let PersonalizaAsientos = [];
+function actPase() {
     //// VIAJE SENCILLO
     regreso = document.getElementById("fecharegreso2").innerHTML;
     pE_nClaveCorrida = document.getElementById("pE_nClaveCorrida2").innerHTML.trim();
@@ -86,13 +87,18 @@
         .then(function (data) {
             //console.log(data);
 
+            PersonalizaAsientos = [data];
+
+            localStorage.setItem('PersonalizaAsientos', JSON.stringify(PersonalizaAsientos));
+
+
             loading2.style.display = "none";
 
             let content = data;
             const CostoTotal = content.Asientos.CostoTotal;
             const MoOpe = content.Asientos.MoOpe;
             let contador = 0;
-
+            let contador2 = 0;
             /////// FORMATO MONEDA /////
 
             const formatter = new Intl.NumberFormat("en-US", {
@@ -107,6 +113,8 @@
             let E = "";
             let P = "";
 
+
+            //////////// RECORRE LOS VALORES DE PASAJERO IDA //////
             for (item of content.PasajerosIda) {
                 let tpBole = item.Leyenda;
                 tpBole = tpBole.split(" ");
@@ -117,6 +125,7 @@
                 let ahorro = item.CostoOri;
 
                 ////
+
                 if (tpBole[1] == "Adultos") {
                     costAdulto = item.Costo;
                     contador = tpBole[0];
@@ -124,6 +133,7 @@
                     let totPreAdulto = formatter.format(contador * costAdulto);
 
                     //alert(totPreAdulto);
+
                     A = "ADULO";
 
                     //ahorroAdulto = item.CostoOri;
@@ -132,6 +142,7 @@
                     //contador++
                 }
                 ////
+
                 if (tpBole[1] == "Promocion") {
                     A = "ADULO";
                     costAdulto = item.Costo;
@@ -195,7 +206,10 @@
                 }
                 // @* console.log('Mis pasajeros: ' + item.Leyenda + ' ' + item.Costo + ' ' + item.CostoOri);*@
                 //console.log(item.CostoOri);
+
             }
+
+            /////////////
 
             console.log("Mi total de Promociones: " + contador + " Precio: " + costAdulto + " Ahorro: " + ahorroAdulto);
 
@@ -269,6 +283,257 @@
             $(".totalAcumulado").text(formatter.format(sumatoriBol));
             console.log(content);
 
+            //////////// RECORRE LOS VALORES DE PASAJERO REGRESO //////
+            contador = 0;
+            let num = 0;
+
+            if (regreso != "_") {
+
+
+                for (item of content.PasajerosRegreso) {
+                    let tpBole = item.Leyenda;
+                    tpBole = tpBole.split(" ");
+
+                    console.log(tpBole[1]);
+                    let costoBol = item.Costo;
+                    console.log(costoBol);
+                    let ahorro = item.CostoOri;
+
+                    let tpb = '';
+
+                    ////
+
+                    if (tpBole[1] == "Adultos") {
+                        costAdulto = item.Costo;
+                        contador = tpBole[0];
+                        ahorroAdulto = 0;
+                        let totPreAdulto = formatter.format(contador * costAdulto);
+
+                        //alert(totPreAdulto);
+                        A = "ADULO";
+                        tpb = 'A';
+
+                        //ahorroAdulto = item.CostoOri;
+
+                        //console.log(costAdulto);
+                        //contador++
+                    }
+                    ////
+
+                    if (tpBole[1] == "Promocion") {
+                        A = "ADULO";
+                        tpb = 'A';
+                        costAdulto = item.Costo;
+                        ahorroAdulto = item.CostoOri;
+
+                        console.log(costAdulto);
+                        contador++;
+
+
+                    }
+                    /////
+
+                    if (tpBole[1] == "Menores") {
+                        let totPreMenor = formatter.format(tpBole[0] * costoBol);
+                        M = "MENOR";
+                        tpb = 'M';
+
+
+                        if (tpBole[0] > 1) {
+                            M = "MENORES";
+                            $(".numMenoresReg").text(tpBole[0] + " " + M);
+                            $(".totalMenoresReg").text(totPreMenor);
+                        } else {
+                            $(".numMenoresReg").text(tpBole[0] + " " + M);
+                            $(".totalMenoresReg").text(totPreMenor);
+                        }
+                    }
+                    /////
+
+                    if (tpBole[1] == "Insen") {
+                        let totPreInapm = formatter.format(tpBole[0] * costoBol);
+                        I = "INAPAM";
+                        tpb = 'I';
+
+
+
+                        $(".numInapamReg").text(tpBole[0] + " " + I);
+                        $(".totalInapamReg").text(totPreInapm);
+                    }
+
+                    /////
+
+                    if (tpBole[1] == "Maestro") {
+                        let totPreMaestro = formatter.format(tpBole[0] * costoBol);
+                        P = "PROFESOR";
+                        tpb = 'P';
+
+
+
+                        if (tpBole[0] > 1) {
+                            P = "PROFESORES";
+                            $(".numProfesoresReg").text(tpBole[0] + " " + P);
+                            $(".totalProfesoresReg").text(totPreMaestro);
+                        } else {
+                            $(".numProfesoresReg").text(tpBole[0] + " " + P);
+                            $(".totalProfesoresReg").text(totPreMaestro);
+                        }
+                    }
+
+                    /////
+
+                    if (tpBole[1] == "Estudiante") {
+                        let totPreEstudiante = formatter.format(tpBole[0] * costoBol);
+                        E = "ESTUDIANTE";
+                        tpb = 'E';
+
+
+
+                        if (tpBole[0] > 1) {
+                            E = "ESTUDIANTES";
+                            $(".numEstudiantesReg").text(tpBole[0] + " " + E);
+                            $(".totalEstudiantesReg").text(totPreEstudiante);
+                        } else {
+                            $(".numEstudiantesReg").text(tpBole[0] + " " + E);
+                            $(".totalEstudiantesReg").text(totPreEstudiante);
+                        }
+                    }
+
+                    
+
+                    num++
+
+                    //masBoletos(tpb, num);
+                    //console.log('Mis pasajeros: ' + item.Leyenda + ' ' + item.Costo + ' ' + item.CostoOri);
+                    //console.log(item.CostoOri);
+                    
+                }
+
+                
+
+                console.log("Mi total de Promociones: " + contador + " Precio: " + costAdulto + " Ahorro: " + ahorroAdulto);
+
+                let totPreAdulto = formatter.format(contador * costAdulto);
+                console.log("Mi total Adulto en Moneda: " + totPreAdulto);
+
+                let totAhorAdulto = formatter.format(contador * ahorroAdulto);
+
+                /////////////
+
+                if (A != "") {
+                    if (contador > 1) {
+                        A = "ADULTOS";
+                    }
+                    $(".numAdultosReg").text(contador + " " + A);
+                    $(".totalAdultoReg").text(totPreAdulto);
+                    $(".ahorroReg").text(totAhorAdulto);
+                }
+
+                ////
+                let sumAd = $(".totalAdultoReg").text();
+                sumAd = sumAd.replace("$", "");
+                sumAd = sumAd.replace(",", "");
+                if (sumAd == "") {
+                    sumAd = 0;
+                }
+
+                /////
+                let sumIn = $(".totalInapamReg").text();
+                sumIn = sumIn.replace("$", "");
+                sumIn = sumIn.replace(",", "");
+                if (sumIn == "") {
+                    sumIn = 0;
+                }
+
+                ////
+                let sumMe = $(".totalMenoresReg").text();
+                sumMe = sumMe.replace("$", "");
+                sumMe = sumMe.replace(",", "");
+                if (sumMe == "") {
+                    sumMe = 0;
+                }
+
+                ////
+                let sumEs = $(".totalEstudiantesReg").text();
+                sumEs = sumEs.replace("$", "");
+                sumEs = sumEs.replace(",", "");
+                if (sumEs == "") {
+                    sumEs = 0;
+                }
+
+                ////
+                let sumPr = $(".totalProfesoresReg").text();
+                sumPr = sumPr.replace("$", "");
+                sumPr = sumPr.replace(",", "");
+                if (sumPr == "") {
+                    sumPr = 0;
+                }
+
+                let sumatoriBol =
+                    parseFloat(sumAd) +
+                    parseFloat(sumIn) +
+                    parseFloat(sumMe) +
+                    parseFloat(sumEs) +
+                    parseFloat(sumPr);
+
+                //let sumatoriBol = sumAd + sumIn + sumMe + sumEs + sumPr;
+
+                //sumatoriBol = formatter.format(sumatoriBol);
+
+                $(".totalAcumuladoReg").text(formatter.format(sumatoriBol));
+
+
+            }
+
+
             //loading.style.display = 'none';
+
         });
+
+
+    if (localStorage.getItem("pasajerosSalida") === null) {
+        //...
+        return
+    }
+
+    pasajerosSalida = JSON.parse(localStorage.getItem('pasajerosSalida'));
+
+    let nombres = pasajerosSalida[0];
+
+    console.log(pasajerosSalida);
+
+    let autoInc = 1;
+
+    if (regreso == '_') {
+
+        for (item of nombres) {
+
+            //console.log(item.nombre);
+            let inputNombre = document.getElementById("textoSal_" + autoInc);
+            inputNombre.value = item.nombre.toUpperCase();
+
+            console.log('Mi Id: ' + item.nombre);
+            autoInc++
+        }
+
+    } else {
+
+        for (item of nombres) {
+
+            //console.log(item.nombre);
+            let inputNombre = document.getElementById("textoSal_" + autoInc);
+            inputNombre.value = item.nombre.toUpperCase();
+
+            let inputNombreReg = document.getElementById("textoReg_" + autoInc);
+            inputNombreReg.value = item.nombre.toUpperCase();
+
+            //console.log('Mi Id: ' + item.nombre);
+            autoInc++
+        }
+
+    }
+    
+
+    //console.log(pasajerosSalida);
+
 }

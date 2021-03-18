@@ -75,6 +75,7 @@
                     }
 
                     //alert('Mi vuelta general:' + vuelta);
+
                     if (vuelta == 4) {
                         if (ocupacion.Estados === "1") {
                             imgAsiento = "img/AsientoBco.png";

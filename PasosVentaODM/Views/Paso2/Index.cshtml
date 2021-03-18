@@ -5,6 +5,26 @@
     ViewData["Title"] = "Paso2";
 }
 
+<style>
+    .pas2 {
+        width: 30px;
+        height: 30px;
+        background: #023765;
+        text-align: center;
+        line-height: 29px;
+        border-radius: 50px;
+        font-size: larger;
+        color: white;
+    }
+
+    .pas1, .pas3, .pas4 {
+        width: 30px;
+        height: 30px;
+        background: #edeff0;
+        border-radius: 50px;
+    }
+</style>
+
 <div class="row paso2">
     <div class="pasos">
         <div class="bus"><i class="fas fa-bus-alt"></i></div>
@@ -58,6 +78,9 @@
 
     <p id="FechaLlegadaRegreso">@ViewData["dato15"]</p>
     <p id="HoraLlegadaregreso">@ViewData["dato16"]</p>
+
+    <p id="logoEmpresaSalida">@ViewData["dato17"]</p>
+    <p id="logoEmpresaRegreso">@ViewData["dato19"]</p>
 
 
     @*//////////////////////*@
@@ -114,8 +137,8 @@
         <div class="col-lg-8 mr-lg-3 mapa">
 
             <div class="ViajeSalida">
-                <div class="col-lg-12">
-                    <img src="@ViewData["dato17"]" />
+                <div class="col-lg-12 mt-3">
+                    <img style="max-width: 50%; height: 26px;" src="@ViewData["dato17"]" />
                 </div>
                 <div class="row mt-3">
                     <div class="col-lg-6 col-md-6">
@@ -249,7 +272,7 @@
                 </div>
                 @*//////////////*@
                 <div class="col-lg-12 mt-4 mb-1">
-                    <div class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas">+</div><span class="masTexto">AGREGAR PASAJERO</span></div>
+                    <div class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas" onclick="datosPasajeros()">+</div><span class="masTexto">AGREGAR PASAJERO</span></div>
                     <div style="display: none;" class="contenMenos"><div class="menos">-</div><span class="menosTexto">EDITAR PASAJERO</span></div>
 
                 </div>
@@ -275,22 +298,22 @@
 
                     <div class="InapamTot">
                         <span class="text-uppercase numInapam"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalInapam"></span>
+                        <span style="position: absolute; right: 40px;" class="totalInapam"></span>
                     </div>
 
                     <div class="MenorTot">
                         <span class="text-uppercase numMenores"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalMenores"></span>
+                        <span style="position: absolute; right: 40px;" class="totalMenores"></span>
                     </div>
 
                     <div class="EstudianteTot">
                         <span class="text-uppercase numEstudiantes"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalEstudiantes"></span>
+                        <span style="position: absolute; right: 40px;" class="totalEstudiantes"></span>
                     </div>
 
                     <div class="ProfesorTot">
                         <span class="text-uppercase numProfesores"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalProfesores"></span>
+                        <span style="position: absolute; right: 40px;" class="totalProfesores"></span>
                     </div>
 
                 </div>
@@ -306,21 +329,21 @@
                         <span style="position: absolute; right: 70px;" class="ahorro"></span>
                     </div>
 
-                    <div style="" class="text-uppercase mb-3 enviaPas2">CONTINUAR</div>
+                    <div style="" class="text-uppercase mb-3 enviaPas2" onclick="enviaSalPas3();">CONTINUAR</div>
                 </div>
 
             </div>
         </div>
     </div>
-    @*////////// VIAJE REDONDO ////////////////*@
+    @*////////// VIAJE REDONDO ocultarMapa ////////////////*@
 
-    <div class="row mb-4 viajeRedondo">
+    <div class="row mb-4 viajeRedondo ocultarMapa">
         @*/////////////////////*@
         <div class="col-lg-8 mr-lg-3 mapa">
 
             <div class="ViajeSalida">
-                <div class="col-lg-12">
-                    <img src="@ViewData["dato19"]" />
+                <div class="col-lg-12 mt-3">
+                    <img style="max-width: 50%; height: 26px;" src="@ViewData["dato19"]" />
                 </div>
                 <div class="row mt-3">
                     <div class="col-lg-6 col-md-6">
@@ -447,7 +470,7 @@
                 </div>
                 @*//////////////*@
                 <div class="col-lg-12 mt-4 mb-1">
-                    <div class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas">+</div><span class="masTexto">AGREGAR PASAJERO</span></div>
+                    <div style="display: none;" class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas">+</div><span class="masTexto">AGREGAR PASAJERO</span></div>
                     <div style="display: none;" class="contenMenos"><div class="menos">-</div><span class="menosTexto">EDITAR PASAJERO</span></div>
 
                 </div>
@@ -473,22 +496,22 @@
 
                     <div class="InapamTot">
                         <span class="text-uppercase numInapamReg"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalInapamReg"></span>
+                        <span style="position: absolute; right: 40px;" class="totalInapamReg"></span>
                     </div>
 
                     <div class="MenorTot">
                         <span class="text-uppercase numMenoresReg"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalMenoresReg"></span>
+                        <span style="position: absolute; right: 40px;" class="totalMenoresReg"></span>
                     </div>
 
                     <div class="EstudianteTot">
                         <span class="text-uppercase numEstudiantesReg"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalEstudiantesReg"></span>
+                        <span style="position: absolute; right: 40px;" class="totalEstudiantesReg"></span>
                     </div>
 
                     <div class="ProfesorTot">
                         <span class="text-uppercase numProfesoresReg"></span>
-                        <span style="position: absolute; right: 40px;" class="total totalProfesoresReg"></span>
+                        <span style="position: absolute; right: 40px;" class="totalProfesoresReg"></span>
                     </div>
 
                 </div>
@@ -504,7 +527,7 @@
                         <span style="position: absolute; right: 70px;" class="ahorroReg"></span>
                     </div>
 
-                    <div style="" class="text-uppercase mb-3 enviaPas2">CONTINUAR</div>
+                    <div style="" class="text-uppercase mb-3 enviaPas2" onclick="enviaRegPas3();">CONTINUAR</div>
                 </div>
 
             </div>
@@ -529,14 +552,14 @@
             <div class="modal-body">
                 <form id="miForm">
                     <div class="form-group">
-                        <label for="nombres" class="col-form-label">NOMBRE*</label>
+                        <label for="nombres" class="col-form-label">NOMBRE COMPLETO*</label>
                         <input type="text" class="form-control text-uppercase cajasModal" value="" id="descNombre">
 
-                        <label for="apellidoPaterno" class="col-form-label">APELLIDO PATERNO *</label>
-                        <input type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoPaterno">
+                        <label style="display: none;" for="apellidoPaterno" class="col-form-label">APELLIDO PATERNO *</label>
+                        <input style="display: none;"  type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoPaterno">
 
-                        <label for="apellidoMaterno" class="col-form-label">APELLIDO MATERNO</label>
-                        <input type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoMaterno">
+                        <label style="display: none;"  for="apellidoMaterno" class="col-form-label">APELLIDO MATERNO</label>
+                        <input style="display: none;"  type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoMaterno">
 
                     </div>
                     <div class="form-group">
@@ -578,6 +601,12 @@
 @*//// SELECCION DE ASIENTOS VIAJE SENCILLO ////*@
 <script src="js/paso2/seleccionAsiento.js"></script>
 
+@*//// SELECCION DE ASIENTOS VIAJE REGRESO ////*@
+<script src="js/paso2/seleccionAsientoReg.js"></script>
+
+@*//// LENADO DE TEXTO EN PARALELO SI ES VIAJE REDONDO ////*@
+<script src="js/paso2/inputSal.js"></script>
+
 @*/////// CARGA EL MAPA DE VIAJE SENCILLO ////////////*@
 <script src="js/paso2/mapaViajeSencillo.js"></script>
 
@@ -596,8 +625,16 @@
 @*//////// ACCTUALIZA EL PASE DE ABORDAR + - PASAJEROS /////////*@
 <script src="js/paso2/atualizaPaseSenRed.js"></script>
 
-@*//////// ACCTUALIZA EL PASE DE ABORDAR + - PASAJEROS /////////*@
+@*//////// INDICA AL FINAL DEL SCROLL /////////*@
 <script src="js/paso2/flechasFinal.js"></script>
+
+@*//////// ENVIA LOS DATOS AL PASO 3 /////////*@
+<script src="js/paso2/enviarDatosSalidaPaso3.js"></script>
+
+@*//////// NOMBRE DE LOS PASAJEROS /////////*@
+<script src="js/paso2/datosPasajeros.js"></script>
+
+
 @*//////////////////////*@
 
 

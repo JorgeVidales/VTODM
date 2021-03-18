@@ -1,10 +1,13 @@
 ﻿window.onload = function () {
-
+    //localStorage.clear();
     let org2 = $("#origencode2").text();
 
     let des2 = $("#destinocode2").text();
 
     let fechSal2 = $("#fechasalida2").text();
+    let fechReg2 = $("#fecharegreso2").text();
+
+    //alert('Tu fecha de regreso:' + fechReg2 )
 
     let A2 = $("#adultoPas1").text();
     let M2 = $("#menoresPas1").text();
@@ -14,8 +17,13 @@
 
     let consecu2 = $("#pE_nConsecutivo2").text();
 
+    localStorage.setItem('miConsecutivo', consecu2);
+
     (async () => {
-        var data = JSON.parse(`{  "pE_aOrigen": "${org2}",
+
+        if (fechReg2 == "_") {
+
+            var data = JSON.parse(`{  "pE_aOrigen": "${org2}",
                             "pE_aDestino": "${des2}",
                             "pE_aFecha": "${fechSal2}",
                             "pE_nAdultos": ${A2},
@@ -27,6 +35,23 @@
                             "pE_nModo": 1,
                             "pS_nConsecutivo":${consecu2},
                             "pS_nActualizaPasajeros":1}`);
+
+        }
+        else {
+            var data = JSON.parse(`{  "pE_aOrigen": "${des2}",
+                            "pE_aDestino": "${org2}",
+                            "pE_aFecha": "${fechReg2}",
+                            "pE_nAdultos": ${A2},
+                            "pE_nInsen": ${I2},
+                            "pE_nNinos": ${M2},
+                            "pE_nEstudiantes": ${E2},
+                            "pE_nMaestro": ${P2},
+                            "pE_aViajeRedondo": "V2",
+                            "pE_nModo": 1,
+                            "pS_nConsecutivo":${consecu2},
+                            "pS_nActualizaPasajeros":1}`);
+        }
+        
 
         const rawResponse = await fetch(
             "http://webq.odm.com.mx/WSVentaWeb/api/RecuperaCorridas",
@@ -69,6 +94,7 @@
         //console.log('Viaje sencillo: ' + regreso);
 
         var loading = document.getElementById("cargando2");
+        var loading2 = document.getElementById("cargandoReg2");
 
         (async () => {
             /*
@@ -81,13 +107,11 @@
             console.log("Clave pE_nCorridaEmpresa: " + pE_nCorridaEmpresa);
             console.log("Clave pE_hHoraSalidaBoleto: " + pE_hHoraSalidaBoleto);
             console.log("Clave pE_aFechaBoleto: " + pE_aFechaBoleto);
-            console.log(
-                "Clave pE_aFechaSalidaInicioCorrida: " + pE_aFechaSalidaInicioCorrida
-            );
+            console.log( "Clave pE_aFechaSalidaInicioCorrida: " + pE_aFechaSalidaInicioCorrida);
             console.log("Clave pE_nClaveCorrida: " + pE_nClaveCorrida);
 
             console.log("Viaje sencillo: " + regreso);
-            /// PARAMETROS VIAJE SENCILLO
+            /// PARAMETROS VIAJE SENCILLO PersonalizaAsientos
 
             if (regreso == "_") {
                 var data = JSON.parse(`{"pE_nClaveCorrida": ${pE_nClaveCorrida},
@@ -101,7 +125,7 @@
                                         }`);
             }
             else {
-                /// PARAMETROS VIAJE REDONDO
+                /// PARAMETROS VIAJE REDONDO PersonalizaAsientos
 
                 var data = JSON.parse(`{"pE_nClaveCorrida": "${pE_nClaveCorrida}",
                                             "pE_aFechaSalidaInicioCorrida": "${pE_aFechaSalidaInicioCorrida}",
@@ -269,14 +293,7 @@
                 //console.log(item.CostoOri);
             }
 
-            console.log(
-                "Mi total de Promociones: " +
-                contador +
-                " Precio: " +
-                costAdulto +
-                " Ahorro: " +
-                ahorroAdulto
-            );
+            console.log("Mi total de Promociones: " + contador + " Precio: " +costAdulto + " Ahorro: " + ahorroAdulto);
 
             let totPreAdulto = formatter.format(contador * costAdulto);
             console.log("Mi total Adulto en Moneda: " + totPreAdulto);
@@ -348,11 +365,213 @@
             $(".totalAcumulado").text(formatter.format(sumatoriBol));
             //console.log(content);---------checar
 
+            ///////////// SI ES VIAJE REDONDO CARGAMOS LOS TPB Y DESCRIPCION ////////////
+
+            contador = 0;
+
+            if (fechReg2 != "_") {
+
+                for (item of content.PasajerosRegreso) {
+                    let tpBole = item.Leyenda;
+                    tpBole = tpBole.split(" ");
+
+                    console.log(tpBole[1]);
+                    let costoBol = item.Costo;
+                    console.log(costoBol);
+                    let ahorro = item.CostoOri;
+
+                    let tpb = '';
+
+                    ////
+
+                    if (tpBole[1] == "Adultos") {
+                        costAdulto = item.Costo;
+                        contador = tpBole[0];
+                        ahorroAdulto = 0;
+                        let totPreAdulto = formatter.format(contador * costAdulto);
+
+                        //alert(totPreAdulto);
+                        A = "ADULO";
+                        tpb = 'A';
+
+                        //ahorroAdulto = item.CostoOri;
+
+                        //console.log(costAdulto);
+                        //contador++
+                    }
+                    ////
+
+                    if (tpBole[1] == "Promocion") {
+                        A = "ADULO";
+                        tpb = 'A';
+                        costAdulto = item.Costo;
+                        ahorroAdulto = item.CostoOri;
+
+                        console.log(costAdulto);
+                        contador++;
+
+
+                    }
+                    /////
+
+                    if (tpBole[1] == "Menores") {
+                        let totPreMenor = formatter.format(tpBole[0] * costoBol);
+                        M = "MENOR";
+                        tpb = 'M';
+
+
+                        if (tpBole[0] > 1) {
+                            M = "MENORES";
+                            $(".numMenoresReg").text(tpBole[0] + " " + M);
+                            $(".totalMenoresReg").text(totPreMenor);
+                        } else {
+                            $(".numMenoresReg").text(tpBole[0] + " " + M);
+                            $(".totalMenoresReg").text(totPreMenor);
+                        }
+                    }
+                    /////
+
+                    if (tpBole[1] == "Insen") {
+                        let totPreInapm = formatter.format(tpBole[0] * costoBol);
+                        I = "INAPAM";
+                        tpb = 'I';
+
+
+
+                        $(".numInapamReg").text(tpBole[0] + " " + I);
+                        $(".totalInapamReg").text(totPreInapm);
+                    }
+
+                    /////
+                    if (tpBole[1] == "Maestros") {
+                        let totPreMaestro = formatter.format(tpBole[0] * costoBol);
+                        P = "PROFESOR";
+                        tpb = 'P';
+
+
+
+                        if (tpBole[0] > 1) {
+                            P = "PROFESORES";
+                            $(".numProfesoresReg").text(tpBole[0] + " " + P);
+                            $(".totalProfesoresReg").text(totPreMaestro);
+                        } else {
+                            $(".numProfesoresReg").text(tpBole[0] + " " + P);
+                            $(".totalProfesoresReg").text(totPreMaestro);
+                        }
+                    }
+
+                    /////
+                    if (tpBole[1] == "Estudiantes") {
+                        let totPreEstudiante = formatter.format(tpBole[0] * costoBol);
+                        E = "ESTUDIANTE";
+                        tpb = 'E';
+
+
+
+                        if (tpBole[0] > 1) {
+                            E = "ESTUDIANTES";
+                            $(".numEstudiantesReg").text(tpBole[0] + " " + E);
+                            $(".totalEstudiantesReg").text(totPreEstudiante);
+                        } else {
+                            $(".numEstudiantesReg").text(tpBole[0] + " " + E);
+                            $(".totalEstudiantesReg").text(totPreEstudiante);
+                        }
+                    }
+
+                    num++
+
+                    //masBoletos(tpb, num);
+                    //@*console.log('Mis pasajeros: ' + item.Leyenda + ' ' + item.Costo + ' ' + item.CostoOri);*@
+                    //console.log(item.CostoOri);
+                }
+
+                console.log("Mi total de Promociones: " + contador + " Precio: " + costAdulto + " Ahorro: " + ahorroAdulto);
+
+                let totPreAdulto = formatter.format(contador * costAdulto);
+                console.log("Mi total Adulto en Moneda: " + totPreAdulto);
+
+                let totAhorAdulto = formatter.format(contador * ahorroAdulto);
+
+                /////////////
+
+                if (A != "") {
+                    if (contador > 1) {
+                        A = "ADULTOS";
+                    }
+                    $(".numAdultosReg").text(contador + " " + A);
+                    $(".totalAdultoReg").text(totPreAdulto);
+                    $(".ahorroReg").text(totAhorAdulto);
+                }
+
+                ////
+                let sumAd = $(".totalAdultoReg").text();
+                sumAd = sumAd.replace("$", "");
+                sumAd = sumAd.replace(",", "");
+                if (sumAd == "") {
+                    sumAd = 0;
+                }
+
+                /////
+                let sumIn = $(".totalInapamReg").text();
+                sumIn = sumIn.replace("$", "");
+                sumIn = sumIn.replace(",", "");
+                if (sumIn == "") {
+                    sumIn = 0;
+                }
+
+                ////
+                let sumMe = $(".totalMenoresReg").text();
+                sumMe = sumMe.replace("$", "");
+                sumMe = sumMe.replace(",", "");
+                if (sumMe == "") {
+                    sumMe = 0;
+                }
+
+                ////
+                let sumEs = $(".totalEstudiantesReg").text();
+                sumEs = sumEs.replace("$", "");
+                sumEs = sumEs.replace(",", "");
+                if (sumEs == "") {
+                    sumEs = 0;
+                }
+
+                ////
+                let sumPr = $(".totalProfesoresReg").text();
+                sumPr = sumPr.replace("$", "");
+                sumPr = sumPr.replace(",", "");
+                if (sumPr == "") {
+                    sumPr = 0;
+                }
+
+                let sumatoriBol =
+                    parseFloat(sumAd) +
+                    parseFloat(sumIn) +
+                    parseFloat(sumMe) +
+                    parseFloat(sumEs) +
+                    parseFloat(sumPr);
+
+                //let sumatoriBol = sumAd + sumIn + sumMe + sumEs + sumPr;
+
+                //sumatoriBol = formatter.format(sumatoriBol);
+
+                $(".totalAcumuladoReg").text(formatter.format(sumatoriBol));
+
+
+            }
+
+
+
+
+
+            ///////////////////////////////////////////////////////////////////////////////
+            actPase();
             cargarMapa(); /// ---- VIAJE SENCILLO
             cargarMapa2(); ///----- VIAJE REDONDO
             agregarboletosPaso1(); ////----- VIAJE SENCILLO
 
+
             loading.style.display = "none";
+            loading2.style.display = "none";
             //masBoletos(); /// VIAJE SENCILLO
 
         })();

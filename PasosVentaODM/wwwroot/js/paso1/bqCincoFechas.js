@@ -279,7 +279,7 @@ function actualizaTarj1(myFecha) {
                 if (item2.TarifaPromo == 0) {
                     datos.innerHTML += `
                                     <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
-                                        <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                        <div class="col-lg-12"><img style="height: 23px; max-width: 80%;" src="${logoEmpresa}" />
 
                                         </div>
                                         <div class="container-fluid">
@@ -327,7 +327,7 @@ function actualizaTarj1(myFecha) {
                 } else {
                     datos.innerHTML += `
                                     <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
-                                        <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                        <div class="col-lg-12"><img style="height: 23px; width: 300px; max-width: 80%;" src="${logoEmpresa}" />
                                             <span class="descuento">-10%</span>
                                         </div>
                                         <div class="container-fluid">

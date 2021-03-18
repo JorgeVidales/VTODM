@@ -207,7 +207,7 @@
                                       <span class="descuento">-10%</span>
                                   </div>
                                   <div class="container-fluid">
-                                      <div class="row">
+                                      <div class="row espacioDatos">
                                           <div class="col-lg-5 col-md-6 col-sm-6">
                                               <p style="margin: 0px;">ORIGEN</p>
                                               <p id="origenComReg_${autoinc}">${destinoCom}</p>
@@ -228,8 +228,8 @@
                                               <p id="HoraLlegadaReg_${autoinc}">${item2.HoraLlegada} HRS</p>
                                           </div>
 
-                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
-                                          <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
+                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 80%; height: 40.55px;" src="${logoServImg}" /></div>
+                                          <div class="col-lg-7 col-md-6 col-sm-6 mb-3 divElegir">
                                               <span style="text-decoration: none;" class="taquilla">${TarifaPromoMoneda}</span>
                                               <span class="internet">${tarifaForMoneda}</span>
                                               <span id="enviarSalidaReg_${autoinc}" class="elegir" onclick="enviarDatosRegreso(this);">ELEGIR</span>
@@ -253,11 +253,11 @@
                 } else {
                     datos.innerHTML += `
                               <div id="fichaSalida${autoinc}" class="fichas fichaFiltro ${classHorario} mt-3">
-                                  <div class="col-lg-12"><img style="width: 300px; max-width: 80%;" src="${logoEmpresa}" />
+                                  <div class="col-lg-12"><img style="height: 23px; max-width: 80%;" src="${logoEmpresa}" />
                                       <span class="descuento">-10%</span>
                                   </div>
                                   <div class="container-fluid">
-                                      <div class="row">
+                                      <div class="row espacioDatos">
                                           <div class="col-lg-5 col-md-6 col-sm-6">
                                               <p style="margin: 0px;">ORIGEN</p>
                                               <p id="origenComReg_${autoinc}">${destinoCom}</p>
@@ -278,8 +278,8 @@
                                               <p id="HoraLlegadaReg_${autoinc}">${item2.HoraLlegada} HRS</p>
                                           </div>
 
-                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="height: 40.55px;" src="${logoServImg}" /></div>
-                                          <div class="col-lg-7 col-md-6 col-sm-6 mb-3">
+                                          <div class="col-lg-5 col-md-6 col-sm-6 mb-3"><img style="max-width: 80%; height: 40.55px;" src="${logoServImg}" /></div>
+                                          <div class="col-lg-7 col-md-6 col-sm-6 mb-3 divElegir">
                                               <span class="taquilla">${tarifaForMoneda}</span>
                                               <span class="internet">${TarifaPromoMoneda}</span>
                                               <span id="enviarSalidaReg_${autoinc}" class="elegir" onclick="enviarDatosRegreso(this);">ELEGIR</span>

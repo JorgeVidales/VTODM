@@ -1,0 +1,220 @@
+﻿.compra {
+    background: #043162;
+    color: white;
+    width: 50%;
+    height: 33px;
+    padding: 0px 38px;
+    line-height: 33px;
+    border-radius: 0px 50px;
+    font-weight: 700;
+    font-size: larger;
+    margin-right: 50%;
+}
+.correoTel {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: #043162 !important;
+}
+
+.metodPagosActivo {
+    filter: drop-shadow(0 2mm 3mm rgb(0, 0, 0));
+    background: #043162;
+    color: white;
+    height: 40px;
+    border-radius: 0px 20px 0px 0px;
+    text-align: center;
+    line-height: 37px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.metodPagos:hover {
+    filter: drop-shadow(0 2mm 3mm rgb(0, 0, 0));
+    background: #043162;
+    color: white;
+    height: 40px;
+    border-radius: 0px 20px 0px 0px;
+    text-align: center;
+    line-height: 37px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.metodPagosInactivo {
+    background: white;
+    color: #043162;
+    height: 40px;
+    border-radius: 0px 20px 0px 0px;
+    text-align: center;
+    line-height: 37px;
+    font-weight: 700;
+}
+
+input:focus, input.form-control:focus {
+    outline: none !important;
+    outline-width: 0 !important;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    border-color: none !important;
+}
+
+.totalPago {
+    background: white;
+/*    height: 300px;*/
+    border-radius: 0px 120px 0px 0px;
+    color: #043262;
+}
+@media(max-width: 991px) {
+    .totalPago {
+        margin-top: 15px;
+    }
+    .reservacionesPago img {
+        position: relative!important;
+        width: 100%!important;
+       
+    }
+    .visamasterPago {
+        background: white!important;
+    }
+    .compra {
+        width: 100% !important;
+        font-size: small!important;
+        margin: 0px!important;
+    }
+}
+#verSalida {
+    width: 230px;
+    background: #c12a36;
+    margin: 5px 0px;
+    padding: 0px 26px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 50px 0px;
+    cursor: pointer;
+    text-align: center;
+}
+#verSalida:hover {
+    width: 230px;
+    background: #c12a36;
+    margin: 5px 0px;
+    padding: 0px 26px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 50px 0px;
+    filter: drop-shadow(2px 4px 6px black);
+    cursor: pointer;
+    text-align: center;
+}
+#verRegreso {
+    width: 230px;
+    background: #c12a36;
+    margin: 5px 0px;
+    padding: 0px 26px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 50px 0px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#verRegreso:hover {
+    width: 230px;
+    background: #c12a36;
+    margin: 5px 0px;
+    padding: 0px 26px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 50px 0px;
+    filter: drop-shadow(2px 4px 6px black);
+    cursor: pointer;
+    text-align: center;
+}
+.visamasterPago {
+    background: #edeff0;
+}
+.reservacionesPago {
+    background: black;
+    position: relative;
+}
+.reservacionesPago img {
+    position: absolute;
+    width: 93%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.toditoPago {
+    background: #5897fb;
+}
+.coppelPago {
+    background: #28a745;
+}
+.boletos {
+    margin-bottom: 0px;
+}
+
+.total {
+    background: #043262;
+    color: white;
+    border-radius: 0px 50px;
+    padding: 0px 16px;
+}
+
+.tpboletos {
+    padding: 0px 16px;
+}
+
+.btnPagar {
+    background: #C12E40;
+    border-radius: 50px 0px;
+    position: relative;
+    text-align: right;
+    color: white;
+    padding: 0px 32px 0px 0px;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.5;
+    cursor: no-drop;
+}
+
+.btnPagarActivo {
+    background: #C12E40;
+    border-radius: 50px 0px;
+    position: relative;
+    text-align: right;
+    color: white;
+    padding: 0px 32px 0px 0px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .btnPagarActivo:hover {
+        background: red;
+    }
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    color: #fff;
+    border-color: #043262;
+    background-color: #043262;
+    box-shadow: 0px 0px 3px 1px currentColor;
+}
+
+.custom-control-label::after {
+    position: absolute;
+    top: .25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background: no-repeat 50%/50% 0% !important;
+    cursor: pointer;
+}

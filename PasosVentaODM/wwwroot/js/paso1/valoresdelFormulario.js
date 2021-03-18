@@ -1,4 +1,5 @@
-﻿window.onload = function () {
+﻿
+document.addEventListener('DOMContentLoaded', () => {
     let dato1 = $("#idOrigenIata").text();
     let dato2 = $("#idDestinoIata").text();
     let dato3 = $("#idFechSalida").text();
@@ -34,5 +35,12 @@
     let fechSalLetra = diaSal + " " + mesLetraSal + " " + yearSal;
 
     orgdest(dato1, dato2);
+
+    $("#org1 option[value=" + dato1 + "]").attr("selected", true);
+
+    let miOrg = $("#org1 option:selected").text();
+
+    $("#select2-org1-container").text(miOrg);
+    $("#select2-org1-container").attr("title", miOrg);
     //@*alert('dia: ' + diaSal + ' mes: ' + mesLetraSal + ' año: ' + yearSal);*@
-};
+})
