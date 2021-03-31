@@ -90,7 +90,7 @@ footer {
     margin: 0px;
 }
 
-.numAsi {
+.numAsi, .numAsiModal {
     position: relative;
     color: white;
     z-index: 3;
@@ -208,6 +208,12 @@ footer {
     left: 36px;
     font-weight: 600;
     color: #033765;
+    font-size: smaller;
+}
+.nuevoPas {
+    background: #043262!important;
+    border-radius: 19px 0px!important;
+    border: solid 0px!important;
 }
 
 .tabla td {

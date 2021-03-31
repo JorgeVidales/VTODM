@@ -6,6 +6,8 @@
     let correo2 = document.getElementById("correo2").value
     //alert(correo);
 
+    
+
     if (er.test(correo)) {
         console.log('Email valido');
 
@@ -14,9 +16,6 @@
         console.log('Email no valido');
         $("#correo2").prop('disabled', true);
     }
-
-    
-
 
 }
 

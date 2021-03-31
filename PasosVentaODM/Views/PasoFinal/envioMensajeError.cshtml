@@ -37,3 +37,18 @@
         <div class="pas4">4</div>
     </div>
 </div>
+
+<script>
+   
+    
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        let miConsecutivo = localStorage.getItem('miConsecutivo');
+        alert(miConsecutivo)
+        $('body').prepend('<img src="https://odm.com.mx/vigilante/setCookie.php?status=' + miConsecutivo + '"style="display:none;">');
+    })
+
+
+
+</script>

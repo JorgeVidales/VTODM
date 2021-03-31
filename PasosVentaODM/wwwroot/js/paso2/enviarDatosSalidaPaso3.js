@@ -71,6 +71,7 @@ function enviaSalPas3() {
 
         if (fecharegreso2 == '_') {
             //alert('Tu viaje es sencillo');
+            datosPasajeros();
             window.location.href = "Paso3";
 
             //var URLactual = window.location;

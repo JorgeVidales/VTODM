@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
 
     localStorage.setItem('btnSolicita', btnSolicita);
 
+    blAbierto();
 
 });
 

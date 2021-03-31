@@ -1,6 +1,10 @@
 ﻿function cargarMapa() {
     const loading = document.getElementById("cargando");
 
+
+    alert('Favor de seleccionar los asientos y después colocar el nombre completo de los pasajeros.');
+
+
     ////////////// MAPA DE OCUPACION /////////////////////
 
     let MapaOcupacion = document.getElementById("MapaOcupacion");

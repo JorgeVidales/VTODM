@@ -30,9 +30,9 @@
 
         if (minutos == "0-1" && segundos == "59") {
 
-            alert("Tu sesión ha expirado. Por favor vuelve a intentarlo");
+            //alert("Tu sesión ha expirado. Por favor vuelve a intentarlo");
 
-            location.href = pagina;
+            //location.href = pagina;
             /* @*tiempo.segundo = 5;
                 tiempo.minuto = 0;*@
       

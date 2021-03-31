@@ -79,13 +79,17 @@
 
         console.log("Mis elementos verde:" + lugares);
 
+        
+        
+
         if (sumLugar <= num) {
             // alert('El lugar es menor o igual');
 
             console.log(sumLugar);
         } else {
             idImg.setAttribute("src", "img/AsientoBco.png");
-            /// QUITA EL NUMERO EN EL ASIENTO VISIBLE  ///
+            /// QUITA EL NUMERO EN EL ASIENTO VISIBLE  //
+
             for (item of numAsi) {
                 let spanId = item.id;
                 var span_Text = document.getElementById(spanId).innerText;
@@ -111,4 +115,28 @@
             }
         }
     }
+
+    selecAsiCompl();
+}
+
+function selecAsiCompl() {
+
+    let numDescripPasajero = document.querySelectorAll(".datosPasajero").length;
+
+        let lugares = document.querySelectorAll('#MapaOcupacion img[src="img/AsientoVerde.png"').length;
+        let lugares2 = document.querySelectorAll('#MapaOcupacion2 img[src="img/AsientoVerde.png"').length;
+
+
+        let sumLugar = lugares + lugares2;
+
+        if (sumLugar == numDescripPasajero) {
+
+            //alert('Seleccion completa de asientos');
+            
+            $(".btnEditar").click();
+            //editarPasajero();
+        }
+
+    console.log('Mapa 1: ' + lugares + ' Mapa 2: ' + lugares2);
+    
 }

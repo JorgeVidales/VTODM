@@ -15,27 +15,114 @@ function agregarBoleto() {
 
     let tpb = combo.options[combo.selectedIndex].value;
 
+    //// ADULTOS ///
+    let numAdultos = $(".numAdultos").text();
+    let cadAdultos = numAdultos.split(" ");
+    let numAd = cadAdultos[0];
+
+    if (numAd == '') {
+        numAd = 0;
+    }
+
+    //// MENORES ///
+    let numMenores = $(".numMenores").text();
+    let cadMenores = numMenores.split(" ");
+    let numMen = cadMenores[0];
+
+    if (numMen == '') {
+        numMen = 0;
+    }
+    //// INAPAM ///
+    let numInapam = $(".numInapam").text();
+    let cadInapam = numInapam.split(" ");
+    let numIna = cadInapam[0];
+
+    if (numIna == '') {
+        numIna = 0;
+    }
+
+    //// ESTUDIANTES ///
+    let numEstudiantes = $(".numEstudiantes").text();
+    let cadEstudiante = numEstudiantes.split(" ");
+    let numEst = cadEstudiante[0];
+
+    if (numEst == '') {
+        numEst = 0;
+    }
+    //// ADULTOS ///
+    let numProfesores = $(".numProfesores").text();
+    let cadProfesor = numProfesores.split(" ");
+    let numProf = cadProfesor[0];
+
+    if (numProf == '') {
+        numProf = 0;
+    }
+
+    let totBoletos = parseInt(numAd) + parseInt(numMen) + parseInt(numIna) + parseInt(numEst) + parseInt(numProf)
+    //alert(totBoletos);
+
+    /////////////////////////////
+
     let tipBolNom = "";
 
     switch (tpb) {
         case "A":
             tipBolNom = "ADULTO";
-
+            numAd = parseInt(numAd) + 1;
             break;
         case "M":
             tipBolNom = "MENOR";
+            numMen = parseInt(numMen) + 1;
             break;
         case "I":
             tipBolNom = "INAPAM";
+            numIna = parseInt(numIna) + 1;
             break;
         case "E":
             tipBolNom = "ESTUDIANTE";
+            numEst = parseInt(numEst) + 1;
             break;
 
         case "P":
             tipBolNom = "PROFESOR";
+            numProf = parseInt(numProf) + 1;
+           
+            alert(numProf);
             break;
     }
+
+    totBoletos = parseInt(totBoletos) + 1;
+
+    if (totBoletos > 10) {
+
+        alert('No se puede hacer una compra de más de 10 PASAJEROS');
+        return
+    }
+
+    if (numMen > 9) {
+
+        alert('No se puede hacer una compra de más de 9 MENORES');
+        return
+    }
+
+    if (numIna > 6) {
+
+        alert('No se puede hacer una compra de más de 6 INAPAM');
+        return
+    }
+
+    if (numEst > 8) {
+
+        alert('No se puede hacer una compra de más de 8 ESTUDIANTES');
+        return
+    }
+
+    if (numProf > 2) {
+
+        alert('No se puede hacer una compra de más de 2 PROFESORES');
+        return
+    }
+
     //////----checar
 
     /*

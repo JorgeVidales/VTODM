@@ -77,7 +77,7 @@
                             "pS_nActualizaPasajeros":1}`);
 
         const rawResponse = await fetch(
-            "http://webq.odm.com.mx/WSVentaWeb/api/RecuperaCorridas",
+            "https://webq.odm.com.mx/WSVentaWeb/api/RecuperaCorridas",
             {
                 method: "POST",
                 headers: {

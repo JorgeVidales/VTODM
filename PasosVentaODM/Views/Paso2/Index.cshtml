@@ -272,7 +272,11 @@
                 </div>
                 @*//////////////*@
                 <div class="col-lg-12 mt-4 mb-1">
-                    <div class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas" onclick="datosPasajeros()">+</div><span class="masTexto">AGREGAR PASAJERO</span></div>
+
+                    <div style="margin-bottom: 10px;"><div data-toggle="modal" data-target="#nombresPasajeros" class="mas btnEditar" onclick="editarPasajero()" style="width: 100%;position: relative;border-radius: 19px 0px;">EDITAR NOMBRES</div></div>
+
+                    <div class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas" onclick="datosPasajeros()">+</div><span class="masTexto">AGREGAR MÁS PASAJEROS</span></div>
+
                     <div style="display: none;" class="contenMenos"><div class="menos">-</div><span class="menosTexto">EDITAR PASAJERO</span></div>
 
                 </div>
@@ -470,7 +474,9 @@
                 </div>
                 @*//////////////*@
                 <div class="col-lg-12 mt-4 mb-1">
+
                     <div style="display: none;" class="contenMas"><div data-toggle="modal" data-target="#exampleModal" class="mas">+</div><span class="masTexto">AGREGAR PASAJERO</span></div>
+
                     <div style="display: none;" class="contenMenos"><div class="menos">-</div><span class="menosTexto">EDITAR PASAJERO</span></div>
 
                 </div>
@@ -543,8 +549,8 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div style="border-radius: 0px 50px;" class="modal-content">
-            <div class="modal-header" style="background: #043162; border-radius: 0px 50px 0px 0px;">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <div class="modal-header" style="background: #043162; border-radius: 0px 50px 0px 0px; color: white;">
+                <h5 class="modal-title" id="exampleModalLabel">PASAJERO NUEVO</h5>
                 <button style=" outline: none !important; outline-width: 0 !important; box-shadow: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; border-radius: 0px !important;" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span style="color: white;" aria-hidden="true">&times;</span>
                 </button>
@@ -556,10 +562,10 @@
                         <input type="text" class="form-control text-uppercase cajasModal" value="" id="descNombre">
 
                         <label style="display: none;" for="apellidoPaterno" class="col-form-label">APELLIDO PATERNO *</label>
-                        <input style="display: none;"  type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoPaterno">
+                        <input style="display: none;" type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoPaterno">
 
-                        <label style="display: none;"  for="apellidoMaterno" class="col-form-label">APELLIDO MATERNO</label>
-                        <input style="display: none;"  type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoMaterno">
+                        <label style="display: none;" for="apellidoMaterno" class="col-form-label">APELLIDO MATERNO</label>
+                        <input style="display: none;" type="text" class="form-control text-uppercase cajasModal" value="" id="apellidoMaterno">
 
                     </div>
                     <div class="form-group">
@@ -576,12 +582,44 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="agregarBoleto();">AGREGAR PASAJERO</button>
+                <button type="button" class="btn btn-primary nuevoPas" data-dismiss="modal" onclick="agregarBoleto();">NUEVO PASAJERO</button>
             </div>
         </div>
     </div>
 </div>
 @* ///// FIN VENTANA MODAL AGREGAR PASAJEROS ////*@
+
+
+@* ///// VENTANA MODAL NOMBRE PASAJEROS ////*@
+
+<div class="modal fade" id="nombresPasajeros" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div style="border-radius: 0px 50px;" class="modal-content">
+            <div class="modal-header" style="background: #043162; border-radius: 0px 50px 0px 0px; color: white;">
+                <h5 class="modal-title" id="exampleModalLabel">EDITAR NOMBRES</h5>
+                <button style=" outline: none !important; outline-width: 0 !important; box-shadow: none !important; -moz-box-shadow: none !important; -webkit-box-shadow: none !important; border-radius: 0px !important;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span style="color: white;" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="misNombres">
+                    
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" style=" background: #043262; border-radius: 19px 0px; border: 0px;" class="btn btn-primary" onclick="ponerNombres()">GUARDAR</button>
+                @*<div onclick="ponerNombres()">EDITAR</div>*@
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+@* ///// FIN VENTANA MODAL NOMBRE PASAJEROS ////*@
+
 
 
 @* WS PARA PersonalizaAsientos 1*@
@@ -633,6 +671,9 @@
 
 @*//////// NOMBRE DE LOS PASAJEROS /////////*@
 <script src="js/paso2/datosPasajeros.js"></script>
+
+@*//////// EDITAR PASAJEROS /////////*@
+<script src="js/paso2/editarPasajero.js"></script>
 
 
 @*//////////////////////*@

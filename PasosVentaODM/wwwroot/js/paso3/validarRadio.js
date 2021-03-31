@@ -190,8 +190,12 @@ function enviarPasoFinal() {
 
             break;
         case 'VISA MASTER CARD':
+            
+            //alert(metodPagosActivo)
 
-            alert(metodPagosActivo)
+            //vigilanteTB(miConsecutivo);
+
+
 
             break;
 

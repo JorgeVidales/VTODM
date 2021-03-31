@@ -168,6 +168,8 @@ namespace PasosVentaODM.Controllers
             ViewBag.Consecutivo = consecutivo;
             ViewData["Consecutivo"] = consecutivo;
 
+            var abierto = Request.Form["btnAbierto"];
+
             var adulto = Request.Form["adultos"];
             var menores = Request.Form["menores"];
             var senectud = Request.Form["senectud"];
@@ -215,6 +217,8 @@ namespace PasosVentaODM.Controllers
             ViewData["Inapam"] = senectud;
             ViewData["Estudiantes"] = estudiantes;
             ViewData["Profesores"] = profesores;
+
+            ViewData["Abierto"] = abierto;
 
 
             //formul.Consecutivo = ViewData[]
